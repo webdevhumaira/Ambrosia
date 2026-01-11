@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Careers | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/careers.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                          APPLICATION SUCCESS MODAL                                          -->
+        <div class="modal fade" id="applicationModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Application Submitted!</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Thank You for Your Application!</h4>
+                        <p>We have received your job application. Our HR team will review your application and contact
+                            you
+                            if your qualifications match our requirements.</p>
+                        <p class="mb-4">You will receive a confirmation email shortly.</p>
+                        <button class="btn btn-primary-custom" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="careers-hero">
+
+            <div class="careers-hero-content">
+                <h1>Join Our Team</h1>
+                <p class="lead mb-4">
+                    Be part of a passionate team dedicated to creating exceptional dining experiences
+                </p>
+                <a href="#openings" class="btn btn-primary-custom">
+                    <i class="fas fa-briefcase me-2"></i> View Open Positions
+                </a>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              WHY JOIN AMBROSIA                                              -->
+        <section class="why-join-section">
+
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Why Join Ambrosia?</h2>
+                    <p class="mt-3">We offer more than just a job - we offer a career with growth opportunities</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4>Competitive Salary</h4>
+                            <p>Attractive compensation package with performance bonuses and annual increments.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>Training & Development</h4>
+                            <p>Regular training programs and opportunities for skill development and career advancement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h4>Health Benefits</h4>
+                            <p>Comprehensive health insurance and wellness programs for all full-time employees.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>Staff Meals</h4>
+                            <p>Complimentary meals during shifts and special staff dining discounts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                               CURRENT OPENINGS                                              -->
+        <section class="openings-section" id="openings">
+
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Current Openings</h2>
+                    <p class="mt-3">Explore opportunities to join our growing team</p>
+                </div>
+
+                <!-- Job Opening 1 -->
+                <div class="job-card">
+                    <h3 class="mb-2">Sous Chef</h3>
+                    <div class="job-type">Full Time</div>
+                    <p class="mb-3">We are looking for an experienced Sous Chef to join our culinary team. The ideal
+                        candidate will have extensive experience in fine dining and a passion for creating exceptional
+                        dishes.</p>
+
+                    <div class="job-features">
+                        <div class="job-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chattogram, Bangladesh</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Posted: 2 days ago</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Deadline: Jan 30, 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <h5 class="text-secondary mb-0">Requirements:</h5>
+                            <p class="mb-0">• 5+ years experience in fine dining • Culinary degree preferred •
+                                Leadership
+                                skills</p>
+                        </div>
+                        <button class="btn btn-primary-custom apply-btn" data-position="Sous Chef">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Opening 2 -->
+                <div class="job-card">
+                    <h3 class="mb-2">Restaurant Manager</h3>
+                    <div class="job-type">Full Time</div>
+                    <p class="mb-3">We seek a dynamic Restaurant Manager to oversee daily operations, manage staff, and
+                        ensure exceptional guest experiences at our premium dining establishment.</p>
+
+                    <div class="job-features">
+                        <div class="job-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chattogram, Bangladesh</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Posted: 5 days ago</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Deadline: Feb 15, 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <h5 class="text-secondary mb-0">Requirements:</h5>
+                            <p class="mb-0">• 3+ years restaurant management • Hospitality degree • Excellent
+                                communication
+                            </p>
+                        </div>
+                        <button class="btn btn-primary-custom apply-btn" data-position="Restaurant Manager">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Opening 3 -->
+                <div class="job-card">
+                    <h3 class="mb-2">Service Staff</h3>
+                    <div class="job-type">Full Time / Part Time</div>
+                    <p class="mb-3">Join our front-of-house team as Service Staff. We welcome both experienced
+                        professionals
+                        and enthusiastic beginners with a passion for hospitality.</p>
+
+                    <div class="job-features">
+                        <div class="job-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chattogram, Bangladesh</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Posted: 1 week ago</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Deadline: Ongoing</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <h5 class="text-secondary mb-0">Requirements:</h5>
+                            <p class="mb-0">• Customer service experience • Positive attitude • Flexible schedule</p>
+                        </div>
+                        <button class="btn btn-primary-custom apply-btn" data-position="Service Staff">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Opening 4 -->
+                <div class="job-card">
+                    <h3 class="mb-2">Event Coordinator</h3>
+                    <div class="job-type">Full Time</div>
+                    <p class="mb-3">We're looking for an organized and creative Event Coordinator to manage our private
+                        events, weddings, and corporate functions.</p>
+
+                    <div class="job-features">
+                        <div class="job-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chattogram, Bangladesh</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Posted: 3 days ago</span>
+                        </div>
+                        <div class="job-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Deadline: Jan 25, 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <h5 class="text-secondary mb-0">Requirements:</h5>
+                            <p class="mb-0">• 2+ years event planning • Detail-oriented • Client management skills</p>
+                        </div>
+                        <button class="btn btn-primary-custom apply-btn" data-position="Event Coordinator">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                               APPLICATION FORM                                              -->
+        <section class="application-section">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="application-form-container">
+                            <div class="section-title text-center">
+                                <h2>Application Form</h2>
+                                <p class="mt-3">Submit your application for the selected position</p>
+                            </div>
+
+                            <form id="careerApplicationForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group-careers">
+                                            <label class="form-label-careers" for="applicant-name">Full Name *</label>
+                                            <input type="text" class="form-control-careers" id="applicant-name"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group-careers">
+                                            <label class="form-label-careers" for="applicant-email">Email Address
+                                                *</label>
+                                            <input type="email" class="form-control-careers" id="applicant-email"
+                                                required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group-careers">
+                                            <label class="form-label-careers" for="applicant-phone">Phone Number
+                                                *</label>
+                                            <input type="tel" class="form-control-careers" id="applicant-phone"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group-careers">
+                                            <label class="form-label-careers" for="applicant-position">Position Applied
+                                                For
+                                                *</label>
+                                            <input type="text" class="form-control-careers" id="applicant-position"
+                                                required readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group-careers">
+                                    <label class="form-label-careers" for="applicant-experience">Relevant Experience
+                                        (Years)
+                                        *</label>
+                                    <input type="number" class="form-control-careers" id="applicant-experience" min="0"
+                                        max="50" required>
+                                </div>
+
+                                <div class="form-group-careers">
+                                    <label class="form-label-careers" for="applicant-message">Cover Letter *</label>
+                                    <textarea class="form-control-careers" id="applicant-message" rows="5"
+                                        placeholder="Tell us why you're interested in this position and what makes you a good fit..."
+                                        required></textarea>
+                                </div>
+
+                                <div class="form-group-careers">
+                                    <label class="form-label-careers">Upload Resume/CV *</label>
+                                    <div class="file-upload-container" id="fileUploadArea">
+                                        <div class="file-upload-icon">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </div>
+                                        <h5>Drag & drop your files here</h5>
+                                        <p class="mb-2">or click to browse</p>
+                                        <p class="text-muted">Supported formats: PDF, DOC, DOCX (Max: 5MB)</p>
+                                        <input type="file" id="applicant-resume" accept=".pdf,.doc,.docx"
+                                            style="display: none;">
+                                        <div id="fileName" class="mt-3"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group-careers">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="applicant-terms" required>
+                                        <label class="form-check-label" for="applicant-terms">
+                                            I agree to the <a href="privacy-policy.html" class="text-secondary">privacy
+                                                policy</a> and understand that my data will be processed for recruitment
+                                            purposes.
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn btn-primary-custom btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i> Submit Application
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                TEAM CULTURE                                                 -->
+        <section class="culture-section">
+
+            <div class="container">
+                <div class="culture-content">
+                    <h2>Our Team Culture</h2>
+                    <p>At Ambrosia, we believe that our team is our greatest asset. We foster a culture of respect,
+                        collaboration, and continuous learning. Our team members are passionate about hospitality and
+                        dedicated to creating memorable experiences for our guests.</p>
+                    <p>We value diversity, creativity, and innovation. Join us in our mission to redefine fine dining in
+                        Chattogram.</p>
+                    <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+                        <a href="contact.html" class="btn btn-primary-custom">
+                            <i class="fas fa-question-circle me-2"></i> Have Questions?
+                        </a>
+                        <a href="mailto:careers@ambrosia.com" class="btn btn-secondary-custom">
+                            <i class="fas fa-envelope me-2"></i> Email HR
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/careers.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

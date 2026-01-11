@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/log_in.css">
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body class="login-page">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Scroll to Top Button -->
+    <div id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="logout-btn" id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="toast-content">
+            <i class="fas fa-check-circle me-2"></i>
+            <span id="toast-message">Login successful!</span>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservation.html">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Our Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="log_in.html">My Account</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <button class="theme-toggle" id="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Hero Section -->
+    <section class="login-hero">
+        <div class="login-hero-content">
+            <h1>Welcome Back</h1>
+            <p class="lead" style="font-size: 1.2rem;">Access your membership benefits and rewards</p>
+        </div>
+    </section>
+
+    <!-- Login Form (Initial State) -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-user-circle me-2"></i> Member Login</h2>
+                <p class="mb-0">Sign in to access your exclusive benefits</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password"
+                        required>
+                    <div class="text-end mt-2">
+                        <button type="button" id="showPassword" class="btn btn-sm"
+                            style="background: transparent; border: none; color: var(--secondary);">
+                            <i class="far fa-eye"></i> Show Password
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password" id="forgotPassword">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt me-2"></i> Login to Account
+                </button>
+
+                <div class="social-login">
+                    <div class="social-login-text">Or continue with</div>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google" id="googleLogin">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook" id="facebookLogin">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+
+                <div class="signup-link">
+                    Don't have an account?
+                    <a href="sign_up.html" id="signupLink">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard (After Login) -->
+    <div class="dashboard" id="dashboard">
+        <div class="container">
+            <!-- User Welcome Section -->
+            <div class="user-welcome" id="userWelcome">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 id="userName">Welcome Back!</h2>
+                <p class="mb-2">Thank you for being a valued member of Ambrosia</p>
+                <div class="membership-badge" id="membershipLevel">Gold Member</div>
+            </div>
+
+            <!-- Dashboard Tabs -->
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="benefits">
+                    <i class="fas fa-gift me-2"></i> My Benefits
+                </button>
+                <button class="tab-btn" data-tab="rewards">
+                    <i class="fas fa-star me-2"></i> Rewards
+                </button>
+                <button class="tab-btn" data-tab="reservations">
+                    <i class="fas fa-calendar-alt me-2"></i> Reservations
+                </button>
+                <button class="tab-btn" data-tab="profile">
+                    <i class="fas fa-user-cog me-2"></i> Profile
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="tab-contents">
+                <!-- Benefits Tab -->
+                <div class="tab-content active" id="benefits-tab">
+                    <h3 class="mb-4">Your Membership Benefits</h3>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <h5>Exclusive Discounts</h5>
+                                <p>Enjoy 15% off on all food and beverages</p>
+                                <small class="text-muted">Valid every day</small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h5>Priority Seating</h5>
+                                <p>Get priority access to the best tables</p>
+                                <small class="text-muted">Book 24 hours in advance</small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-wine-glass-alt"></i>
+                                </div>
+                                <h5>Complimentary Wine</h5>
+                                <p>Free house wine with dinner for two</p>
+                                <small class="text-muted">Once per month</small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-birthday-cake"></i>
+                                </div>
+                                <h5>Birthday Special</h5>
+                                <p>Free dessert on your birthday month</p>
+                                <small class="text-muted">With valid ID</small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h5>Early Access</h5>
+                                <p>Access to new menu items before launch</p>
+                                <small class="text-muted">Exclusive tastings</small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <h5>Special Gifts</h5>
+                                <p>Annual anniversary gift from the chef</p>
+                                <small class="text-muted">Personalized surprises</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rewards Tab -->
+                <div class="tab-content" id="rewards-tab">
+                    <h3 class="mb-4">Your Rewards & Points</h3>
+
+                    <div class="points-container">
+                        <h4>Your Points Balance</h4>
+                        <div class="points-display" id="pointsBalance">1,250</div>
+                        <p>Points earned: <strong>1,250</strong> | Points to next reward: <strong>750</strong></p>
+
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 62.5%"></div>
+                        </div>
+
+                        <p class="mb-0">You're 62.5% towards your next reward!</p>
+                    </div>
+
+                    <h4 class="mt-5 mb-4">Available Rewards</h4>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h5>Free Appetizer</h5>
+                                <p>Redeem 500 points for any starter</p>
+                                <button class="btn btn-primary-custom btn-sm mt-2">Redeem</button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-glass-cheers"></i>
+                                </div>
+                                <h5>Drink Voucher</h5>
+                                <p>750 points for signature cocktail</p>
+                                <button class="btn btn-primary-custom btn-sm mt-2">Redeem</button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-dinner"></i>
+                                </div>
+                                <h5>Main Course</h5>
+                                <p>1,500 points for any main dish</p>
+                                <button class="btn btn-primary-custom btn-sm mt-2">Redeem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservations Tab -->
+                <div class="tab-content" id="reservations-tab">
+                    <h3 class="mb-4">Your Reservations</h3>
+
+                    <div class="mb-4">
+                        <button class="btn btn-primary-custom" id="newReservationBtn">
+                            <i class="fas fa-plus me-2"></i> New Reservation
+                        </button>
+                    </div>
+
+                    <div class="reservation-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5>Family Dinner</h5>
+                                <p class="mb-1"><i class="fas fa-calendar me-2"></i> December 15, 2024</p>
+                                <p class="mb-1"><i class="fas fa-clock me-2"></i> 7:30 PM</p>
+                                <p class="mb-0"><i class="fas fa-users me-2"></i> 4 guests</p>
+                            </div>
+                            <div>
+                                <span class="reservation-status status-confirmed">Confirmed</span>
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-secondary-custom me-2">Modify</button>
+                                    <button class="btn btn-sm btn-danger">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reservation-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5>Birthday Celebration</h5>
+                                <p class="mb-1"><i class="fas fa-calendar me-2"></i> December 28, 2024</p>
+                                <p class="mb-1"><i class="fas fa-clock me-2"></i> 8:00 PM</p>
+                                <p class="mb-0"><i class="fas fa-users me-2"></i> 6 guests</p>
+                            </div>
+                            <div>
+                                <span class="reservation-status status-pending">Pending</span>
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-secondary-custom me-2">Modify</button>
+                                    <button class="btn btn-sm btn-danger">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reservation-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5>Business Meeting</h5>
+                                <p class="mb-1"><i class="fas fa-calendar me-2"></i> November 20, 2024</p>
+                                <p class="mb-1"><i class="fas fa-clock me-2"></i> 6:00 PM</p>
+                                <p class="mb-0"><i class="fas fa-users me-2"></i> 3 guests</p>
+                            </div>
+                            <div>
+                                <span class="reservation-status status-cancelled">Cancelled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="tab-content" id="profile-tab">
+                    <h3 class="mb-4">Your Profile</h3>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="benefit-card">
+                                <h5 class="mb-3">Personal Information</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-input" value="John Doe" id="profileName">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-input" value="john@example.com" id="profileEmail">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-input" value="+880 1234 567890" id="profilePhone">
+                                </div>
+                                <button class="btn btn-primary-custom" id="updateProfileBtn">
+                                    <i class="fas fa-save me-2"></i> Update Profile
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="benefit-card">
+                                <h5 class="mb-3">Account Settings</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">Change Password</label>
+                                    <input type="password" class="form-input" placeholder="Current password">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-input" placeholder="New password">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-input" placeholder="Confirm new password">
+                                </div>
+                                <button class="btn btn-secondary-custom">
+                                    <i class="fas fa-key me-2"></i> Change Password
+                                </button>
+                            </div>
+
+                            <div class="benefit-card mt-4">
+                                <h5 class="mb-3">Membership Details</h5>
+                                <p><strong>Member Since:</strong> January 15, 2023</p>
+                                <p><strong>Membership Tier:</strong> Gold</p>
+                                <p><strong>Next Tier:</strong> Platinum (2,000 points needed)</p>
+                                <button class="btn btn-primary-custom mt-2" id="upgradeMembershipBtn">
+                                    <i class="fas fa-crown me-2"></i> Upgrade to Platinum
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="menu.html">Menu</a></li>
+                            <li><a href="reservation.html">Reservation</a></li>
+                            <li><a href="index.html#about">Our Story</a></li>
+                            <li><a href="log_in.html">My Account</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Opening Hours</h5>
+                        <ul>
+                            <li>Monday - Thursday: 11 AM - 10 PM</li>
+                            <li>Friday - Saturday: 11 AM - 11 PM</li>
+                            <li>Sunday: 12 PM - 10 PM</li>
+                        </ul>
+                        <p class="mt-3"><strong>For Reservations:</strong> +880 1234 567890</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-4">
+                    <div class="footer-links">
+                        <h5>Member Support</h5>
+                        <p>Need help with your account?</p>
+                        <p><strong>Email:</strong> members@ambrosia.com</p>
+                        <p><strong>Hours:</strong> 9 AM - 9 PM Daily</p>
+                        <a href="mailto:members@ambrosia.com" class="btn btn-secondary-custom w-100 mt-3">
+                            <i class="fas fa-envelope me-2"></i> Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your email address and we'll send you a link to reset your password.</p>
+                    <div class="form-group mt-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="resetEmail" placeholder="Enter your email"
+                            style="padding-left: 20px;">
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary-custom" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary-custom" id="sendResetLink">
+                        <i class="fas fa-paper-plane me-2"></i> Send Reset Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/log_in.js"></script>
+</body>
+
+</html>

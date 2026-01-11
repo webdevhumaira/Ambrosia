@@ -1,4 +1,7 @@
-// Enhanced Menu Data
+/**********************
+ * ENHANCED MENU DATA *
+ **********************/
+
 const menuItems = [
     {
         id: 1,
@@ -9,7 +12,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: true,
         spiceLevel: 1,
-        chefRecommendation: "Our signature starter with imported black truffle"
+        sweetLevel: 0,
     },
     {
         id: 2,
@@ -20,7 +23,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: true,
         spiceLevel: 2,
-        chefRecommendation: "Japanese A5 grade Wagyu, aged for 30 days"
+        sweetLevel: 0,
     },
     {
         id: 3,
@@ -31,7 +34,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: false,
         spiceLevel: 1,
-        chefRecommendation: "Made with imported Italian Carnaroli rice"
+        sweetLevel: 0,
     },
     {
         id: 4,
@@ -42,7 +45,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: false,
         spiceLevel: 0,
-        chefRecommendation: "Perfect pairing with any dish"
+        sweetLevel: 3,
     },
     {
         id: 5,
@@ -53,7 +56,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: true,
         spiceLevel: 0,
-        chefRecommendation: "Baked to order, requires 20 minutes preparation"
+        sweetLevel: 5,
     },
     {
         id: 6,
@@ -64,7 +67,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: false,
         spiceLevel: 2,
-        chefRecommendation: "Live Maine lobster, prepared tableside"
+        sweetLevel: 0,
     },
     {
         id: 7,
@@ -75,7 +78,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: false,
         spiceLevel: 1,
-        chefRecommendation: "Made with imported Italian burrata"
+        sweetLevel: 0,
     },
     {
         id: 8,
@@ -86,45 +89,99 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         badge: true,
         spiceLevel: 4,
-        chefRecommendation: "Sashimi-grade tuna, prepared fresh daily"
+        sweetLevel: 0,
+    },
+    {
+        id: 9,
+        name: "Tiramisu",
+        description: "Classic Italian dessert with coffee-soaked ladyfingers",
+        price: "$14.99",
+        category: ["desserts", "veg"],
+        image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        badge: false,
+        spiceLevel: 0,
+        sweetLevel: 4,
+    },
+    {
+        id: 10,
+        name: "Mango Sticky Rice",
+        description: "Thai dessert with sweet mango and coconut rice",
+        price: "$12.99",
+        category: ["desserts", "veg"],
+        image: "https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+        badge: true,
+        spiceLevel: 0,
+        sweetLevel: 5,
+    },
+    {
+        id: 11,
+        name: "Special Chimni",
+        description: "Fresh lobster in creamy white wine sauce",
+        price: "$65.99",
+        category: ["main"],
+        image: "https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        badge: false,
+        spiceLevel: 2,
+        sweetLevel: 0,
+    },
+    {
+        id: 12,
+        name: "Burrata Salad",
+        description: "Fresh burrata with heirloom tomatoes and basil pesto",
+        price: "$22.99",
+        category: ["starters", "veg"],
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        badge: false,
+        spiceLevel: 0,
+        sweetLevel: 2,
     }
 ];
 
-// Gallery Data with categories
+
+
+/********************************
+ * GALLERY DATA WITH CATEGORIES *
+ ********************************/
+
 const galleryItems = [
     {
-        image: "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-        title: "Chef's Special Platter",
-        category: "food"
-    },
-    {
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        title: "Restaurant Interior",
+        image: "Assets/Images/Gallery-1.jpg",
+        title: "Ambrosia Interior",
         category: "interior"
     },
     {
-        image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        title: "Live Cooking Station",
+        image: "Assets/Images/Gallery-7.jpg",
+        title: "Food Item",
+        category: "food"
+    },
+    {
+        image: "Assets/Images/footer.webp",
+        title: "Family Dining",
         category: "events"
     },
     {
-        image: "https://images.unsplash.com/photo-1559314809-2b99056a8c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        title: "Dessert Counter",
-        category: "food"
-    },
-    {
-        image: "https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        title: "Private Dining Area",
+        image: "Assets/Images/Gallery-19.jpg",
+        title: "Entertainment Moments",
         category: "interior"
     },
     {
-        image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        title: "Gourmet Presentation",
+        image: "Assets/Images/Gallery-10.jpg",
+        title: "Serving Area",
         category: "food"
+    },
+    {
+        image: "Assets/Images/Gallery-13.jpg",
+        title: "Events Presentation",
+        category: "events"
     }
 ];
 
-// Initialize when document is ready
+
+
+/*************************************
+ * INITIALIZE WHEN DOCUMENT IS READY *
+ *************************************/
+
 $(document).ready(function () {
     // Hide preloader after 2 seconds
     setTimeout(function () {
@@ -140,12 +197,35 @@ $(document).ready(function () {
     // Initialize gallery
     loadGallery();
 
+    // Initialize animations
+    initAnimations();
+
+    // Initialize nav search
+    initSearch();
+
     // Set min date for reservation to today
     const today = new Date().toISOString().split('T')[0];
     $('#reservation-date').attr('min', today);
 
     // Generate time slots
     generateTimeSlots();
+
+    // Quick Select suggestions (index page reservation section)
+    $('.suggestion-btn').click(function () {
+        const guests = $(this).data('guests');
+        if ($('#guests').length) {
+            $('#guests').val(guests).trigger('change');
+        }
+        // If the compact guest counter exists, update it too
+        if ($('#guestCount').length) {
+            $('#guestCount').text(guests);
+            if (typeof updateTableRecommendations === 'function') {
+                updateTableRecommendations(guests);
+            }
+        }
+        $('.suggestion-btn').removeClass('active');
+        $(this).addClass('active');
+    });
 
     // Hero text animation
     setTimeout(() => {
@@ -178,10 +258,10 @@ $(document).ready(function () {
 
     // Scroll to top button click
     $('#scroll-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 800);
+        $('html, body').animate({ scrollTop: 0 }, 300);
     });
 
-    // Menu filter functionality
+    // Menu filter functionality - UPDATE this section
     $('.filter-btn').click(function () {
         $('.filter-btn').removeClass('active');
         $(this).addClass('active');
@@ -190,6 +270,24 @@ $(document).ready(function () {
 
         if (filter === 'all') {
             $('.menu-card').fadeIn(400);
+        } else if (filter === 'spicy') {
+            $('.menu-card').each(function () {
+                const spiceLevel = parseInt($(this).data('spice')) || 0;
+                if (spiceLevel > 0) {
+                    $(this).fadeIn(400);
+                } else {
+                    $(this).fadeOut(400);
+                }
+            });
+        } else if (filter === 'sweet') {
+            $('.menu-card').each(function () {
+                const sweetLevel = parseInt($(this).data('sweet')) || 0;
+                if (sweetLevel > 0) {
+                    $(this).fadeIn(400);
+                } else {
+                    $(this).fadeOut(400);
+                }
+            });
         } else {
             $('.menu-card').each(function () {
                 if ($(this).data('category').includes(filter)) {
@@ -201,7 +299,7 @@ $(document).ready(function () {
         }
     });
 
-    // Menu search functionality
+    // Menu search functionality - UPDATE to include sweet level
     $('#menu-search').on('input', function () {
         const searchTerm = $(this).val().toLowerCase();
 
@@ -212,7 +310,16 @@ $(document).ready(function () {
                 const dishName = $(this).find('.menu-title h4').text().toLowerCase();
                 const dishDesc = $(this).find('p').text().toLowerCase();
 
-                if (dishName.includes(searchTerm) || dishDesc.includes(searchTerm)) {
+                // Also search for sweet/spice terms
+                const isSweet = dishName.includes('sweet') || dishDesc.includes('sweet') ||
+                    dishName.includes('dessert') || dishDesc.includes('dessert') ||
+                    dishName.includes('chocolate') || dishDesc.includes('chocolate');
+                const isSpicy = dishName.includes('spicy') || dishDesc.includes('spicy') ||
+                    dishName.includes('chili') || dishDesc.includes('chili');
+
+                if (dishName.includes(searchTerm) || dishDesc.includes(searchTerm) ||
+                    (searchTerm.includes('sweet') && isSweet) ||
+                    (searchTerm.includes('spicy') && isSpicy)) {
                     $(this).fadeIn(400);
                 } else {
                     $(this).fadeOut(400);
@@ -221,46 +328,125 @@ $(document).ready(function () {
         }
     });
 
+    // Generate time slots for reservation
+    function generateTimeSlots() {
+        const timeSlotsContainer = $('#time-slots');
+        timeSlotsContainer.empty();
+
+        const timeSlots = [
+            { time: '18:00', booked: false },
+            { time: '18:30', booked: false },
+            { time: '19:00', booked: true }, // Example of booked slot
+            { time: '19:30', booked: false },
+            { time: '20:00', booked: false },
+            { time: '20:30', booked: true }, // Example of booked slot
+            { time: '21:00', booked: false },
+            { time: '21:30', booked: false }
+        ];
+
+        timeSlots.forEach(slot => {
+            const timeSlot = $(`<div class="time-slot ${slot.booked ? 'booked' : ''}">${slot.time}</div>`);
+
+            if (!slot.booked) {
+                timeSlot.click(function () {
+                    $('.time-slot').removeClass('selected');
+                    $(this).addClass('selected');
+                    $('#reservation-time').val(slot.time);
+                });
+            }
+
+            timeSlotsContainer.append(timeSlot);
+        });
+    }
+
     // Reservation form step navigation
-    $('.next-step').click(function () {
-        const nextStep = $(this).data('step');
-        goToStep(nextStep);
+    function goToStep(step) {
+        $('.form-step').removeClass('active');
+        $(`#step-${step}`).addClass('active');
+
+        $('.step').removeClass('active');
+        $(`.step:nth-child(${step})`).addClass('active');
+
+        // Scroll to form
+        if (step > 1) {
+            $('html, body').animate({
+                scrollTop: $('#reservation-form').offset().top - 100
+            }, 500);
+        }
+    }
+
+    // Next / Previous step handlers for index reservation section
+    $(document).on('click', '.next-step', function () {
+        const target = parseInt($(this).data('step'));
+        const current = parseInt($('.form-step.active').attr('id')?.split('-')[1] || 1);
+
+        // Step 1 validation
+        if (current === 1) {
+            if (!$('#reservation-date').val()) {
+                showToast('Please select a date', 'error');
+                return;
+            }
+            if (!$('.time-slot.selected').length) {
+                showToast('Please select a time slot', 'error');
+                return;
+            }
+            if (!$('#guests').val()) {
+                showToast('Please choose number of guests', 'error');
+                return;
+            }
+        }
+
+        // Step 2 validation and update
+        if (current === 2) {
+            if (!$('#name').val().trim()) {
+                showToast('Please enter your name', 'error');
+                $('#name').focus();
+                return;
+            }
+            if (!$('#phone').val().trim()) {
+                showToast('Please enter your phone number', 'error');
+                $('#phone').focus();
+                return;
+            }
+            updateReservationSummary();
+        }
+
+        goToStep(target);
     });
 
-    $('.prev-step').click(function () {
-        const prevStep = $(this).data('step');
-        goToStep(prevStep);
-    });
-
-    // Guest suggestion buttons
-    $('.suggestion-btn').click(function () {
-        const guests = $(this).data('guests');
-        $('#guests').val(guests);
-        showToast('Guest count set to ' + guests + ' people');
+    $(document).on('click', '.prev-step', function () {
+        const target = parseInt($(this).data('step'));
+        goToStep(target);
     });
 
     // Update reservation summary
-    $('#reservation-form').on('input change', function () {
-        updateReservationSummary();
-    });
+    function updateReservationSummary() {
+        const date = $('#reservation-date').val();
+        const time = $('#reservation-time').val();
+        const guests = $('#guests').val();
+        const name = $('#name').val();
+        const phone = $('#phone').val();
+        const email = $('#email').val();
+        const requests = $('#special-requests').val();
 
-    // Form submission
-    $('#reservation-form').submit(function (e) {
-        e.preventDefault();
+        let summaryHTML = `
+                <p><strong>Date:</strong> ${date || 'Not selected'}</p>
+                <p><strong>Time:</strong> ${time || 'Not selected'}</p>
+                <p><strong>Guests:</strong> ${guests || 'Not selected'}</p>
+                <p><strong>Name:</strong> ${name || 'Not provided'}</p>
+                <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            `;
 
-        // Show success modal
-        $('#reservationModal').modal('show');
+        if (email) {
+            summaryHTML += `<p><strong>Email:</strong> ${email}</p>`;
+        }
 
-        // Show toast
-        showToast('Reservation confirmed successfully!', 'success');
+        if (requests) {
+            summaryHTML += `<p><strong>Special Requests:</strong> ${requests}</p>`;
+        }
 
-        // Reset form
-        setTimeout(() => {
-            $('#reservation-form')[0].reset();
-            goToStep(1);
-            generateTimeSlots();
-        }, 2000);
-    });
+        $('#reservation-summary').html(summaryHTML);
+    }
 
     // WhatsApp button click
     $('#whatsapp-float').click(function () {
@@ -313,29 +499,15 @@ $(document).ready(function () {
         }, 800);
     });
 
-    // Theme toggle
-    $('#theme-toggle').click(function () {
-        $('body').toggleClass('light-mode');
-        const icon = $(this).find('i');
 
-        if ($('body').hasClass('light-mode')) {
-            icon.removeClass('fa-moon').addClass('fa-sun');
-            showToast('Light mode activated', 'success');
-        } else {
-            icon.removeClass('fa-sun').addClass('fa-moon');
-            showToast('Dark mode activated', 'success');
-        }
-
-        // Save theme preference
-        localStorage.setItem('theme', $('body').hasClass('light-mode') ? 'light' : 'dark');
+    // Quick navigation smooth scroll
+    $('.quick-nav-item').click(function (e) {
+        e.preventDefault();
+        const target = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(target).offset().top - 80
+        }, 800);
     });
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        $('body').addClass('light-mode');
-        $('#theme-toggle i').removeClass('fa-moon').addClass('fa-sun');
-    }
 
     // Video toggle
     $('#video-toggle').click(function () {
@@ -399,7 +571,13 @@ $(document).ready(function () {
     $(window).trigger('scroll');
 });
 
-// Initialize custom cursor
+
+
+
+/****************************
+ * INITIALIZE CUSTOM CURSOR *
+ ****************************/
+
 function initCustomCursor() {
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
@@ -439,54 +617,131 @@ function initCustomCursor() {
     }
 }
 
-// Load menu items with enhanced features
+
+
+/******************************************
+ * LOAD MENU ITEMS WITH ENHANCED FEATURES *
+ ******************************************/
+
 function loadMenuItems() {
     const menuContainer = $('#menu-items');
+    menuContainer.empty(); // Clear existing items
 
     menuItems.forEach(item => {
         const categories = item.category.join(' ');
-        const badge = item.badge ? `<span class="chef-badge"><i class="fas fa-star me-1"></i> Chef's Special</span>` : '';
+
+        // Chef's Special Ribbon
+        const chefBadge = item.badge ? `
+            <div class="chef-ribbon">
+                <div class="chef-ribbon-content">
+                    <i class="fas fa-star"></i> Chef's Pick
+                </div>
+            </div>
+        ` : '';
+
+        // Chef recommendation tooltip
+        const tooltip = item.chefRecommendation ?
+            `<div class="chef-recommendation-tooltip">${item.chefRecommendation}</div>` : '';
 
         // Create spice level indicator
         let spiceLevelHtml = '';
         if (item.spiceLevel > 0) {
-            spiceLevelHtml = `<div class="spice-level">`;
+            spiceLevelHtml = `
+                <div class="level-indicator-row">
+                    <span class="level-label">Spice:</span>
+                    <div class="spice-level">
+            `;
             for (let i = 0; i < 5; i++) {
                 spiceLevelHtml += `<div class="spice-dot ${i < item.spiceLevel ? 'active' : ''}"></div>`;
             }
-            spiceLevelHtml += `<span class="ms-2">${item.spiceLevel}/5 spicy</span>`;
-            spiceLevelHtml += `</div>`;
+            spiceLevelHtml += `
+                        <span class="ms-2">${item.spiceLevel}/5</span>
+                    </div>
+                </div>
+            `;
         }
 
-        // Chef recommendation tooltip
-        const tooltip = item.chefRecommendation ?
-            `<div class="chef-tooltip">${item.chefRecommendation}</div>` : '';
+        // Create sweet level indicator (NEW)
+        let sweetLevelHtml = '';
+        if (item.sweetLevel > 0) {
+            sweetLevelHtml = `
+                <div class="level-indicator-row">
+                    <span class="level-label">Sweet:</span>
+                    <div class="sweet-level">
+            `;
+            for (let i = 0; i < 5; i++) {
+                sweetLevelHtml += `<div class="sweet-dot ${i < item.sweetLevel ? 'active' : ''}"></div>`;
+            }
+            sweetLevelHtml += `
+                        <span class="ms-2">${item.sweetLevel}/5</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Determine which icons to show
+        let cardIcons = '<div class="menu-card-icons">';
+        cardIcons += `<div class="fav-icon" data-id="${item.id}"><i class="far fa-heart"></i></div>`;
+
+        if (item.spiceLevel > 0) {
+            cardIcons += `<div class="spice-icon" title="Spice Level: ${item.spiceLevel}/5"><i class="fas fa-pepper-hot"></i></div>`;
+        }
+
+        if (item.sweetLevel > 0) {
+            cardIcons += `<div class="sweet-icon" title="Sweet Level: ${item.sweetLevel}/5"><i class="fas fa-candy-cane"></i>`;
+            cardIcons += `<div class="sweet-tooltip">Sweetness: ${item.sweetLevel}/5</div></div>`;
+        }
+
+        cardIcons += '</div>';
+
+        // Alternative: Combined level display
+        const combinedLevels = `
+            ${item.spiceLevel > 0 || item.sweetLevel > 0 ? `
+                <div class="combined-level">
+                    ${item.spiceLevel > 0 ? `
+                        <div class="level-container">
+                            <span class="level-name">🌶️ Spicy:</span>
+                            <span class="level-value spicy">${item.spiceLevel}/5</span>
+                        </div>
+                    ` : ''}
+                    ${item.sweetLevel > 0 ? `
+                        <div class="level-container">
+                            <span class="level-name">🍭 Sweet:</span>
+                            <span class="level-value sweet">${item.sweetLevel}/5</span>
+                        </div>
+                    ` : ''}
+                </div>
+            ` : ''}
+        `;
 
         const menuItem = `
-                    <div class="col-lg-3 col-md-6 menu-card" data-category="${categories}">
-                        ${badge}
-                        ${tooltip}
-                        <div class="menu-card-icons">
-                            <div class="fav-icon" data-id="${item.id}">
-                                <i class="far fa-heart"></i>
-                            </div>
-                            ${item.spiceLevel > 0 ? `<div class="spice-icon" title="Spice Level: ${item.spiceLevel}/5">
-                                <i class="fas fa-pepper-hot"></i>
-                            </div>` : ''}
-                        </div>
-                        <div class="menu-img-container">
-                            <img src="${item.image}" class="menu-img" alt="${item.name}">
-                        </div>
-                        <div class="menu-content">
-                            <div class="menu-title">
-                                <h4>${item.name}</h4>
-                                <span class="price">${item.price}</span>
-                            </div>
-                            <p>${item.description}</p>
-                            ${spiceLevelHtml}
-                        </div>
+            <div class="col-lg-3 col-md-6 menu-card" data-category="${categories}" data-spice="${item.spiceLevel}" data-sweet="${item.sweetLevel}">
+                ${chefBadge}
+                ${tooltip}
+                ${cardIcons}
+                <div class="menu-img-container">
+                    <img src="${item.image}" class="menu-img" alt="${item.name}">
+                </div>
+                <div class="menu-content">
+                    <div class="menu-title">
+                        <h4>${item.name}</h4>
+                        <span class="price">${item.price}</span>
                     </div>
-                `;
+                    <p>${item.description}</p>
+                    
+                    <!-- Option 1: Separate spice/sweet indicators -->
+                    ${spiceLevelHtml || sweetLevelHtml ? `
+                        <div class="level-indicators">
+                            ${spiceLevelHtml}
+                            ${sweetLevelHtml}
+                        </div>
+                    ` : ''}
+                    
+                    <!-- Option 2: Combined level display (choose one) -->
+                    <!-- ${combinedLevels} -->
+                </div>
+            </div>
+        `;
 
         menuContainer.append(menuItem);
     });
@@ -521,7 +776,12 @@ function loadMenuItems() {
     });
 }
 
-// Load gallery with categories
+
+
+/********************************
+ * LOAD GALLERY WITH CATEGORIES *
+ ********************************/
+
 function loadGallery() {
     const galleryContainer = $('#gallery-items');
 
@@ -551,7 +811,12 @@ function loadGallery() {
     });
 }
 
-// Generate time slots for reservation
+
+
+/***************************************
+ * GENERATE TIME SLOTS FOR RESERVATION *
+ ***************************************/
+
 function generateTimeSlots() {
     const timeSlotsContainer = $('#time-slots');
     timeSlotsContainer.empty();
@@ -582,7 +847,12 @@ function generateTimeSlots() {
     });
 }
 
-// Reservation form step navigation
+
+
+/************************************
+ * RESERVATION FORM STEP NAVIGATION *
+ ************************************/
+
 function goToStep(step) {
     $('.form-step').removeClass('active');
     $(`#step-${step}`).addClass('active');
@@ -598,7 +868,12 @@ function goToStep(step) {
     }
 }
 
-// Update reservation summary
+
+
+/******************************
+ * UPDATE RESERVATION SUMMARY *
+ ******************************/
+
 function updateReservationSummary() {
     const date = $('#reservation-date').val();
     const time = $('#reservation-time').val();
@@ -627,7 +902,12 @@ function updateReservationSummary() {
     $('#reservation-summary').html(summaryHTML);
 }
 
-// Show toast notification
+
+
+/***************************
+ * SHOW TOAST NOTIFICATION *
+ ***************************/
+
 function showToast(message, type = 'success') {
     const toast = $('#toast');
     $('#toast-message').text(message);
@@ -641,7 +921,12 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-// Initialize countdown timer
+
+
+/******************************
+ * INITIALIZE COUNTDOWN TIMER *
+ ******************************/
+
 function initializeCountdown() {
     // Set the date we're counting down to (December 15, 2023)
     const countDownDate = new Date("Dec 15, 2023 19:00:00").getTime();
@@ -674,7 +959,12 @@ function initializeCountdown() {
     }, 1000);
 }
 
-// Initialize counters with animation
+
+
+/**************************************
+ * INITIALIZE COUNTERS WITH ANIMATION *
+ **************************************/
+
 function initializeCounters() {
     $('.counter-item').each(function () {
         $(this).css('opacity', '0');
@@ -713,7 +1003,11 @@ function initializeCounters() {
     });
 }
 
-// Update opening status
+
+/*************************
+ * UPDATE OPENING STATUS *
+ *************************/
+
 function updateOpeningStatus() {
     const now = new Date();
     const currentHour = now.getHours();
@@ -739,7 +1033,11 @@ function updateOpeningStatus() {
     $('#current-status').removeClass('status-open status-closed').addClass(statusClass);
 }
 
-// WhatsApp confirmation button
+
+/********************************
+ * WHATSAPP CONFIRMATION BUTTON *
+ ********************************/
+
 $('#whatsapp-confirm').click(function () {
     const phone = "+8801234567890";
     const text = "Hello, I would like to confirm my reservation at Ambrosia restaurant.";
@@ -747,3 +1045,330 @@ $('#whatsapp-confirm').click(function () {
     window.open(url, '_blank');
     $('#reservationModal').modal('hide');
 });
+
+
+
+/*********************************
+ * INITIALIZE VIDEO TESTIMONIALS *
+ *********************************/
+
+function initVideoTestimonials() {
+    $('.video-testimonial').each(function () {
+        const video = $(this).find('video')[0];
+        const playBtn = $(this).find('.play-btn');
+
+        // Mute and set volume for auto-play
+        video.muted = true;
+        video.volume = 0;
+
+        // Auto-play on hover
+        $(this).hover(
+            function () {
+                video.play();
+            },
+            function () {
+                video.pause();
+            }
+        );
+
+        // Play/pause on click
+        playBtn.click(function (e) {
+            e.stopPropagation();
+            if (video.paused) {
+                video.play();
+                $(this).html('<i class="fas fa-pause"></i>');
+            } else {
+                video.pause();
+                $(this).html('<i class="fas fa-play"></i>');
+            }
+        });
+    });
+}
+
+
+
+/***********************************
+ * INITIALIZE SEARCH FUNCTIONALITY *
+ ***********************************/
+
+function initSearch() {
+    $('#nav-search-btn').click(function () {
+        $('#nav-search-box').toggleClass('show');
+        if ($('#nav-search-box').hasClass('show')) {
+            $('#global-search').focus();
+        }
+    });
+
+    $('.search-close').click(function () {
+        $('#nav-search-box').removeClass('show');
+    });
+
+    // Global search functionality
+    $('#global-search').on('input', function () {
+        const term = $(this).val().toLowerCase();
+
+        if (term.length > 2) {
+            // Search in menu items
+            $('.menu-card').each(function () {
+                const name = $(this).find('.menu-title h4').text().toLowerCase();
+                const desc = $(this).find('p').text().toLowerCase();
+
+                if (name.includes(term) || desc.includes(term)) {
+                    $(this).addClass('search-highlight');
+                    // Scroll to menu section
+                    $('html, body').animate({
+                        scrollTop: $('#menu').offset().top - 100
+                    }, 500);
+                } else {
+                    $(this).removeClass('search-highlight');
+                }
+            });
+
+            // Search in chefs
+            $('.chef-card').each(function () {
+                const name = $(this).find('h4').text().toLowerCase();
+                const specialty = $(this).find('p:contains("Specialty")').text().toLowerCase();
+
+                if (name.includes(term) || specialty.includes(term)) {
+                    $(this).addClass('search-highlight');
+                    // Scroll to chefs section
+                    $('html, body').animate({
+                        scrollTop: $('#chefs').offset().top - 100
+                    }, 500);
+                } else {
+                    $(this).removeClass('search-highlight');
+                }
+            });
+        } else {
+            $('.search-highlight').removeClass('search-highlight');
+        }
+    });
+}
+
+
+/***********************
+ * INITIALIZE WISHLIST *
+ ***********************/
+
+function initWishlist() {
+    let wishlist = JSON.parse(localStorage.getItem('ambrosiaWishlist')) || [];
+
+    // Update wishlist count
+    function updateWishlistCount() {
+        $('.wishlist-count').text(wishlist.length);
+    }
+
+    // Add to wishlist functionality for menu items
+    $(document).on('click', '.fav-icon', function () {
+        const card = $(this).closest('.menu-card');
+        const itemId = card.data('id');
+        const itemName = card.find('.menu-title h4').text();
+        const itemPrice = card.find('.price').text();
+        const itemImg = card.find('.menu-img').attr('src');
+
+        // Check if already in wishlist
+        const existingIndex = wishlist.findIndex(item => item.id === itemId);
+
+        if (existingIndex === -1) {
+            // Add to wishlist
+            wishlist.push({
+                id: itemId,
+                name: itemName,
+                price: itemPrice,
+                image: itemImg
+            });
+
+            showToast(`${itemName} added to wishlist`, 'success');
+        } else {
+            // Remove from wishlist
+            wishlist.splice(existingIndex, 1);
+            showToast(`${itemName} removed from wishlist`);
+        }
+
+        // Save to localStorage
+        localStorage.setItem('ambrosiaWishlist', JSON.stringify(wishlist));
+        updateWishlistCount();
+
+        // Update icon
+        const icon = $(this).find('i');
+        if (icon.hasClass('far')) {
+            icon.removeClass('far').addClass('fas');
+        } else {
+            icon.removeClass('fas').addClass('far');
+        }
+    });
+
+    // Load saved wishlist state
+    wishlist.forEach(item => {
+        $(`.menu-card[data-id="${item.id}"] .fav-icon`).addClass('active').find('i').removeClass('far').addClass('fas');
+    });
+
+    updateWishlistCount();
+
+    // Wishlist modal
+    $('.wishlist-icon').click(function (e) {
+        e.preventDefault();
+        $('#wishlistModal').modal('show');
+        displayWishlistItems();
+    });
+}
+
+// Display wishlist items in modal
+function displayWishlistItems() {
+    const container = $('#wishlist-items');
+    const wishlist = JSON.parse(localStorage.getItem('ambrosiaWishlist')) || [];
+
+    container.empty();
+
+    if (wishlist.length === 0) {
+        container.html('<p class="text-center" id="empty-wishlist">Your wishlist is empty</p>');
+        return;
+    }
+
+    wishlist.forEach(item => {
+        const itemHtml = `
+            <div class="wishlist-item d-flex align-items-center mb-3 p-3" style="background: rgba(255,255,255,0.05); border-radius: 8px;">
+                <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 15px;">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">${item.name}</h6>
+                    <p class="mb-0 text-secondary">${item.price}</p>
+                </div>
+                <button class="btn btn-sm btn-danger remove-wishlist" data-id="${item.id}">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+        container.append(itemHtml);
+    });
+
+    // Add remove functionality
+    $('.remove-wishlist').click(function () {
+        const itemId = $(this).data('id');
+        let wishlist = JSON.parse(localStorage.getItem('ambrosiaWishlist')) || [];
+        wishlist = wishlist.filter(item => item.id !== itemId);
+        localStorage.setItem('ambrosiaWishlist', JSON.stringify(wishlist));
+        displayWishlistItems();
+        updateWishlistCount();
+
+        // Update icon on menu card
+        $(`.menu-card[data-id="${itemId}"] .fav-icon`).removeClass('active').find('i').removeClass('fas').addClass('far');
+    });
+}
+
+
+/******************************
+ * UPDATE LIVE OPENING STATUS *
+ ******************************/
+
+function updateLiveStatus() {
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+
+    let status = 'Open Now';
+    let statusClass = 'status-open';
+
+    // Sunday to Thursday: 11 AM - 10 PM
+    // Friday to Saturday: 11 AM - 11 PM
+    const isWeekend = day === 5 || day === 6; // Friday = 5, Saturday = 6
+
+    if (isWeekend) {
+        if (hour < 11 || hour >= 23) {
+            status = 'Closed Now';
+            statusClass = 'status-closed';
+        }
+    } else {
+        if (hour < 11 || hour >= 22) {
+            status = 'Closed Now';
+            statusClass = 'status-closed';
+        }
+    }
+
+    // Update status in FAQ section
+    $('#live-status').text(status).removeClass('status-open status-closed').addClass(statusClass);
+
+    // Update table availability
+    const availableTables = Math.floor(Math.random() * 20) + 5; // Random 5-25 tables
+    $('#available-tables').text(availableTables);
+
+    // Update every minute
+    setTimeout(updateLiveStatus, 60000);
+}
+
+
+
+/**************************
+ * ADD CLICK SOUND EFFECT *
+ **************************/
+
+function playClickSound() {
+    try {
+        const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==');
+        audio.volume = 0.1;
+        audio.play();
+    } catch (e) {
+        console.log('Sound playback not supported');
+    }
+}
+
+// Add vibration on click (mobile only)
+function vibrateOnClick() {
+    if ('vibrate' in navigator) {
+        navigator.vibrate(50);
+    }
+}
+
+
+
+/***************************************
+ * APPLY MICRO-INTERACTIONS TO BUTTONS *
+ ***************************************/
+
+$(document).on('click', 'button, .btn, a[href^="#"]', function (e) {
+    playClickSound();
+    vibrateOnClick();
+
+    // Add ripple effect
+    const ripple = $('<span class="ripple"></span>');
+    const posX = e.pageX - $(this).offset().left;
+    const posY = e.pageY - $(this).offset().top;
+
+    ripple.css({
+        left: posX,
+        top: posY
+    });
+
+    $(this).append(ripple);
+
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+});
+
+
+
+/**************
+ * ANIMATIONS *
+ **************/
+
+function initAnimations() {
+    // Check if elements are in viewport
+    function checkScroll() {
+        $('.fade-in').each(function () {
+            const elementTop = $(this).offset().top;
+            const elementVisible = 150;
+            const windowTop = $(window).scrollTop();
+
+            if (elementTop < windowTop + $(window).height() - elementVisible) {
+                $(this).addClass('visible');
+            }
+        });
+    }
+
+    // Initial check
+    checkScroll();
+
+    // Check on scroll
+    $(window).on('scroll', checkScroll);
+}

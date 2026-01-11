@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Our Services | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/services.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+
+</head>
+
+<body>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Service inquiry sent successfully!</span>
+            </div>
+        </div>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            SERVICE INQUIRY MODAL                                            -->
+        <div class="modal fade" id="serviceInquiryModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Service Inquiry</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="serviceInquiryForm">
+                            <div class="mb-3">
+                                <label class="form-label">Select Service</label>
+                                <select class="form-control-custom" id="inquiry-service" required>
+                                    <option value="">Choose a service</option>
+                                    <option value="wedding">Wedding Events</option>
+                                    <option value="corporate">Corporate Events</option>
+                                    <option value="birthday">Birthday Parties</option>
+                                    <option value="catering">Outside Catering</option>
+                                    <option value="conference">Conference Facilities</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Your Name</label>
+                                <input type="text" class="form-control-custom" id="inquiry-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control-custom" id="inquiry-email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control-custom" id="inquiry-phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Event Date (if applicable)</label>
+                                <input type="date" class="form-control-custom" id="inquiry-date">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Number of Guests</label>
+                                <input type="number" class="form-control-custom" id="inquiry-guests" min="1">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Additional Details</label>
+                                <textarea class="form-control-custom" id="inquiry-details" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            BREADCRUMB NAVIGATION                                            -->
+        <div class="breadcrumb-nav">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Our Services</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="services-hero">
+
+            <div class="hero-overlay"></div>
+            <div class="services-hero-content">
+                <h1 class="tagline fade-in-up">Our Services</h1>
+                <p class="lead mb-4 fade-in-up text-delay-1">
+                    Premium facilities for every occasion - from intimate gatherings to grand celebrations
+                </p>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              SERVICES OVERVIEW                                              -->
+        <section class="services-overview">
+
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Comprehensive Event Solutions</h2>
+                    <p class="mt-3">Ambrosia offers state-of-the-art facilities for events ranging from 50 to 700 guests
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="overview-card fade-in">
+                            <div class="overview-icon">
+                                <i class="fas fa-glass-cheers"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Grand Events</h3>
+                            <p class="text-center">Perfect for weddings, corporate galas, and large celebrations with
+                                capacity for 500-700 guests.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="overview-card fade-in">
+                            <div class="overview-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Business Events</h3>
+                            <p class="text-center">Professional conference and meeting facilities with full audio-visual
+                                support.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="overview-card fade-in">
+                            <div class="overview-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="text-center mb-3">Catering Services</h3>
+                            <p class="text-center">Premium catering for any occasion, available both on-site and for
+                                outside
+                                events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             MAIN SERVICES GRID                                              -->
+        <section class="services-grid-section">
+
+            <div class="container">
+                <div class="service-category fade-in">
+                    <h2 class="service-category-title">Venue & Event Facilities</h2>
+                    <p class="mb-4" style="color: var(--light);">Our versatile spaces cater to every type of event with
+                        premium amenities</p>
+
+                    <div class="services-grid">
+                        <!-- Service 1 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">01</div>
+                            <div class="service-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Three Exclusive Decorative Dining Halls</h4>
+                            <p>Elegantly designed dining halls with unique themes, perfect for different types of events
+                                and
+                                celebrations.</p>
+                            <div class="capacity-badge">500-700 Capacity</div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">02</div>
+                            <div class="service-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h4>Luxury Private Room</h4>
+                            <p>Exclusive private dining room with capacity for 10-12 guests, perfect for intimate
+                                gatherings
+                                and business meetings.</p>
+                            <div class="capacity-badge">10-12 Persons</div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">03</div>
+                            <div class="service-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <h4>Exclusive Karaoke Room</h4>
+                            <p>State-of-the-art karaoke room with premium sound system, lighting, and seating for
+                                entertainment events.</p>
+                            <div class="capacity-badge">15-20 Persons</div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">04</div>
+                            <div class="service-icon">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <h4>Audio-Visual Equipment</h4>
+                            <p>Complete audio-visual setup including large screen TVs, overhead projectors, and
+                                professional
+                                sound systems.</p>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">05</div>
+                            <div class="service-icon">
+                                <i class="fas fa-chair"></i>
+                            </div>
+                            <h4>500 Person Seating Arrangement</h4>
+                            <p>Comfortable seating for 500 guests with buffet service for large gatherings and
+                                celebrations.
+                            </p>
+                            <div class="capacity-badge">500 Persons</div>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">06</div>
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>700 Person Standing Events</h4>
+                            <p>Spacious venue layout for standing events, perfect for networking parties and large
+                                receptions.</p>
+                            <div class="capacity-badge">700 Persons</div>
+                        </div>
+
+                        <!-- Service 7 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">07</div>
+                            <div class="service-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4>Conference Facilities</h4>
+                            <p>Professional meeting and conference rooms with capacities of 50 and 150 persons, equipped
+                                with all necessary amenities.</p>
+                            <div class="capacity-badge">50-150 Persons</div>
+                        </div>
+
+                        <!-- Service 8 -->
+                        <div class="service-card stagger-item">
+                            <div class="service-number">08</div>
+                            <div class="service-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <h4>All Types of Parties</h4>
+                            <p>Complete party planning and execution services for birthdays, anniversaries, and special
+                                celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            ADDITIONAL FACILITIES                                            -->
+        <section class="facilities-section">
+
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Additional Facilities & Services</h2>
+                    <p class="mt-3">Comprehensive amenities to enhance your event experience</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 fade-in">
+                        <div class="facility-item">
+                            <div class="facility-icon">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Individual Parking Area with Security</h4>
+                                <p>Secure, spacious parking facility with 24/7 security surveillance and valet service
+                                    available.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 fade-in">
+                        <div class="facility-item">
+                            <div class="facility-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>All Types of Outside Catering</h4>
+                                <p>Premium catering services for off-site events, corporate functions, and private
+                                    gatherings.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 fade-in">
+                        <div class="facility-item">
+                            <div class="facility-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Take Away Lunch Box</h4>
+                                <p>Convenient takeaway service with premium lunch boxes for corporate clients and busy
+                                    professionals.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 fade-in">
+                        <div class="facility-item">
+                            <div class="facility-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Kids Entertainment Zone</h4>
+                                <p>Dedicated play area for children with supervision, games, and activities during
+                                    family
+                                    events.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              SERVICE PACKAGES                                               -->
+        <section class="packages-section">
+
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Event Packages</h2>
+                    <p class="mt-3">Tailored solutions for different types of events</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-card fade-in">
+                            <div class="package-header">
+                                <h3 class="package-title">Corporate Package</h3>
+                                <p class="package-price">Custom Quote</p>
+                            </div>
+                            <div class="package-body">
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> Conference room rental</li>
+                                    <li><i class="fas fa-check"></i> Audio-visual equipment</li>
+                                    <li><i class="fas fa-check"></i> Business lunch buffet</li>
+                                    <li><i class="fas fa-check"></i> High-speed WiFi</li>
+                                    <li><i class="fas fa-check"></i> Whiteboard & stationery</li>
+                                    <li><i class="fas fa-check"></i> Dedicated event coordinator</li>
+                                </ul>
+                                <button class="btn btn-primary-custom w-100" data-service="corporate">Inquire
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-card fade-in">
+                            <div class="package-header">
+                                <h3 class="package-title">Wedding Package</h3>
+                                <p class="package-price">Starting from $5,999</p>
+                            </div>
+                            <div class="package-body">
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> Exclusive hall decoration</li>
+                                    <li><i class="fas fa-check"></i> Premium multi-course menu</li>
+                                    <li><i class="fas fa-check"></i> Wedding cake arrangement</li>
+                                    <li><i class="fas fa-check"></i> Professional photography</li>
+                                    <li><i class="fas fa-check"></i> Sound system & DJ setup</li>
+                                    <li><i class="fas fa-check"></i> Valet parking service</li>
+                                </ul>
+                                <button class="btn btn-primary-custom w-100" data-service="wedding">Inquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-card fade-in">
+                            <div class="package-header">
+                                <h3 class="package-title">Catering Package</h3>
+                                <p class="package-price">Per Person Pricing</p>
+                            </div>
+                            <div class="package-body">
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> Premium buffet setup</li>
+                                    <li><i class="fas fa-check"></i> Professional serving staff</li>
+                                    <li><i class="fas fa-check"></i> Custom menu planning</li>
+                                    <li><i class="fas fa-check"></i> Equipment rental</li>
+                                    <li><i class="fas fa-check"></i> Transport & setup</li>
+                                    <li><i class="fas fa-check"></i> Cleanup service</li>
+                                </ul>
+                                <button class="btn btn-primary-custom w-100" data-service="catering">Inquire
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                               SERVICE GALLERY                                               -->
+        <section class="service-gallery">
+
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Our Facilities Gallery</h2>
+                    <p class="mt-3">Take a look at our premium event spaces and amenities</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Dining Hall">
+                        <div class="gallery-overlay">
+                            <div>
+                                <h6 class="mb-1">Grand Dining Hall</h6>
+                                <small>500 person capacity</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Conference Room">
+                        <div class="gallery-overlay">
+                            <div>
+                                <h6 class="mb-1">Conference Facility</h6>
+                                <small>150 person capacity</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1530099486328-02184724447e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Private Room">
+                        <div class="gallery-overlay">
+                            <div>
+                                <h6 class="mb-1">Luxury Private Room</h6>
+                                <small>10-12 person capacity</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1561484932-5c5d2f3c64f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Catering Service">
+                        <div class="gallery-overlay">
+                            <div>
+                                <h6 class="mb-1">Outside Catering</h6>
+                                <small>Premium buffet setup</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                     CTA                                                     -->
+        <section class="services-cta fade-in">
+
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Plan Your Event?</h2>
+                    <p>Contact our event specialists to discuss your requirements and get a customized quote. We'll help
+                        you
+                        create an unforgettable experience for your guests.</p>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <a href="quote.html" class="btn btn-primary-custom btn-lg">
+                            <i class="fas fa-calendar-check me-2"></i> Request a Quote
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary-custom btn-lg">
+                            <i class="fas fa-phone me-2"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/services.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

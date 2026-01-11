@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Flatpickr (Date Picker) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/reservation.css">
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body class="reservation-page">
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Reservation updated!</span>
+            </div>
+        </div>
+
+
+        <!-- Hero Section -->
+        <section class="reservation-hero">
+            <div class="reservation-hero-content">
+                <h1>Reserve Your Table</h1>
+                <p class="lead" style="font-size: 1.2rem;">Experience divine dining at Ambrosia</p>
+
+                <div class="reservation-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="available-tables">12</span>
+                        <span class="stat-label">Tables Available</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Customer Rating</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Minutes Response</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Form -->
+        <div class="reservation-container">
+            <div class="reservation-card">
+                <div class="reservation-header">
+                    <h2><i class="fas fa-calendar-check me-2"></i> Book Your Experience</h2>
+                    <p class="mb-0">Complete the form below to secure your table</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="reservation-progress">
+                    <div class="progress-step active" data-step="1">
+                        <span>1</span>
+                        <div class="progress-label">Date & Time</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <span>2</span>
+                        <div class="progress-label">Details</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <span>3</span>
+                        <div class="progress-label">Preferences</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <span>4</span>
+                        <div class="progress-label">Confirmation</div>
+                    </div>
+                </div>
+
+                <!-- Form Steps -->
+                <form id="reservationForm">
+                    <!-- Step 1: Date & Time -->
+                    <div class="form-step active" id="step-1">
+                        <h3 class="step-title">Select Date & Time</h3>
+
+                        <div class="form-group">
+                            <label class="form-label">Choose Date</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </span>
+                                <input type="text" class="form-control-reservation" id="reservationDate"
+                                    placeholder="Select date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Time Slot</label>
+                            <div class="time-slots-container" id="timeSlots">
+                                <!-- Time slots will be generated dynamically -->
+                            </div>
+                            <small class="text-muted d-block mt-2">Slots shown are for dinner service (6 PM
+                                onwards)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Number of Guests</label>
+                            <div class="guest-selector">
+                                <button type="button" class="guest-btn" id="decreaseGuests">-</button>
+                                <div class="guest-display" id="guestCount">2</div>
+                                <button type="button" class="guest-btn" id="increaseGuests">+</button>
+                            </div>
+                            <input type="hidden" id="guests" name="guests" value="2">
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Recommended Time</h6>
+                                <p class="mb-0">For the best experience, we recommend booking between 7 PM - 9 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reservation btn-next" data-next="2">
+                                Next Step <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Personal Details -->
+                    <div class="form-step" id="step-2">
+                        <h3 class="step-title">Your Details</h3>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control-reservation" id="fullName"
+                                        placeholder="Enter your full name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control-reservation" id="phone"
+                                        placeholder="+880 1234 567890" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control-reservation" id="email"
+                                        placeholder="your@email.com">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Special Occasion</label>
+                                    <select class="form-control-reservation" id="occasion">
+                                        <option value="">None</option>
+                                        <option value="birthday">Birthday Celebration</option>
+                                        <option value="anniversary">Anniversary</option>
+                                        <option value="date">Romantic Date</option>
+                                        <option value="business">Business Dinner</option>
+                                        <option value="family">Family Gathering</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Special Requests</label>
+                            <textarea class="form-control-reservation" id="specialRequests" rows="4"
+                                placeholder="Any allergies, dietary restrictions, or special requirements..."></textarea>
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Birthday Special</h6>
+                                <p class="mb-0">Celebrating a birthday? We offer complimentary dessert with proof of ID!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reservation btn-prev" data-prev="1">
+                                <i class="fas fa-arrow-left me-2"></i> Previous
+                            </button>
+                            <button type="button" class="btn-reservation btn-next" data-next="3">
+                                Next Step <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Preferences -->
+                    <div class="form-step" id="step-3">
+                        <h3 class="step-title">Table & Experience Preferences</h3>
+
+                        <div class="form-group">
+                            <label class="form-label">Table Preference</label>
+                            <div class="tables-grid" id="tableSelection">
+                                <!-- Tables will be generated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Ambience Preference</label>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="table-item" data-ambience="quiet">
+                                        <div class="table-icon">
+                                            <i class="fas fa-volume-mute"></i>
+                                        </div>
+                                        <h6>Quiet & Intimate</h6>
+                                        <small>Private corner tables</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="table-item" data-ambience="vibrant">
+                                        <div class="table-icon">
+                                            <i class="fas fa-music"></i>
+                                        </div>
+                                        <h6>Vibrant</h6>
+                                        <small>Near live music area</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="table-item" data-ambience="window">
+                                        <div class="table-icon">
+                                            <i class="fas fa-window-maximize"></i>
+                                        </div>
+                                        <h6>Window View</h6>
+                                        <small>City skyline view</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="ambience" name="ambience">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Additional Services</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="winePairing">
+                                        <label class="form-check-label" for="winePairing">
+                                            <i class="fas fa-wine-glass-alt me-2"></i> Wine Pairing Service (+$25)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="flowers">
+                                        <label class="form-check-label" for="flowers">
+                                            <i class="fas fa-spa me-2"></i> Table Flowers (+$15)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="cake">
+                                        <label class="form-check-label" for="cake">
+                                            <i class="fas fa-birthday-cake me-2"></i> Special Occasion Cake (+$35)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="photography">
+                                        <label class="form-check-label" for="photography">
+                                            <i class="fas fa-camera me-2"></i> Professional Photography (+$50)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">VIP Service Available</h6>
+                                <p class="mb-0">Upgrade to VIP for personal waiter and priority service</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reservation btn-prev" data-prev="2">
+                                <i class="fas fa-arrow-left me-2"></i> Previous
+                            </button>
+                            <button type="button" class="btn-reservation btn-next" data-next="4">
+                                Next Step <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirmation -->
+                    <div class="form-step" id="step-4">
+                        <h3 class="step-title">Confirm Your Reservation</h3>
+
+                        <div class="reservation-summary">
+                            <div class="summary-item">
+                                <span>Date & Time:</span>
+                                <strong id="summaryDateTime">Not selected</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Guests:</span>
+                                <strong id="summaryGuests">2 people</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Name:</span>
+                                <strong id="summaryName">Not provided</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Phone:</span>
+                                <strong id="summaryPhone">Not provided</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Occasion:</span>
+                                <strong id="summaryOccasion">None</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Table Preference:</span>
+                                <strong id="summaryTable">Standard</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Additional Services:</span>
+                                <strong id="summaryServices">None</strong>
+                            </div>
+                            <div class="summary-item" style="font-size: 1.2rem;">
+                                <span>Total (including services):</span>
+                                <strong id="summaryTotal">$0.00</strong>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#" class="text-secondary">terms and conditions</a> and
+                                    understand that
+                                    this reservation will be confirmed via phone call within 2 hours.
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Instant WhatsApp Confirmation</h6>
+                                <p class="mb-0">Get instant confirmation via WhatsApp for faster service</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reservation btn-prev" data-prev="3">
+                                <i class="fas fa-arrow-left me-2"></i> Previous
+                            </button>
+                            <button type="submit" class="btn-reservation btn-submit">
+                                <i class="fas fa-check-circle me-2"></i> Confirm Reservation
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal fade" id="successModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Reservation Confirmed!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Thank you for your reservation!</h4>
+                        <p>We have received your booking request. You will receive a confirmation call within 2 hours.
+                        </p>
+                        <p class="mb-4"><strong>Reservation ID:</strong> <span id="reservationId">AMB-2024-001</span>
+                        </p>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Please arrive 15 minutes before your reservation time.
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3 mt-4">
+                            <a href="menu.html" class="btn btn-secondary-custom">View Menu</a>
+                            <button class="btn btn-primary-custom" id="whatsappConfirm">
+                                <i class="fab fa-whatsapp me-2"></i> Confirm via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr (Date Picker) -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/reservation.js"></script>
+
+</body>
+
+</html>

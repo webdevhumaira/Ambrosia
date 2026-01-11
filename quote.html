@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Request a Quote | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/quote.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Your quote request has been submitted!</span>
+            </div>
+        </div>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="quote-hero">
+            <div class="quote-hero-content">
+                <h1 class="tagline fade-in-up">Request a Quote</h1>
+                <p class="lead mb-4 fade-in-up text-delay-1">
+                    Get a personalized quote for your event at Ambrosia Restaurant
+                </p>
+            </div>
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             QUOTE FORM SECTION                                              -->
+        <section class="quote-form-section">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="quote-form-container">
+                            <!-- Form Progress -->
+                            <div class="form-progress">
+                                <div class="progress-step active" data-step="1">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-label">Event Details</div>
+                                </div>
+                                <div class="progress-step" data-step="2">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-label">Contact Info</div>
+                                </div>
+                                <div class="progress-step" data-step="3">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-label">Review & Submit</div>
+                                </div>
+                            </div>
+
+                            <!-- Quote Form -->
+                            <form id="quoteForm">
+                                <!-- Step 1: Event Details -->
+                                <div class="form-step active" id="step-1">
+                                    <h3 class="mb-4 text-center">Tell Us About Your Event</h3>
+
+                                    <div class="form-group-quote">
+                                        <label class="form-label-quote">Event Type *</label>
+                                        <div class="event-type-grid">
+                                            <div class="event-type-card" data-type="wedding">
+                                                <div class="event-icon">
+                                                    <i class="fas fa-heart"></i>
+                                                </div>
+                                                <h5>Wedding</h5>
+                                                <small>Perfect for your special day</small>
+                                            </div>
+                                            <div class="event-type-card" data-type="corporate">
+                                                <div class="event-icon">
+                                                    <i class="fas fa-briefcase"></i>
+                                                </div>
+                                                <h5>Corporate</h5>
+                                                <small>Meetings, conferences, seminars</small>
+                                            </div>
+                                            <div class="event-type-card" data-type="birthday">
+                                                <div class="event-icon">
+                                                    <i class="fas fa-birthday-cake"></i>
+                                                </div>
+                                                <h5>Birthday</h5>
+                                                <small>Celebrations for all ages</small>
+                                            </div>
+                                            <div class="event-type-card" data-type="anniversary">
+                                                <div class="event-icon">
+                                                    <i class="fas fa-glass-cheers"></i>
+                                                </div>
+                                                <h5>Anniversary</h5>
+                                                <small>Milestone celebrations</small>
+                                            </div>
+                                            <div class="event-type-card" data-type="family">
+                                                <div class="event-icon">
+                                                    <i class="fas fa-users"></i>
+                                                </div>
+                                                <h5>Family Gathering</h5>
+                                                <small>Reunions and celebrations</small>
+                                            </div>
+                                            <div class="event-type-card" data-type="other">
+                                                <div class="event-icon">
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <h5>Other</h5>
+                                                <small>Special occasions</small>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="event-type" name="event-type" required>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group-quote">
+                                                <label class="form-label-quote" for="event-date">Event Date *</label>
+                                                <input type="date" class="form-control-quote" id="event-date"
+                                                    name="event-date" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group-quote">
+                                                <label class="form-label-quote" for="event-time">Preferred Time
+                                                    *</label>
+                                                <select class="form-control-quote" id="event-time" name="event-time"
+                                                    required>
+                                                    <option value="">Select Time</option>
+                                                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                                    <option value="evening">Evening (4 PM - 8 PM)</option>
+                                                    <option value="night">Night (8 PM - 12 AM)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-quote">
+                                        <label class="form-label-quote">Number of Guests *</label>
+                                        <div class="guest-range-container">
+                                            <div class="guest-range-value" id="guest-value">50 Guests</div>
+                                            <input type="range" class="guest-range" id="guest-range" min="10" max="700"
+                                                value="50" step="10">
+                                            <div class="d-flex justify-content-between mt-2">
+                                                <small>10 Guests</small>
+                                                <small>700 Guests</small>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="guests" name="guests" value="50" required>
+                                    </div>
+
+                                    <div class="form-group-quote">
+                                        <label class="form-label-quote">Estimated Budget *</label>
+                                        <div class="budget-options">
+                                            <div class="budget-option" data-budget="economy">
+                                                <h5>Economy</h5>
+                                                <small>Up to $2,000</small>
+                                            </div>
+                                            <div class="budget-option" data-budget="standard">
+                                                <h5>Standard</h5>
+                                                <small>$2,000 - $5,000</small>
+                                            </div>
+                                            <div class="budget-option" data-budget="premium">
+                                                <h5>Premium</h5>
+                                                <small>$5,000 - $10,000</small>
+                                            </div>
+                                            <div class="budget-option" data-budget="luxury">
+                                                <h5>Luxury</h5>
+                                                <small>$10,000+</small>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="budget" name="budget" required>
+                                    </div>
+
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn btn-secondary-custom" id="next-step-1">
+                                            Next <i class="fas fa-arrow-right ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Contact Information -->
+                                <div class="form-step" id="step-2">
+                                    <h3 class="mb-4 text-center">Your Contact Information</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group-quote">
+                                                <label class="form-label-quote" for="full-name">Full Name *</label>
+                                                <input type="text" class="form-control-quote" id="full-name"
+                                                    name="full-name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group-quote">
+                                                <label class="form-label-quote" for="phone">Phone Number *</label>
+                                                <input type="tel" class="form-control-quote" id="phone" name="phone"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group-quote">
+                                                <label class="form-label-quote" for="email">Email Address *</label>
+                                                <input type="email" class="form-control-quote" id="email" name="email"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group-quote">
+                                                <label class="form-label-quote"
+                                                    for="company">Company/Organization</label>
+                                                <input type="text" class="form-control-quote" id="company"
+                                                    name="company">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-quote">
+                                        <label class="form-label-quote" for="address">Event Address (if
+                                            different)</label>
+                                        <textarea class="form-control-quote" id="address" name="address" rows="2"
+                                            placeholder="If you need catering at a different location"></textarea>
+                                    </div>
+
+                                    <div class="form-group-quote">
+                                        <label class="form-label-quote" for="requirements">Special Requirements</label>
+                                        <textarea class="form-control-quote" id="requirements" name="requirements"
+                                            rows="4"
+                                            placeholder="Any specific requirements, dietary restrictions, theme preferences, etc."></textarea>
+                                    </div>
+
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn btn-secondary-custom" id="prev-step-2">
+                                            <i class="fas fa-arrow-left me-2"></i> Back
+                                        </button>
+                                        <button type="button" class="btn btn-primary-custom" id="next-step-2">
+                                            Next <i class="fas fa-arrow-right ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Review & Submit -->
+                                <div class="form-step" id="step-3">
+                                    <h3 class="mb-4 text-center">Review Your Quote Request</h3>
+
+                                    <div class="quote-summary">
+                                        <div class="summary-item">
+                                            <span class="summary-label">Event Type:</span>
+                                            <span class="summary-value" id="summary-event-type">Not selected</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Event Date:</span>
+                                            <span class="summary-value" id="summary-event-date">Not selected</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Preferred Time:</span>
+                                            <span class="summary-value" id="summary-event-time">Not selected</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Number of Guests:</span>
+                                            <span class="summary-value" id="summary-guests">50</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Budget Range:</span>
+                                            <span class="summary-value" id="summary-budget">Not selected</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Contact Name:</span>
+                                            <span class="summary-value" id="summary-name">Not provided</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Contact Email:</span>
+                                            <span class="summary-value" id="summary-email">Not provided</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Contact Phone:</span>
+                                            <span class="summary-value" id="summary-phone">Not provided</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group-quote">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                I agree to the <a href="#" class="text-secondary">terms and
+                                                    conditions</a>
+                                                and understand that this is a quote request, not a confirmed booking.
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn btn-secondary-custom" id="prev-step-3">
+                                            <i class="fas fa-arrow-left me-2"></i> Back
+                                        </button>
+                                        <button type="submit" class="btn btn-primary-custom">
+                                            Submit Quote Request <i class="fas fa-paper-plane ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Success Message (hidden by default) -->
+                                <div class="form-step" id="step-success">
+                                    <div class="success-message">
+                                        <div class="success-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <h3 class="mb-3">Quote Request Submitted!</h3>
+                                        <p class="mb-4">Thank you for your interest in Ambrosia Restaurant. Our event
+                                            specialist will contact you within 24 hours with a personalized quote.</p>
+                                        <div class="d-flex justify-content-center flex-wrap gap-3">
+                                            <a href="index.html" class="btn btn-primary-custom">
+                                                <i class="fas fa-home me-2"></i> Back to Home
+                                            </a>
+                                            <a href="services.html" class="btn btn-secondary-custom">
+                                                <i class="fas fa-external-link-alt me-2"></i> View Services
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/quote.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

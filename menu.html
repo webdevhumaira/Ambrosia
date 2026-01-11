@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Menu | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/menu.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!-- Floating Reserve Now Button -->
+        <button id="floating-reserve">
+            <i class="fas fa-calendar-check me-2"></i> Reserve Now
+        </button>
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Item added to favorites!</span>
+            </div>
+        </div>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             ORDER SUMMARY MODAL                                             -->
+        <div class="modal fade" id="orderModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Order</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="order-items">
+                            <p class="text-center">No items in your order yet</p>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+                            <h5>Total:</h5>
+                            <h5 id="order-total">$0.00</h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary-custom" data-bs-dismiss="modal">Continue
+                            Browsing</button>
+                        <button type="button" class="btn btn-primary-custom" id="confirm-order">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              QUICK NAVIGATION                                               -->
+        <div class="menu-quick-nav" id="menu-quick-nav">
+            <a href="#starters" class="quick-nav-item">Starters</a>
+            <a href="#main-course" class="quick-nav-item">Main Course</a>
+            <a href="#seafood" class="quick-nav-item">Seafood</a>
+            <a href="#grills" class="quick-nav-item">Grills & BBQ</a>
+            <a href="#pasta" class="quick-nav-item">Pasta & Risotto</a>
+            <a href="#desserts" class="quick-nav-item">Desserts</a>
+            <a href="#drinks" class="quick-nav-item">Drinks</a>
+            <a href="#wine" class="quick-nav-item">Wine List</a>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="menu-hero">
+
+            <div class="menu-hero-content">
+                <h1>Our Complete Menu</h1>
+                <p class="lead" style="font-size: 1.2rem;">Explore our divine culinary creations</p>
+                <div class="mt-4">
+                    <a href="#starters" class="btn btn-primary-custom me-3">
+                        <i class="fas fa-utensils me-2"></i> Start Exploring
+                    </a>
+                    <a href="index.html#reservation" class="btn btn-secondary-custom">
+                        <i class="fas fa-calendar-check me-2"></i> Reserve Table
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            MENU SEARCH & FILTER                                             -->
+        <section class="py-4" style="background: var(--dark-light);">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+                        <div class="menu-search">
+                            <div class="input-group">
+                                <span class="input-group-text" style="background: rgba(255,255,255,0.1); border: none;">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                                <input type="text" class="search-input" id="menu-page-search"
+                                    placeholder="Search dishes, ingredients, or categories...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="veg">Vegetarian</button>
+                            <button class="filter-btn" data-filter="spicy">Spicy</button>
+                            <button class="filter-btn" data-filter="chef">Chef's Pick</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                               MENU CATEGORIES                                               -->
+        <div id="menu-content">
+
+            <!-- Starters -->
+            <section id="starters" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-utensils me-3"></i>Starters & Appetizers
+                        </h2>
+                        <p class="mb-0">Perfect beginnings to your culinary journey</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="menu-item-highlight d-flex bg-dark-light rounded p-3">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                        alt="Truffle Arancini" class="rounded"
+                                        style="width: 120px; height: 120px; object-fit: cover;">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="mb-1">Truffle Arancini</h4>
+                                            <div class="menu-dietary">
+                                                <span class="dietary-tag veg">Vegetarian</span>
+                                                <span class="dietary-tag new">New</span>
+                                            </div>
+                                        </div>
+                                        <div class="menu-price">$16.99</div>
+                                    </div>
+                                    <p class="mb-2">Crispy risotto balls filled with black truffle and mozzarella,
+                                        served
+                                        with truffle aioli</p>
+                                    <div class="calories">320 calories | Serves 1-2</div>
+                                    <button class="menu-order-btn">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="menu-item-highlight d-flex bg-dark-light rounded p-3">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                        alt="Burrata Salad" class="rounded"
+                                        style="width: 120px; height: 120px; object-fit: cover;">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="mb-1">Burrata Caprese</h4>
+                                            <div class="menu-dietary">
+                                                <span class="dietary-tag veg">Vegetarian</span>
+                                                <span class="dietary-tag gluten-free">Gluten Free</span>
+                                            </div>
+                                        </div>
+                                        <div class="menu-price">$18.99</div>
+                                    </div>
+                                    <p class="mb-2">Fresh burrata with heirloom tomatoes, basil pesto, and balsamic
+                                        reduction</p>
+                                    <div class="calories">280 calories | Serves 1</div>
+                                    <button class="menu-order-btn">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="menu-item-highlight d-flex bg-dark-light rounded p-3">
+                                <div class="flex-shrink-0 position-relative">
+                                    <div class="popular-badge">🔥 Popular</div>
+                                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                        alt="Spicy Tuna Tartare" class="rounded"
+                                        style="width: 120px; height: 120px; object-fit: cover;">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="mb-1">Spicy Tuna Tartare</h4>
+                                            <div class="menu-dietary">
+                                                <span class="dietary-tag spicy">Spicy</span>
+                                                <span class="dietary-tag chef">Chef's Pick</span>
+                                            </div>
+                                        </div>
+                                        <div class="menu-price">$24.99</div>
+                                    </div>
+                                    <p class="mb-2">Fresh tuna with avocado, chili, lime, and crispy wontons</p>
+                                    <div class="calories">240 calories | Serves 1</div>
+                                    <button class="menu-order-btn">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="menu-item-highlight d-flex bg-dark-light rounded p-3">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                        alt="Crab Cakes" class="rounded"
+                                        style="width: 120px; height: 120px; object-fit: cover;">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="mb-1">Maryland Crab Cakes</h4>
+                                            <div class="menu-dietary">
+                                                <span class="dietary-tag gluten-free">Gluten Free</span>
+                                            </div>
+                                        </div>
+                                        <div class="menu-price">$22.99</div>
+                                    </div>
+                                    <p class="mb-2">Jumbo lump crab cakes with lemon aioli and microgreens</p>
+                                    <div class="calories">320 calories | Serves 1-2</div>
+                                    <button class="menu-order-btn">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Course -->
+            <section id="main-course" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-drumstick-bite me-3"></i>Main Course
+                        </h2>
+                        <p class="mb-0">Hearty and flavorful main dishes</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card menu-card h-100">
+                                <div class="position-relative">
+                                    <div class="popular-badge">⭐ Signature</div>
+                                    <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        class="card-img-top" alt="Wagyu Beef Steak"
+                                        style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title">A5 Wagyu Beef Steak</h5>
+                                        <div class="menu-price">$89.99</div>
+                                    </div>
+                                    <div class="menu-dietary mb-2">
+                                        <span class="dietary-tag spicy">Spicy Option</span>
+                                    </div>
+                                    <p class="card-text">Premium Japanese A5 Wagyu with truffle mashed potatoes and
+                                        seasonal
+                                        vegetables.</p>
+                                    <div class="calories mb-3">850 calories | Serves 1</div>
+                                    <button class="menu-order-btn w-100">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    class="card-img-top" alt="Lobster Thermidor"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title">Lobster Thermidor</h5>
+                                        <div class="menu-price">$65.99</div>
+                                    </div>
+                                    <div class="menu-dietary mb-2">
+                                        <span class="dietary-tag chef">Chef's Pick</span>
+                                    </div>
+                                    <p class="card-text">Fresh Maine lobster in creamy white wine sauce with gruyère
+                                        cheese
+                                        crust.</p>
+                                    <div class="calories mb-3">720 calories | Serves 1</div>
+                                    <button class="menu-order-btn w-100">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card menu-card h-100">
+                                <div class="position-relative">
+                                    <div class="popular-badge">🌿 Vegan</div>
+                                    <img src="https://images.unsplash.com/photo-1532634922-8fe0b757fb13?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        class="card-img-top" alt="Wild Mushroom Risotto"
+                                        style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title">Wild Mushroom Risotto</h5>
+                                        <div class="menu-price">$28.99</div>
+                                    </div>
+                                    <div class="menu-dietary mb-2">
+                                        <span class="dietary-tag veg">Vegetarian</span>
+                                        <span class="dietary-tag gluten-free">Gluten Free</span>
+                                    </div>
+                                    <p class="card-text">Arborio rice with wild mushrooms, truffle oil, and
+                                        Parmigiano-Reggiano.</p>
+                                    <div class="calories mb-3">480 calories | Serves 1</div>
+                                    <button class="menu-order-btn w-100">
+                                        <i class="fas fa-plus me-2"></i> Add to Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Seafood -->
+            <section id="seafood" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-fish me-3"></i>Fresh Seafood
+                        </h2>
+                        <p class="mb-0">Ocean's finest selection</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-center bg-dark-light rounded p-3">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                        alt="Grilled Salmon" class="rounded"
+                                        style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="mb-1">Grilled Salmon</h5>
+                                        <div class="menu-price">$32.99</div>
+                                    </div>
+                                    <p class="mb-1">Atlantic salmon with lemon butter sauce and asparagus</p>
+                                    <div class="calories">420 calories</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-center bg-dark-light rounded p-3">
+                                <div class="flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                        alt="Sea Bass" class="rounded"
+                                        style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="mb-1">Chilean Sea Bass</h5>
+                                        <div class="menu-price">$45.99</div>
+                                    </div>
+                                    <p class="mb-1">Pan-seared sea bass with saffron risotto</p>
+                                    <div class="calories">380 calories</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grills & BBQ -->
+            <section id="grills" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-fire me-3"></i>Grills & BBQ
+                        </h2>
+                        <p class="mb-0">Flame-kissed perfection</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 mb-4">
+                            <div class="text-center">
+                                <div class="menu-category-icon">
+                                    <i class="fas fa-drumstick-bite"></i>
+                                </div>
+                                <h4>Argentinian Ribeye</h4>
+                                <p class="menu-price">$52.99</p>
+                                <p>24oz ribeye with chimichurri sauce</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4">
+                            <div class="text-center">
+                                <div class="menu-category-icon">
+                                    <i class="fas fa-bacon"></i>
+                                </div>
+                                <h4>BBQ Pork Ribs</h4>
+                                <p class="menu-price">$38.99</p>
+                                <p>Fall-off-the-bone pork ribs</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4">
+                            <div class="text-center">
+                                <div class="menu-category-icon">
+                                    <i class="fas fa-hamburger"></i>
+                                </div>
+                                <h4>Signature Burger</h4>
+                                <p class="menu-price">$24.99</p>
+                                <p>Wagyu beef burger with truffle fries</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pasta & Risotto -->
+            <section id="pasta" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-pastafarianism me-3"></i>Pasta & Risotto
+                        </h2>
+                        <p class="mb-0">Italian classics with a twist</p>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Dish</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Add</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Truffle Fettuccine</strong></td>
+                                    <td>Fresh pasta with black truffle cream sauce</td>
+                                    <td class="menu-price">$26.99</td>
+                                    <td><button class="menu-order-btn btn-sm">+</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lobster Ravioli</strong></td>
+                                    <td>Homemade ravioli with lobster filling</td>
+                                    <td class="menu-price">$34.99</td>
+                                    <td><button class="menu-order-btn btn-sm">+</button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Seafood Risotto</strong></td>
+                                    <td>Arborio rice with mixed seafood</td>
+                                    <td class="menu-price">$32.99</td>
+                                    <td><button class="menu-order-btn btn-sm">+</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desserts -->
+            <section id="desserts" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-ice-cream me-3"></i>Decadent Desserts
+                        </h2>
+                        <p class="mb-0">Sweet endings to your meal</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    class="card-img-top" alt="Chocolate Soufflé"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chocolate Soufflé</h5>
+                                    <div class="menu-dietary mb-2">
+                                        <span class="dietary-tag veg">Vegetarian</span>
+                                    </div>
+                                    <p class="card-text">Decadent chocolate soufflé with vanilla bean ice cream</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="menu-price">$18.99</div>
+                                        <button class="menu-order-btn">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    class="card-img-top" alt="Tiramisu" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Classic Tiramisu</h5>
+                                    <div class="menu-dietary mb-2">
+                                        <span class="dietary-tag veg">Vegetarian</span>
+                                    </div>
+                                    <p class="card-text">Traditional Italian tiramisu with espresso and mascarpone</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="menu-price">$14.99</div>
+                                        <button class="menu-order-btn">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    class="card-img-top" alt="Crème Brûlée" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Vanilla Crème Brûlée</h5>
+                                    <div class="menu-dietary mb-2">
+                                        <span class="dietary-tag veg">Vegetarian</span>
+                                        <span class="dietary-tag gluten-free">Gluten Free</span>
+                                    </div>
+                                    <p class="card-text">Classic vanilla bean crème brûlée with caramelized sugar top
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="menu-price">$16.99</div>
+                                        <button class="menu-order-btn">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drinks -->
+            <section id="drinks" class="menu-section">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-cocktail me-3"></i>Crafted Drinks
+                        </h2>
+                        <p class="mb-0">Refreshing beverages and cocktails</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-4">Signature Cocktails</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h6>Ambrosia Old Fashioned</h6>
+                                    <div class="menu-price">$18.99</div>
+                                </div>
+                                <p class="small mb-2">Bourbon, demerara syrup, angostura bitters</p>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h6>Tropical Sunset</h6>
+                                    <div class="menu-price">$16.99</div>
+                                </div>
+                                <p class="small mb-2">Rum, pineapple juice, coconut cream, grenadine</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h4 class="mb-4">Mocktails & Fresh Juices</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h6>Berry Bliss</h6>
+                                    <div class="menu-price">$12.99</div>
+                                </div>
+                                <p class="small mb-2">Mixed berries, mint, lime, soda</p>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <h6>Green Detox</h6>
+                                    <div class="menu-price">$10.99</div>
+                                </div>
+                                <p class="small mb-2">Kale, cucumber, apple, ginger, lemon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wine List -->
+            <section id="wine" class="menu-section" style="padding-bottom: 100px;">
+                <div class="container">
+                    <div class="category-badge">
+                        <h2 class="category-title">
+                            <i class="fas fa-wine-glass-alt me-3"></i>Curated Wine List
+                        </h2>
+                        <p class="mb-0">Selection of fine wines from around the world</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <h4 class="mb-4">Red Wines</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div>
+                                        <h6 class="mb-0">Cabernet Sauvignon, Napa Valley</h6>
+                                        <small class="text-muted">2018, Robert Mondavi</small>
+                                    </div>
+                                    <div class="menu-price">$89.99</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div>
+                                        <h6 class="mb-0">Pinot Noir, Burgundy</h6>
+                                        <small class="text-muted">2019, Domaine de la Romance</small>
+                                    </div>
+                                    <div class="menu-price">$120.99</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <h4 class="mb-4">White Wines</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div>
+                                        <h6 class="mb-0">Chardonnay, Sonoma Coast</h6>
+                                        <small class="text-muted">2020, Kistler Vineyards</small>
+                                    </div>
+                                    <div class="menu-price">$75.99</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div>
+                                        <h6 class="mb-0">Sauvignon Blanc, Marlborough</h6>
+                                        <small class="text-muted">2021, Cloudy Bay</small>
+                                    </div>
+                                    <div class="menu-price">$65.99</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/menu.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

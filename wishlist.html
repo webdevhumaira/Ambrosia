@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Wishlist | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/wishlist.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body class="wishlist-page">
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link active wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             TOAST NOTIFICATION                                              -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Item added to wishlist!</span>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="wishlist-hero">
+
+            <div class="wishlist-hero-content">
+                <h1>My Wishlist</h1>
+                <p class="lead" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Save your favorite dishes and plan your perfect dining experience
+                </p>
+
+                <div class="wishlist-stats">
+                    <div class="wishlist-stat">
+                        <span class="stat-number" id="totalItems">5</span>
+                        <span class="stat-label">Total Items</span>
+                    </div>
+                    <div class="wishlist-stat">
+                        <span class="stat-number" id="totalValue">$245.95</span>
+                        <span class="stat-label">Total Value</span>
+                    </div>
+                    <div class="wishlist-stat">
+                        <span class="stat-number" id="categories">4</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             WISHLIST CONTAINER                                              -->
+        <div class="wishlist-container">
+
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <div class="section-title text-center mb-4">
+                    <h3>Browse by Category</h3>
+                </div>
+
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">All Items</button>
+                    <button class="category-btn" data-category="starters">Starters</button>
+                    <button class="category-btn" data-category="main">Main Course</button>
+                    <button class="category-btn" data-category="desserts">Desserts</button>
+                    <button class="category-btn" data-category="drinks">Drinks</button>
+                    <button class="category-btn" data-category="special">Chef's Special</button>
+                </div>
+            </div>
+
+            <!-- Wishlist Actions -->
+            <div class="wishlist-actions">
+                <div class="wishlist-sort-filter">
+                    <div>
+                        <label class="form-label me-2">Sort by:</label>
+                        <select class="sort-select" id="sortBy">
+                            <option value="date">Recently Added</option>
+                            <option value="name">Name (A-Z)</option>
+                            <option value="price-low">Price (Low to High)</option>
+                            <option value="price-high">Price (High to Low)</option>
+                            <option value="category">Category</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-label me-2">Filter:</label>
+                        <select class="filter-select" id="filterBy">
+                            <option value="all">All Items</option>
+                            <option value="available">Available Now</option>
+                            <option value="veg">Vegetarian Only</option>
+                            <option value="spicy">Spicy Items</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn btn-primary-action" id="shareWishlistBtn">
+                        <i class="fas fa-share-alt"></i> Share Wishlist
+                    </button>
+                    <button class="action-btn btn-secondary-action" id="exportWishlistBtn">
+                        <i class="fas fa-download"></i> Export List
+                    </button>
+                    <button class="action-btn btn-danger-action" id="clearWishlistBtn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wishlist Items -->
+            <div class="wishlist-items-container">
+                <div id="wishlistItems">
+                    <!-- Wishlist items will be loaded here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyWishlist" class="empty-wishlist" style="display: none;">
+                    <div class="empty-wishlist-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="mb-3">Your Wishlist is Empty</h3>
+                    <p class="mb-4">Start adding your favorite dishes from our menu!</p>
+                    <a href="menu.html" class="btn btn-primary-custom">
+                        <i class="fas fa-utensils me-2"></i> Browse Menu
+                    </a>
+                </div>
+            </div>
+
+            <!-- Recommendations Section -->
+            <div class="recommendations-section mt-5">
+                <div class="section-title text-center mb-4">
+                    <h3>You Might Also Like</h3>
+                    <p class="mt-2">Based on your wishlist items</p>
+                </div>
+
+                <div class="row" id="recommendations">
+                    <!-- Recommendations will be loaded here -->
+                </div>
+            </div>
+
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                 SHARE MODAL                                                 -->
+        <div class="modal fade" id="shareModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Share Your Wishlist</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="share-options">
+                            <div class="share-option whatsapp" id="shareWhatsApp">
+                                <div class="share-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h6>WhatsApp</h6>
+                                    <small>Share via WhatsApp</small>
+                                </div>
+                            </div>
+
+                            <div class="share-option email" id="shareEmail">
+                                <div class="share-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h6>Email</h6>
+                                    <small>Send via email</small>
+                                </div>
+                            </div>
+
+                            <div class="share-option copy" id="copyLink">
+                                <div class="share-icon">
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                                <div>
+                                    <h6>Copy Link</h6>
+                                    <small>Copy to clipboard</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="form-label mb-2">Share Link:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="shareableLink"
+                                    value="https://ambrosia.com/wishlist/share/abc123" readonly>
+                                <button class="btn btn-primary-custom" id="copyLinkBtn">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                EXPORT MODAL                                                 -->
+        <div class="modal fade" id="exportModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Export Wishlist</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-4">
+                            <p>Choose a format to export your wishlist:</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <button class="action-btn btn-primary-action w-100" id="exportPDF">
+                                    <i class="fas fa-file-pdf me-2"></i> PDF
+                                </button>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <button class="action-btn btn-secondary-action w-100" id="exportCSV">
+                                    <i class="fas fa-file-csv me-2"></i> CSV
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="includeImages">
+                            <label class="form-check-label" for="includeImages">
+                                Include item images in export
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includePrices" checked>
+                            <label class="form-check-label" for="includePrices">
+                                Include prices in export
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/wishlist.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

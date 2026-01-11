@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>About Us | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/about.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body class="about-page">
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              COMMON HTML CODES                                              -->
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Scroll to Top Button -->
+    <div id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div id="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal fade" id="wishlistModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Your Wishlist</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="wishlist-items">
+                        <!-- Wishlist items will be loaded here -->
+                        <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="toast-content">
+            <i class="fas fa-check-circle me-2"></i>
+            <span id="toast-message">Welcome to our story!</span>
+        </div>
+    </div>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                    HERO                                                     -->
+    <section class="about-hero">
+
+        <div class="about-hero-content">
+            <h1>Our Story</h1>
+            <p class="lead" style="font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
+                A journey of passion, flavor, and culinary excellence since 2010
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-number" data-count="14">0</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-label">Thousand+ Happy Customers</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number" data-count="120">0</span>
+                    <span class="stat-label">Unique Dishes</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number" data-count="18">0</span>
+                    <span class="stat-label">Awards & Recognitions</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                  TIMELINE                                                   -->
+    <section class="timeline-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Our Journey</h2>
+                <p class="mt-3">The story of Ambrosia through the years</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h3>The Beginning</h3>
+                        <p>Ambrosia opened its doors in a small 20-seater space in Chittagong. Founded by Chef Sebastian
+                            Rossi with a vision to bring European culinary excellence to Bangladesh.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: var(--secondary); color: var(--dark);">First
+                                Location</span>
+                            <span class="badge"
+                                style="background: var(--accent); color: var(--dark); margin-left: 10px;">20
+                                Seats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2012</div>
+                    <div class="timeline-content">
+                        <h3>First Recognition</h3>
+                        <p>Received "Best New Restaurant" award from Bangladesh Food Critics Association. Expanded to
+                            include outdoor seating and introduced our signature tasting menu.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: var(--secondary); color: var(--dark);">First
+                                Award</span>
+                            <span class="badge"
+                                style="background: var(--accent); color: var(--dark); margin-left: 10px;">Menu
+                                Expansion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3>Major Expansion</h3>
+                        <p>Moved to our current premium location in Agrabad. Tripled seating capacity and introduced our
+                            Chef's Table experience. Featured in Food & Wine Magazine.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: var(--secondary); color: var(--dark);">New
+                                Location</span>
+                            <span class="badge"
+                                style="background: var(--accent); color: var(--dark); margin-left: 10px;">National
+                                Feature</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>Michelin Recognition</h3>
+                        <p>Featured in Michelin Guide as "Recommended Restaurant". Chef Rossi received "Chef of the
+                            Year" award. Launched our farm-to-table initiative with local organic farmers.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: var(--secondary); color: var(--dark);">Michelin
+                                Guide</span>
+                            <span class="badge"
+                                style="background: var(--accent); color: var(--dark); margin-left: 10px;">Sustainability</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Present Day</h3>
+                        <p>Now a landmark dining destination with 150+ seating capacity. Multiple awards including "Best
+                            Fine Dining" and "Service Excellence". Continual innovation in fusion cuisine.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: var(--secondary); color: var(--dark);">150+
+                                Seats</span>
+                            <span class="badge"
+                                style="background: var(--accent); color: var(--dark); margin-left: 10px;">Award
+                                Winning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                    TEAM                                                     -->
+    <section class="team-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Meet Our Family</h2>
+                <p class="mt-3">The passionate team behind Ambrosia's success</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member fade-in">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Chef Sebastian Rossi">
+                        </div>
+                        <div class="member-info">
+                            <h4>Sebastian Rossi</h4>
+                            <p class="text-secondary">Executive Chef & Founder</p>
+                            <p>25+ years of culinary experience. Trained in Michelin-starred restaurants across Europe.
+                            </p>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member fade-in">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Chef Aisha Khan">
+                        </div>
+                        <div class="member-info">
+                            <h4>Aisha Khan</h4>
+                            <p class="text-secondary">Head Chef - Asian Fusion</p>
+                            <p>Master of blending traditional Bangladeshi flavors with modern techniques. 15+ years
+                                experience.</p>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member fade-in">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Chef Carlos Mendez">
+                        </div>
+                        <div class="member-info">
+                            <h4>Carlos Mendez</h4>
+                            <p class="text-secondary">Pastry Chef</p>
+                            <p>Former head pastry chef at Le Cordon Bleu, Paris. Specializes in French patisserie.</p>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member fade-in">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                alt="Manager Sarah Johnson">
+                        </div>
+                        <div class="member-info">
+                            <h4>Sarah Johnson</h4>
+                            <p class="text-secondary">Restaurant Manager</p>
+                            <p>Hospitality management graduate with 10+ years in luxury restaurant management.</p>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                 OUR VALUES                                                  -->
+    <section class="values-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Our Core Values</h2>
+                <p class="mt-3">The principles that guide everything we do</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card fade-in">
+                        <div class="value-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Sustainability</h4>
+                        <p>We source 90% of our ingredients locally from sustainable farms. Our kitchen follows
+                            zero-waste principles.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i> Locally sourced produce</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Zero-waste kitchen</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Eco-friendly packaging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card fade-in">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Passion</h4>
+                        <p>Every dish is prepared with love and attention to detail. Our team is passionate about
+                            creating memorable experiences.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i> Handcrafted dishes</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Attention to detail</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Personalized service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card fade-in">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Excellence</h4>
+                        <p>We strive for perfection in every aspect, from ingredient selection to presentation and
+                            service.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i> Premium ingredients</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Impeccable service</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Continuous improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   AWARDS                                                    -->
+    <section class="awards-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Awards & Recognition</h2>
+                <p class="mt-3">Our commitment to excellence has been recognized globally</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="award-item fade-in">
+                        <div class="award-icon">🏆</div>
+                        <h5>Michelin Guide</h5>
+                        <p>Featured 2018-2024</p>
+                        <small class="text-muted">Recommended Restaurant</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="award-item fade-in">
+                        <div class="award-icon">⭐</div>
+                        <h5>TripAdvisor</h5>
+                        <p>Travelers' Choice 2023</p>
+                        <small class="text-muted">Top 1% Worldwide</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="award-item fade-in">
+                        <div class="award-icon">👑</div>
+                        <h5>Food Critics Award</h5>
+                        <p>Best Fine Dining 2022</p>
+                        <small class="text-muted">Bangladesh Food Critics</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="award-item fade-in">
+                        <div class="award-icon">📰</div>
+                        <h5>Featured In</h5>
+                        <p>Food & Wine Magazine</p>
+                        <small class="text-muted">"Must-Visit Restaurant"</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                TESTIMONIALS                                                 -->
+    <section class="testimonial-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>What Our Guests Say</h2>
+                <p class="mt-3">Hear from those who have experienced Ambrosia</p>
+            </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                "The most incredible dining experience of my life. The Wagyu steak was perfection, and
+                                the service was impeccable. Ambrosia truly lives up to its name - divine!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                        alt="Michael Chen">
+                                </div>
+                                <div>
+                                    <h5>Michael Chen</h5>
+                                    <p class="mb-0">Food Critic, Gourmet Magazine</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                "Celebrated our 25th anniversary at Ambrosia, and it was magical. The staff went above
+                                and beyond to make it special. The chocolate soufflé was divine!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                        alt="Sarah Johnson">
+                                </div>
+                                <div>
+                                    <h5>Sarah Johnson</h5>
+                                    <p class="mb-0">Regular Guest since 2015</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                "As a chef myself, I'm always critical of other restaurants. Ambrosia blew me away. The
+                                creativity, execution, and attention to detail is world-class."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                                        alt="David Park">
+                                </div>
+                                <div>
+                                    <h5>David Park</h5>
+                                    <p class="mb-0">Executive Chef, Seoul</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   GALLERY                                                   -->
+    <section class="gallery-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Behind the Scenes</h2>
+                <p class="mt-3">A glimpse into the Ambrosia experience</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Restaurant Interior">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h5 class="text-white mb-1">Elegant Dining Room</h5>
+                            <small class="text-light">Our main dining area</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Kitchen">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h5 class="text-white mb-1">Professional Kitchen</h5>
+                            <small class="text-light">Where magic happens</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1559314809-2b99056a8c4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Dessert Counter">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h5 class="text-white mb-1">Dessert Station</h5>
+                            <small class="text-light">Freshly made pastries</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Private Dining">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h5 class="text-white mb-1">Private Room</h5>
+                            <small class="text-light">For special occasions</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   CONTACT                                                   -->
+    <section class="contact-section">
+
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Visit Us</h2>
+                <p class="mt-3">Experience Ambrosia for yourself</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h3 class="mb-4">Get in Touch</h3>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Address</h5>
+                                <p>123 Gourmet Street, Agrabad Commercial Area<br>Chattogram 4100, Bangladesh</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+880 1234 567890<br>+880 1234 567891 (Reservations)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>info@ambrosia.com<br>reservations@ambrosia.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5>Hours</h5>
+                                <p>Monday - Thursday: 11 AM - 10 PM<br>Friday - Sunday: 11 AM - 11 PM</p>
+                            </div>
+                        </div>
+
+                        <a href="reservation.html" class="btn btn-primary-custom w-100 mt-4">
+                            <i class="fas fa-calendar-check me-2"></i> Book a Table
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="map-container mt-4 mt-lg-0"
+                        style="height: 100%; min-height: 400px; border-radius: 15px; overflow: hidden;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.869258343431!2d91.79980917598832!3d22.358606979581784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a64095dfd3%3A0x5015cc5bcb6905d9!2sChattogram%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1689942142342!5m2!1sen!2sus"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!----------------------------------------------------------------------------------------------------------------->
+    
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/about.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+</body>
+
+</html>

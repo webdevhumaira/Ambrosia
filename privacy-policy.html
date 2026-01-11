@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Privacy Policy | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/privacy-policy.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            BREADCRUMB NAVIGATION                                            -->
+        <div class="breadcrumb-nav">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Privacy Policy</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="policy-hero">
+            <div class="policy-hero-content">
+                <h1>Privacy Policy</h1>
+                <p class="lead" style="color: var(--secondary);">
+                    Your privacy is important to us at Ambrosia Restaurant
+                </p>
+            </div>
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            PRIVACY POLICY CONTENT                                           -->
+        <section class="policy-content">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="policy-container">
+                            <!-- Table of Contents -->
+                            <div class="toc-container">
+                                <h3><i class="fas fa-list me-2"></i> Table of Contents</h3>
+                                <ul class="toc-list">
+                                    <li><a href="#introduction">1. Introduction</a></li>
+                                    <li><a href="#information-we-collect">2. Information We Collect</a></li>
+                                    <li><a href="#how-we-use-information">3. How We Use Your Information</a></li>
+                                    <li><a href="#information-sharing">4. Information Sharing</a></li>
+                                    <li><a href="#data-security">5. Data Security</a></li>
+                                    <li><a href="#your-rights">6. Your Rights</a></li>
+                                    <li><a href="#cookies">7. Cookies</a></li>
+                                    <li><a href="#third-party-links">8. Third-Party Links</a></li>
+                                    <li><a href="#policy-updates">9. Policy Updates</a></li>
+                                    <li><a href="#contact-us">10. Contact Us</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Privacy Policy Sections -->
+                            <div class="policy-section" id="introduction">
+                                <h2>1. Introduction</h2>
+                                <p>Welcome to Ambrosia Restaurant ("we," "our," or "us"). We are committed to protecting
+                                    your personal information and your right to privacy. If you have any questions or
+                                    concerns about this privacy policy, or our practices with regards to your personal
+                                    information, please contact us at <a href="mailto:privacy@ambrosia.com"
+                                        class="text-secondary">privacy@ambrosia.com</a>.</p>
+                                <p>This Privacy Policy applies to all information collected through our website
+                                    (www.ambrosia.com), mobile application, and any related services, sales, marketing,
+                                    or
+                                    events (we refer to them collectively in this Privacy Policy as the "Services").</p>
+                            </div>
+
+                            <div class="policy-section" id="information-we-collect">
+                                <h2>2. Information We Collect</h2>
+                                <h3>Personal Information</h3>
+                                <p>We collect personal information that you voluntarily provide to us when you register
+                                    on
+                                    the Services, express an interest in obtaining information about us or our products
+                                    and
+                                    services, when you participate in activities on the Services, or otherwise when you
+                                    contact us.</p>
+                                <p>The personal information that we collect depends on the context of your interactions
+                                    with
+                                    us and the Services, the choices you make, and the products and features you use.
+                                    The
+                                    personal information we collect may include the following:</p>
+                                <ul>
+                                    <li>Name and contact data (email address, phone number)</li>
+                                    <li>Demographic information (age, gender)</li>
+                                    <li>Payment information (credit card details, billing address)</li>
+                                    <li>Reservation and dining preferences</li>
+                                    <li>Feedback and survey responses</li>
+                                </ul>
+
+                                <h3>Automatically Collected Information</h3>
+                                <p>We automatically collect certain information when you visit, use, or navigate the
+                                    Services. This information does not reveal your specific identity but may include
+                                    device
+                                    and usage information, such as your IP address, browser and device characteristics,
+                                    operating system, language preferences, referring URLs, device name, country,
+                                    location,
+                                    and other technical information.</p>
+                            </div>
+
+                            <div class="policy-section" id="how-we-use-information">
+                                <h2>3. How We Use Your Information</h2>
+                                <p>We use personal information collected via our Services for a variety of business
+                                    purposes
+                                    described below. We process your personal information for these purposes in reliance
+                                    on
+                                    our legitimate business interests, in order to enter into or perform a contract with
+                                    you, with your consent, and/or for compliance with our legal obligations.</p>
+                                <ul>
+                                    <li><strong>To facilitate account creation and login process:</strong> If you choose
+                                        to
+                                        link your account with us to a third-party account, we use the information you
+                                        allowed us to collect from those third parties to facilitate account creation
+                                        and
+                                        login process.</li>
+                                    <li><strong>To send administrative information to you:</strong> We may use your
+                                        personal
+                                        information to send you product, service, and new feature information and/or
+                                        information about changes to our terms, conditions, and policies.</li>
+                                    <li><strong>To protect our Services:</strong> We may use your information as part of
+                                        our
+                                        efforts to keep our Services safe and secure (for example, for fraud monitoring
+                                        and
+                                        prevention).</li>
+                                    <li><strong>To enforce our terms, conditions, and policies:</strong> For business
+                                        purposes, to comply with legal and regulatory requirements, or in connection
+                                        with
+                                        our contract.</li>
+                                    <li><strong>To respond to legal requests and prevent harm:</strong> If we receive a
+                                        subpoena or other legal request, we may need to inspect the data we hold to
+                                        determine how to respond.</li>
+                                </ul>
+                            </div>
+
+                            <div class="policy-section" id="information-sharing">
+                                <h2>4. Information Sharing</h2>
+                                <p>We only share information with your consent, to comply with laws, to provide you with
+                                    services, to protect your rights, or to fulfill business obligations. We may process
+                                    or
+                                    share your data that we hold based on the following legal basis:</p>
+                                <ul>
+                                    <li><strong>Consent:</strong> We may process your data if you have given us specific
+                                        consent to use your personal information for a specific purpose.</li>
+                                    <li><strong>Legitimate Interests:</strong> We may process your data when it is
+                                        reasonably necessary to achieve our legitimate business interests.</li>
+                                    <li><strong>Performance of a Contract:</strong> Where we have entered into a
+                                        contract
+                                        with you, we may process your personal information to fulfill the terms of our
+                                        contract.</li>
+                                    <li><strong>Legal Obligations:</strong> We may disclose your information where we
+                                        are
+                                        legally required to do so in order to comply with applicable law, governmental
+                                        requests, a judicial proceeding, court order, or legal process.</li>
+                                </ul>
+                            </div>
+
+                            <div class="policy-section" id="data-security">
+                                <h2>5. Data Security</h2>
+                                <p>We have implemented appropriate technical and organizational security measures
+                                    designed
+                                    to protect the security of any personal information we process. However, despite our
+                                    safeguards and efforts to secure your information, no electronic transmission over
+                                    the
+                                    Internet or information storage technology can be guaranteed to be 100% secure, so
+                                    we
+                                    cannot promise or guarantee that hackers, cybercriminals, or other unauthorized
+                                    third
+                                    parties will not be able to defeat our security and improperly collect, access,
+                                    steal,
+                                    or modify your information.</p>
+                            </div>
+
+                            <div class="policy-section" id="your-rights">
+                                <h2>6. Your Rights</h2>
+                                <p>Depending on your location, you may have certain rights regarding your personal
+                                    information, such as:</p>
+                                <ul>
+                                    <li>The right to be informed about how your personal information is being used</li>
+                                    <li>The right to access the personal information we hold about you</li>
+                                    <li>The right to request the correction of inaccurate personal information</li>
+                                    <li>The right to request that we delete your data, or stop processing it or
+                                        collecting
+                                        it</li>
+                                    <li>The right to stop direct marketing messages</li>
+                                    <li>The right to withdraw consent for other consent-based processing</li>
+                                    <li>The right to complain to your data protection regulator</li>
+                                </ul>
+                                <p>To make such a request, please use the contact details provided below. We will
+                                    consider
+                                    and act upon any request in accordance with applicable data protection laws.</p>
+                            </div>
+
+                            <div class="policy-section" id="cookies">
+                                <h2>7. Cookies</h2>
+                                <p>We use cookies and similar tracking technologies to access or store information.
+                                    Specific
+                                    information about how we use such technologies and how you can refuse certain
+                                    cookies is
+                                    set out in our Cookie Policy.</p>
+                            </div>
+
+                            <div class="policy-section" id="third-party-links">
+                                <h2>8. Third-Party Links</h2>
+                                <p>Our Services may contain links to other websites, mobile applications, or services
+                                    that
+                                    are not owned or controlled by us. Please be aware that we are not responsible for
+                                    the
+                                    privacy practices of such other websites, mobile applications, or services. We
+                                    encourage
+                                    you to be aware when you leave our Services and to read the privacy statements of
+                                    each
+                                    and every website, mobile application, or service that collects personal
+                                    information.
+                                </p>
+                            </div>
+
+                            <div class="policy-section" id="policy-updates">
+                                <h2>9. Policy Updates</h2>
+                                <p>We may update this privacy policy from time to time. The updated version will be
+                                    indicated by an updated "Revised" date and the updated version will be effective as
+                                    soon
+                                    as it is accessible. If we make material changes to this privacy policy, we may
+                                    notify
+                                    you either by prominently posting a notice of such changes or by directly sending
+                                    you a
+                                    notification. We encourage you to review this privacy policy frequently to be
+                                    informed
+                                    of how we are protecting your information.</p>
+                            </div>
+
+                            <div class="policy-section" id="contact-us">
+                                <h2>10. Contact Us</h2>
+                                <p>If you have questions or comments about this policy, you may contact our Data
+                                    Protection
+                                    Officer (DPO) at:</p>
+                                <p>
+                                    <strong>Email:</strong> <a href="mailto:privacy@ambrosia.com"
+                                        class="text-secondary">privacy@ambrosia.com</a><br>
+                                    <strong>Phone:</strong> +880 1234 567890<br>
+                                    <strong>Address:</strong> 123 Gourmet Street, Agrabad Commercial Area, Chattogram
+                                    4100,
+                                    Bangladesh
+                                </p>
+                            </div>
+
+                            <div class="last-updated">
+                                <p><i class="fas fa-clock me-2"></i> Last Updated: January 8, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/privacy-policy.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

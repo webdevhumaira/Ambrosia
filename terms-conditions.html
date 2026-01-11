@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Terms & Conditions | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/terms-conditions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            BREADCRUMB NAVIGATION                                            -->
+        <div class="breadcrumb-nav">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Terms & Conditions</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="policy-hero">
+            <div class="policy-hero-content">
+                <h1>Terms & Conditions</h1>
+                <p class="lead" style="color: var(--secondary);">
+                    Please read these terms carefully before using our services
+                </p>
+            </div>
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                         TERMS & CONDITIONS CONTENT                                          -->
+        <section class="policy-content">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="policy-container">
+                            <!-- Table of Contents -->
+                            <div class="toc-container">
+                                <h3><i class="fas fa-list me-2"></i> Table of Contents</h3>
+                                <ul class="toc-list">
+                                    <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                                    <li><a href="#reservations">2. Reservations & Bookings</a></li>
+                                    <li><a href="#cancellations">3. Cancellations & Refunds</a></li>
+                                    <li><a href="#conduct">4. Guest Conduct</a></li>
+                                    <li><a href="#food-allergies">5. Food Allergies & Dietary Requirements</a></li>
+                                    <li><a href="#payment">6. Payment Terms</a></li>
+                                    <li><a href="#liability">7. Liability & Disclaimer</a></li>
+                                    <li><a href="#intellectual">8. Intellectual Property</a></li>
+                                    <li><a href="#modifications">9. Modifications to Terms</a></li>
+                                    <li><a href="#governing-law">10. Governing Law</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Terms & Conditions Sections -->
+                            <div class="policy-section" id="acceptance">
+                                <h2>1. Acceptance of Terms</h2>
+                                <p>By accessing or using Ambrosia Restaurant's website, mobile application, or any of
+                                    our
+                                    services, including but not limited to making reservations, purchasing gift cards,
+                                    or
+                                    attending events, you acknowledge that you have read, understood, and agree to be
+                                    bound
+                                    by these Terms and Conditions.</p>
+                                <p>If you do not agree to these Terms, you must not use our services. We reserve the
+                                    right
+                                    to modify these Terms at any time, and such modifications shall be effective
+                                    immediately
+                                    upon posting. Your continued use of our services after any such changes constitutes
+                                    your
+                                    acceptance of the new Terms.</p>
+                            </div>
+
+                            <div class="policy-section" id="reservations">
+                                <h2>2. Reservations & Bookings</h2>
+                                <h3>2.1 Reservation Policy</h3>
+                                <p>All reservations are subject to availability. We recommend making reservations in
+                                    advance, especially during weekends and holidays. We reserve the right to refuse
+                                    service
+                                    to anyone for any reason at any time.</p>
+
+                                <h3>2.2 Reservation Confirmation</h3>
+                                <p>Reservations are considered confirmed only when you receive a confirmation email or
+                                    SMS
+                                    from us. If you do not receive a confirmation within 2 hours of making a
+                                    reservation,
+                                    please contact us at <a href="mailto:reservations@ambrosia.com"
+                                        class="text-secondary">reservations@ambrosia.com</a> or call +880 1234 567890.
+                                </p>
+
+                                <h3>2.3 Late Arrivals</h3>
+                                <p>We hold tables for 15 minutes past the reservation time. After this period, we
+                                    reserve
+                                    the right to release the table to waiting guests. Late arrivals may be accommodated
+                                    based on availability.</p>
+
+                                <h3>2.4 Group Bookings</h3>
+                                <p>For parties of 8 or more guests, we require a deposit of 25% of the estimated bill at
+                                    the
+                                    time of booking. This deposit is non-refundable for cancellations made less than 48
+                                    hours before the reservation time.</p>
+                            </div>
+
+                            <div class="policy-section" id="cancellations">
+                                <h2>3. Cancellations & Refunds</h2>
+                                <h3>3.1 Cancellation Policy</h3>
+                                <ul>
+                                    <li>Cancellations made 24 hours or more before the reservation time: Full refund of
+                                        any
+                                        deposit</li>
+                                    <li>Cancellations made less than 24 hours before the reservation time: Deposit will
+                                        be
+                                        forfeited</li>
+                                    <li>No-shows: Full charge for the reserved table will be applied to the credit card
+                                        on
+                                        file</li>
+                                </ul>
+
+                                <h3>3.2 Event Cancellations</h3>
+                                <p>For private events and function bookings, the following cancellation charges apply:
+                                </p>
+                                <ul>
+                                    <li>More than 30 days before the event: 10% of the estimated cost</li>
+                                    <li>15-30 days before the event: 30% of the estimated cost</li>
+                                    <li>7-14 days before the event: 50% of the estimated cost</li>
+                                    <li>Less than 7 days before the event: 100% of the estimated cost</li>
+                                </ul>
+                            </div>
+
+                            <div class="policy-section" id="conduct">
+                                <h2>4. Guest Conduct</h2>
+                                <p>We strive to provide a pleasant dining experience for all our guests. Therefore, we
+                                    request that all guests adhere to the following:</p>
+                                <ul>
+                                    <li>Appropriate attire is required. We reserve the right to refuse entry to guests
+                                        wearing beachwear, sportswear, or clothing with offensive language or images.
+                                    </li>
+                                    <li>Smoking is prohibited in all indoor areas. Designated smoking areas are
+                                        available
+                                        outside.</li>
+                                    <li>We do not allow outside food or beverages, except for celebration cakes for
+                                        which a
+                                        cake-cutting fee may apply.</li>
+                                    <li>Children must be supervised by adults at all times.</li>
+                                    <li>Any guest behaving in a disruptive, disrespectful, or unsafe manner may be asked
+                                        to
+                                        leave without refund.</li>
+                                </ul>
+                            </div>
+
+                            <div class="policy-section" id="food-allergies">
+                                <h2>5. Food Allergies & Dietary Requirements</h2>
+                                <p>While we make every effort to accommodate dietary requirements and allergies, we
+                                    cannot
+                                    guarantee that our food is completely free from allergens. Our kitchen handles nuts,
+                                    dairy, gluten, seafood, and other common allergens.</p>
+                                <p>It is the guest's responsibility to inform us of any allergies or dietary
+                                    restrictions at
+                                    the time of booking and again when ordering. We will do our best to accommodate
+                                    these
+                                    requests but cannot accept liability for any allergic reactions.</p>
+                            </div>
+
+                            <div class="policy-section" id="payment">
+                                <h2>6. Payment Terms</h2>
+                                <h3>6.1 Accepted Payment Methods</h3>
+                                <p>We accept the following payment methods:</p>
+                                <ul>
+                                    <li>Cash (Bangladeshi Taka)</li>
+                                    <li>Credit/Debit Cards (Visa, MasterCard, American Express)</li>
+                                    <li>Mobile Banking (bKash, Nagad, Rocket)</li>
+                                    <li>Ambrosia Gift Cards</li>
+                                </ul>
+
+                                <h3>6.2 Service Charge & Taxes</h3>
+                                <p>All prices are subject to:</p>
+                                <ul>
+                                    <li>10% service charge</li>
+                                    <li>15% VAT (Value Added Tax) as applicable</li>
+                                </ul>
+
+                                <h3>6.3 Split Bills</h3>
+                                <p>We are happy to split bills for up to 4 separate payments. For larger groups, please
+                                    inform us in advance if you require separate bills.</p>
+                            </div>
+
+                            <div class="policy-section" id="liability">
+                                <h2>7. Liability & Disclaimer</h2>
+                                <h3>7.1 Limitation of Liability</h3>
+                                <p>Ambrosia Restaurant shall not be liable for any direct, indirect, incidental,
+                                    special, or
+                                    consequential damages resulting from:</p>
+                                <ul>
+                                    <li>The use or inability to use our services</li>
+                                    <li>Unauthorized access to or alteration of your transmissions or data</li>
+                                    <li>Statements or conduct of any third party</li>
+                                    <li>Any other matter relating to our services</li>
+                                </ul>
+
+                                <h3>7.2 Property Damage</h3>
+                                <p>We are not responsible for any loss or damage to personal property brought into the
+                                    restaurant, including coats, bags, mobile devices, or other personal items.</p>
+
+                                <h3>7.3 Force Majeure</h3>
+                                <p>We shall not be liable for any failure to perform our obligations under these Terms
+                                    if
+                                    such failure results from circumstances beyond our reasonable control, including but
+                                    not
+                                    limited to acts of God, war, terrorism, strikes, lockouts, or government
+                                    regulations.
+                                </p>
+                            </div>
+
+                            <div class="policy-section" id="intellectual">
+                                <h2>8. Intellectual Property</h2>
+                                <p>All content included on our website and mobile application, such as text, graphics,
+                                    logos, images, audio clips, digital downloads, data compilations, and software, is
+                                    the
+                                    property of Ambrosia Restaurant or its content suppliers and protected by
+                                    international
+                                    copyright laws.</p>
+                                <p>The Ambrosia name, logo, and all related names, logos, product and service names,
+                                    designs, and slogans are trademarks of Ambrosia Restaurant. You must not use such
+                                    marks
+                                    without the prior written permission of Ambrosia Restaurant.</p>
+                            </div>
+
+                            <div class="policy-section" id="modifications">
+                                <h2>9. Modifications to Terms</h2>
+                                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any
+                                    time. If a revision is material, we will provide at least 30 days' notice prior to
+                                    any
+                                    new terms taking effect. What constitutes a material change will be determined at
+                                    our
+                                    sole discretion.</p>
+                                <p>By continuing to access or use our services after those revisions become effective,
+                                    you
+                                    agree to be bound by the revised terms. If you do not agree to the new terms, please
+                                    stop using our services.</p>
+                            </div>
+
+                            <div class="policy-section" id="governing-law">
+                                <h2>10. Governing Law</h2>
+                                <p>These Terms shall be governed and construed in accordance with the laws of
+                                    Bangladesh,
+                                    without regard to its conflict of law provisions.</p>
+                                <p>Any dispute arising out of or in connection with these Terms, including any question
+                                    regarding its existence, validity, or termination, shall be referred to and finally
+                                    resolved by arbitration in Chattogram, Bangladesh in accordance with the Arbitration
+                                    Act, 2001.</p>
+                            </div>
+
+                            <div class="last-updated">
+                                <p><i class="fas fa-clock me-2"></i> Last Updated: January 8, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/terms-conditions.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

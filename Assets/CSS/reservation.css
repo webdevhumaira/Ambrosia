@@ -1,0 +1,710 @@
+
+
+body.reservation-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark) 100%);
+}
+
+body.reservation-page.light-mode {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+.reservation-hero {
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+body.light-mode .reservation-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+}
+
+.reservation-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.reservation-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--secondary);
+    display: block;
+}
+
+body.light-mode .stat-number {
+    color: var(--light-secondary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Enhanced Reservation Form */
+.reservation-container {
+    max-width: 1200px;
+    margin: -50px auto 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.reservation-card {
+    background: var(--dark-light);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+body.light-mode .reservation-card {
+    background: var(--light-card);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-header {
+    padding: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    text-align: center;
+}
+
+body.light-mode .reservation-header {
+    background: linear-gradient(135deg, var(--light-primary), var(--light-secondary));
+}
+
+.reservation-progress {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.reservation-progress::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+body.light-mode .reservation-progress::before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.progress-step {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s;
+    color: white;
+    border: 3px solid transparent;
+}
+
+body.light-mode .progress-step {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--light-text);
+}
+
+.progress-step.active {
+    background: var(--secondary);
+    color: var(--dark);
+    border-color: var(--accent);
+    transform: scale(1.1);
+}
+
+body.light-mode .progress-step.active {
+    background: var(--light-secondary);
+    color: white;
+}
+
+.progress-step.completed {
+    background: #28a745;
+    color: white;
+}
+
+.progress-label {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: var(--light);
+}
+
+body.light-mode .progress-label {
+    color: var(--light-text);
+}
+
+/* Form Steps */
+.form-step {
+    padding: 40px;
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-title {
+    color: var(--secondary);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+body.light-mode .step-title {
+    color: var(--light-secondary);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--light);
+}
+
+body.light-mode .form-label {
+    color: var(--light-text);
+}
+
+.form-control-reservation {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--light);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+body.light-mode .form-control-reservation {
+    background: white;
+    border-color: var(--light-border);
+    color: var(--light-text);
+}
+
+.form-control-reservation:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(247, 178, 72, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.light-mode .form-control-reservation:focus {
+    border-color: var(--light-secondary);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+    background: white;
+}
+
+/* Time Slots */
+.time-slots-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.time-slot-btn {
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--light);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+body.light-mode .time-slot-btn {
+    background: white;
+    border-color: var(--light-border);
+    color: var(--light-text);
+}
+
+.time-slot-btn:hover {
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+body.light-mode .time-slot-btn:hover {
+    border-color: var(--light-secondary);
+}
+
+.time-slot-btn.selected {
+    background: var(--secondary);
+    color: var(--dark);
+    border-color: var(--secondary);
+}
+
+body.light-mode .time-slot-btn.selected {
+    background: var(--light-secondary);
+    color: white;
+}
+
+.time-slot-btn.booked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* Guest Selector */
+.guest-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.guest-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+    background: transparent;
+    color: var(--secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+body.light-mode .guest-btn {
+    border-color: var(--light-secondary);
+    color: var(--light-secondary);
+}
+
+.guest-btn:hover {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+body.light-mode .guest-btn:hover {
+    background: var(--light-secondary);
+    color: white;
+}
+
+.guest-display {
+    font-size: 2rem;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+    color: var(--secondary);
+}
+
+body.light-mode .guest-display {
+    color: var(--light-secondary);
+}
+
+/* Table Selection */
+.table-selection {
+    margin: 30px 0;
+}
+
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.table-item {
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+body.light-mode .table-item {
+    border-color: var(--light-border);
+}
+
+.table-item:hover {
+    border-color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+body.light-mode .table-item:hover {
+    border-color: var(--light-secondary);
+}
+
+.table-item.selected {
+    background: rgba(247, 178, 72, 0.1);
+    border-color: var(--secondary);
+}
+
+body.light-mode .table-item.selected {
+    background: rgba(230, 126, 34, 0.1);
+    border-color: var(--light-secondary);
+}
+
+.table-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--secondary);
+}
+
+body.light-mode .table-icon {
+    color: var(--light-secondary);
+}
+
+.table-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #28a745;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .form-actions {
+    border-top-color: var(--light-border);
+}
+
+.btn-reservation {
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-prev {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+body.light-mode .btn-prev {
+    border-color: var(--light-secondary);
+    color: var(--light-secondary);
+}
+
+.btn-prev:hover {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+body.light-mode .btn-prev:hover {
+    background: var(--light-secondary);
+    color: white;
+}
+
+.btn-next,
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+body.light-mode .btn-next,
+body.light-mode .btn-submit {
+    background: linear-gradient(135deg, var(--light-primary), var(--light-secondary));
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Reservation Summary */
+.reservation-summary {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px 0;
+    border-left: 5px solid var(--secondary);
+}
+
+body.light-mode .reservation-summary {
+    background: rgba(0, 0, 0, 0.05);
+    border-left-color: var(--light-secondary);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .summary-item {
+    border-bottom-color: var(--light-border);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Special Features */
+.feature-highlight {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+body.light-mode .feature-highlight {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(247, 178, 72, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--secondary);
+}
+
+body.light-mode .feature-icon {
+    background: rgba(230, 126, 34, 0.1);
+    color: var(--light-secondary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .reservation-hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .reservation-container {
+        margin: -30px auto 30px;
+    }
+
+    .form-step {
+        padding: 30px 20px;
+    }
+
+    .tables-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .reservation-hero {
+        height: 40vh;
+    }
+
+    .reservation-hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .reservation-progress {
+        margin: 30px 0;
+        padding: 0 10px;
+    }
+
+    .progress-step {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+
+    .progress-label {
+        font-size: 0.7rem;
+        top: 60px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-reservation {
+        width: 100%;
+    }
+
+    .time-slots-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .reservation-hero {
+        height: 35vh;
+    }
+
+    .reservation-hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .reservation-stats {
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .time-slots-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tables-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guest-selector {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Animation for form steps */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-step.active {
+    animation: slideIn 0.5s ease-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Light mode specific styles */
+body.reservation-page.light-mode {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+body.reservation-page.light-mode .reservation-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+}
+
+body.light-mode .reservation-card {
+    background: var(--light-card);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .reservation-header {
+    background: linear-gradient(135deg, var(--light-primary), var(--light-secondary));
+}
+
+/* Add these light mode overrides */
+body.light-mode .form-control-reservation {
+    background: white;
+    border-color: var(--light-border);
+    color: var(--light-text);
+}
+
+body.light-mode .form-control-reservation:focus {
+    background: white;
+    border-color: var(--light-secondary);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+}
+
+body.light-mode .time-slot-btn {
+    background: white;
+    border-color: var(--light-border);
+    color: var(--light-text);
+}
+
+body.light-mode .table-item {
+    border-color: var(--light-border);
+}
+
+body.light-mode .form-actions {
+    border-top-color: var(--light-border);
+}

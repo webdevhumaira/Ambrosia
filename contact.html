@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Contact Us | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/contact.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Message sent successfully!</span>
+            </div>
+        </div>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            CONTACT SUCCESS MODAL                                            -->
+        <div class="modal fade" id="contactSuccessModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Message Sent Successfully!</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Thank you for contacting us!</h4>
+                        <p>We have received your message and will get back to you within 24 hours.</p>
+                        <p class="mb-4">For urgent matters, please call us at +880 1234 567890</p>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary-custom" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                            BREADCRUMB NAVIGATION                                            -->
+        <div class="breadcrumb-nav">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section class="contact-hero">
+
+            <div class="hero-overlay"></div>
+            <div class="contact-hero-content">
+                <h1 class="tagline fade-in-up">Get In Touch</h1>
+                <p class="lead mb-4 fade-in-up text-delay-1">
+                    We're here to answer your questions and welcome your feedback
+                </p>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             QUICK CONTACT CARDS                                             -->
+        <section class="quick-contact-cards">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="quick-card fade-in">
+                            <div class="quick-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Visit Us</h4>
+                            <p>123 Gourmet Street, Agrabad Commercial Area</p>
+                            <p>Chattogram 4100, Bangladesh</p>
+                            <a href="#map" class="quick-link">Get Directions →</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="quick-card fade-in">
+                            <div class="quick-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h4>Call Us</h4>
+                            <p>+880 1234 567890</p>
+                            <p>+880 9876 543210</p>
+                            <a href="tel:+8801234567890" class="quick-link">Call Now →</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="quick-card fade-in">
+                            <div class="quick-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email Us</h4>
+                            <p>reservations@ambrosia.com</p>
+                            <p>info@ambrosia.com</p>
+                            <a href="#contact-form" class="quick-link">Send Email →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                   CONTACT                                                   -->
+        <section class="contact-section" id="contact-form">
+
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Contact Information -->
+                    <div class="col-lg-6">
+                        <div class="contact-card fade-in">
+                            <div class="section-title mb-4">
+                                <h2>Contact Information</h2>
+                                <p>Feel free to reach out to us through any of these channels</p>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Our Location</h4>
+                                    <p>123 Gourmet Street, Agrabad Commercial Area<br>
+                                        Chattogram 4100, Bangladesh</p>
+                                    <small class="text-muted">Free valet parking available</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Phone Numbers</h4>
+                                    <p>Reservations: +880 1234 567890<br>
+                                        General Inquiries: +880 9876 543210<br>
+                                        Events & Catering: +880 1928 374650</p>
+                                    <small class="text-muted">Mon-Sun: 9 AM - 11 PM</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email Addresses</h4>
+                                    <p>Reservations: reservations@ambrosia.com<br>
+                                        General: info@ambrosia.com<br>
+                                        Careers: careers@ambrosia.com<br>
+                                        Events: events@ambrosia.com</p>
+                                    <small class="text-muted">Response within 24 hours</small>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Opening Hours</h4>
+                                    <table class="hours-table">
+                                        <tr>
+                                            <td>Monday - Thursday</td>
+                                            <td>11:00 AM - 10:00 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Friday - Saturday</td>
+                                            <td>11:00 AM - 11:00 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sunday</td>
+                                            <td>11:00 AM - 10:00 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last Reservation</td>
+                                            <td>1 hour before closing</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4 class="mb-3">Connect With Us</h4>
+                                <div class="social-links">
+                                    <a href="https://www.facebook.com/ambrosiactgbd" class="social-link"
+                                        target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="social-link" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="social-link" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-link" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="social-link" target="_blank">
+                                        <i class="fab fa-tripadvisor"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="col-lg-6">
+                        <div class="contact-form-card fade-in">
+                            <div class="section-title mb-4">
+                                <h2>Send Us a Message</h2>
+                                <p>Have questions? We're here to help!</p>
+                            </div>
+
+                            <form id="contactForm" novalidate>
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Full Name *</label>
+                                    <input type="text" class="form-control-custom" id="name" name="name" required
+                                        placeholder="Enter your full name">
+                                    <div class="validation-message error" id="nameError"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email Address *</label>
+                                    <input type="email" class="form-control-custom" id="email" name="email" required
+                                        placeholder="Enter your email address">
+                                    <div class="validation-message error" id="emailError"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control-custom" id="phone" name="phone"
+                                        placeholder="Enter your phone number">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="subject">Subject *</label>
+                                    <select class="form-control-custom" id="subject" name="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="reservation">Reservation Inquiry</option>
+                                        <option value="feedback">Feedback & Review</option>
+                                        <option value="event">Event & Catering</option>
+                                        <option value="career">Career Opportunity</option>
+                                        <option value="partnership">Partnership</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="validation-message error" id="subjectError"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Message *</label>
+                                    <textarea class="form-control-custom" id="message" name="message" rows="6" required
+                                        placeholder="Type your message here..."></textarea>
+                                    <div class="validation-message error" id="messageError"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter"
+                                            name="newsletter">
+                                        <label class="form-check-label" for="newsletter" style="color: var(--light);">
+                                            Subscribe to our newsletter for updates and offers
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary-custom w-100 py-3">
+                                        <i class="fas fa-paper-plane me-2"></i> Send Message
+                                    </button>
+                                </div>
+
+                                <div class="mt-3 text-center">
+                                    <small class="text-muted">* Required fields</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                     MAP                                                     -->
+        <section class="map-section" id="map">
+
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Find Us on the Map</h2>
+                    <p>Located in the heart of Agrabad, Chattogram</p>
+                </div>
+
+                <div class="map-container fade-in">
+                    <!-- Google Maps Embed -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.869258343431!2d91.79980917598832!3d22.358606979581784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a64095dfd3%3A0x5015cc5bcb6905d9!2sChattogram%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1689942142342!5m2!1sen!2sus"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3 fade-in">
+                            <i class="fas fa-car text-secondary me-3" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <h5 class="mb-1">Parking Information</h5>
+                                <p class="mb-0">Complimentary valet parking available. Secure underground parking for
+                                    50+
+                                    vehicles.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3 fade-in">
+                            <i class="fas fa-wheelchair text-secondary me-3" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <h5 class="mb-1">Accessibility</h5>
+                                <p class="mb-0">Wheelchair accessible entrance, restrooms, and designated parking
+                                    available.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                     FAQ                                                     -->
+        <section class="contact-section" style="background: var(--dark);">
+
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to common questions</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="accordion" id="faqAccordion1">
+                            <div class="accordion-item fade-in">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq1">
+                                        What is the best way to make a reservation?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion1">
+                                    <div class="accordion-body">
+                                        You can make reservations through our website, by calling +880 1234 567890, or
+                                        via
+                                        WhatsApp. For same-day reservations, please call us directly.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item fade-in">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq2">
+                                        Do you accommodate dietary restrictions?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
+                                    <div class="accordion-body">
+                                        Yes, we accommodate various dietary restrictions including vegetarian, vegan,
+                                        gluten-free, and allergies. Please inform us in advance when making your
+                                        reservation.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item fade-in">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq3">
+                                        Is there a dress code?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
+                                    <div class="accordion-body">
+                                        We recommend smart casual attire. While formal wear is not required, we
+                                        appreciate
+                                        guests dressing appropriately for a fine dining experience.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="accordion" id="faqAccordion2">
+                            <div class="accordion-item fade-in">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq4">
+                                        Can I host private events at your restaurant?
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                                    <div class="accordion-body">
+                                        Absolutely! We have private dining rooms for 10-50 guests and offer customized
+                                        menus
+                                        for special events. Contact our events team at events@ambrosia.com.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item fade-in">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq5">
+                                        Do you offer gift cards?
+                                    </button>
+                                </h2>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                                    <div class="accordion-body">
+                                        Yes, we offer physical and digital gift cards in various denominations. They
+                                        make
+                                        perfect gifts for birthdays, anniversaries, or corporate gifting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item fade-in">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq6">
+                                        What is your cancellation policy?
+                                    </button>
+                                </h2>
+                                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                                    <div class="accordion-body">
+                                        We require 24 hours notice for cancellations. For large groups (8+), 48 hours
+                                        notice
+                                        is required. Late cancellations may incur a fee.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/contact.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

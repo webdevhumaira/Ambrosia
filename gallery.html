@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Images/Logo.png" type="image/x-icon">
+    <title>Photo Gallery | Ambrosia Restaurant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Lightbox for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/gallery.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="Assets/CSS/responsive.css">
+
+</head>
+
+<body>
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                                   HEADER                                                    -->
+    <header>
+
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                    <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="nav-search-container">
+                                <button class="nav-search-btn" id="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="nav-search-box" id="nav-search-box">
+                                    <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                    <button class="search-close"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Wishlist Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                                <i class="fas fa-heart"></i>
+                                <span class="wishlist-count">0</span>
+                            </a>
+                        </li>
+                        <!-- User Icon -->
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="log_in.html" class="nav-link log_in-icon" title="User">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </li>
+                        <!-- Theme Toggle -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="theme-toggle" id="theme-toggle" title="Theme Toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+    <main>
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                              COMMON HTML CODES                                              -->
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress"></div>
+
+        <!-- Scroll to Top Button -->
+        <div id="scroll-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- Floating WhatsApp Button -->
+        <div id="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: var(--dark-light); color: var(--light);">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Your Wishlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="wishlist-items">
+                            <!-- Wishlist items will be loaded here -->
+                            <p class="text-center" id="empty-wishlist">Your wishlist is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <div class="toast-content">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toast-message">Image added to favorites!</span>
+            </div>
+        </div>
+
+        
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                               IMAGE INFO MODAL                                              -->
+        <div class="modal fade" id="imageInfoModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Image Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img id="modal-image" src="" class="img-fluid rounded" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <h4 id="modal-title" class="mb-3"></h4>
+                                <p id="modal-description" class="mb-4"></p>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="fas fa-calendar me-2"></i>
+                                        <span id="modal-date"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-camera me-2"></i>
+                                        <span id="modal-camera"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-user me-2"></i>
+                                        <span id="modal-photographer"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-heart me-2"></i>
+                                        <span id="modal-likes"></span>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <button class="btn btn-primary-custom me-2" id="modal-download">
+                                        <i class="fas fa-download me-2"></i> Download
+                                    </button>
+                                    <button class="btn btn-secondary-custom" id="modal-share">
+                                        <i class="fas fa-share-alt me-2"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                    HERO                                                     -->
+        <section id="gallery-hero" class="py-5">
+
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1 class="tagline fade-in-up">
+                        Visual <span class="text-accent">Journey</span>
+                    </h1>
+                    <p class="lead mb-4 fade-in-up text-delay-1">
+                        Explore the beauty of Ambrosia through our collection of curated photos
+                    </p>
+
+                    <!-- Gallery Stats -->
+                    <div class="gallery-stats fade-in-up text-delay-2">
+                        <div class="stat">
+                            <div class="stat-number">850+</div>
+                            <div class="stat-label">Photos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4.8K</div>
+                            <div class="stat-label">Instagram Likes</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2023</div>
+                            <div class="stat-label">Latest Update</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                   GALLERY                                                   -->
+        <section id="main-gallery" class="py-5">
+
+            <div class="container">
+                <!-- Gallery Controls -->
+                <div class="gallery-controls mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <!-- Gallery Filter -->
+                            <div class="gallery-filter">
+                                <button class="filter-btn active" data-filter="all">All Photos</button>
+                                <button class="filter-btn" data-filter="food">Food & Drinks</button>
+                                <button class="filter-btn" data-filter="interior">Restaurant Interior</button>
+                                <button class="filter-btn" data-filter="events">Events & Parties</button>
+                                <button class="filter-btn" data-filter="chefs">Chefs & Team</button>
+                                <button class="filter-btn" data-filter="awards">Awards & Recognition</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- View Options -->
+                            <div class="view-options">
+                                <span class="view-label me-3">View:</span>
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button class="view-btn" data-view="masonry">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="slideshow">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search and Sort -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="search-gallery" placeholder="Search photos by keyword...">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="sort-options">
+                                <select class="form-control-custom" id="sort-gallery">
+                                    <option value="newest">Newest First</option>
+                                    <option value="oldest">Oldest First</option>
+                                    <option value="popular">Most Popular</option>
+                                    <option value="az">A to Z</option>
+                                    <option value="za">Z to A</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-container" id="gallery-container">
+                    <div class="row" id="gallery-grid">
+                        <!-- Gallery items will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Masonry Layout (Hidden by default) -->
+                <div class="masonry-container" id="masonry-container" style="display: none;">
+                    <div class="masonry-grid" id="masonry-grid">
+                        <!-- Masonry items will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Slideshow (Hidden by default) -->
+                <div class="slideshow-container" id="slideshow-container" style="display: none;">
+                    <div class="slideshow" id="slideshow">
+                        <!-- Slides will be loaded dynamically -->
+                    </div>
+                    <div class="slideshow-controls">
+                        <button class="slideshow-btn" id="prev-slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="slide-counter">
+                            <span id="current-slide">1</span> / <span id="total-slides">20</span>
+                        </div>
+                        <button class="slideshow-btn" id="next-slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <button class="slideshow-btn" id="play-pause">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-5">
+                    <button class="btn btn-primary-custom" id="load-more">
+                        <i class="fas fa-plus me-2"></i> Load More Photos
+                    </button>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             GALLERY CATEGORIES                                              -->
+        <section id="gallery-categories" class="py-5 bg-dark-light">
+
+            <div class="container">
+                <div class="section-title">
+                    <h2>Browse by Category</h2>
+                    <p class="mt-3">Explore our curated photo collections</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="food">
+                            <div class="category-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>Food & Drinks</h4>
+                            <p class="mb-0">250+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="interior">
+                            <div class="category-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4>Restaurant Interior</h4>
+                            <p class="mb-0">180+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="events">
+                            <div class="category-icon">
+                                <i class="fas fa-glass-cheers"></i>
+                            </div>
+                            <h4>Events & Parties</h4>
+                            <p class="mb-0">150+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="chefs">
+                            <div class="category-icon">
+                                <i class="fas fa-user-chef"></i>
+                            </div>
+                            <h4>Chefs & Team</h4>
+                            <p class="mb-0">120+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="awards">
+                            <div class="category-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4>Awards & Recognition</h4>
+                            <p class="mb-0">80+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="ingredients">
+                            <div class="category-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4>Fresh Ingredients</h4>
+                            <p class="mb-0">90+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="customers">
+                            <div class="category-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Happy Customers</h4>
+                            <p class="mb-0">200+ photos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="category-card" data-category="behind">
+                            <div class="category-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h4>Behind the Scenes</h4>
+                            <p class="mb-0">70+ photos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                               INSTAGRAM FEED                                                -->
+        <section id="instagram-feed" class="py-5">
+
+            <div class="container">
+                <div class="section-title">
+                    <h2>Instagram Feed</h2>
+                    <p class="mt-3">Follow us <a href="https://instagram.com/ambrosia_restaurant" target="_blank"
+                            class="text-accent">@ambrosia_restaurant</a> for daily updates</p>
+                </div>
+
+                <div class="row" id="instagram-grid">
+                    <!-- Instagram posts will be loaded dynamically -->
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="https://instagram.com/ambrosia_restaurant" target="_blank" class="btn btn-instagram">
+                        <i class="fab fa-instagram me-2"></i> Follow on Instagram
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                                VIDEO GALLERY                                                -->
+        <section id="video-gallery" class="py-5 bg-dark-light">
+
+            <div class="container">
+                <div class="section-title">
+                    <h2>Video Gallery</h2>
+                    <p class="mt-3">Watch our restaurant come to life</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <div class="main-video">
+                            <div class="video-container">
+                                <video id="main-video" controls poster="Assets/Images/Gallery-2.jpg">
+                                    <source
+                                        src="https://assets.mixkit.co/videos/preview/mixkit-gourmet-dish-3272-large.mp4"
+                                        type="video/mp4">
+                                </video>
+                                <div class="video-overlay">
+                                    <button class="play-btn" id="play-main-video">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h4>Ambrosia Restaurant Tour</h4>
+                                <p>Take a virtual tour of our restaurant and see what makes Ambrosia special</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="video-playlist">
+                            <h5 class="mb-3">More Videos</h5>
+                            <div class="playlist">
+                                <div class="playlist-item active"
+                                    data-video="https://assets.mixkit.co/videos/preview/mixkit-gourmet-dish-3272-large.mp4">
+                                    <div class="playlist-thumbnail">
+                                        <img src="Assets/Images/Gallery-2.jpg" alt="Restaurant Tour">
+                                        <div class="play-icon">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-info">
+                                        <h6>Restaurant Tour</h6>
+                                        <span>4:32</span>
+                                    </div>
+                                </div>
+                                <div class="playlist-item"
+                                    data-video="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-a-dish-33316-large.mp4">
+                                    <div class="playlist-thumbnail">
+                                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                            alt="Chef Cooking">
+                                        <div class="play-icon">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-info">
+                                        <h6>Chef Cooking</h6>
+                                        <span>2:15</span>
+                                    </div>
+                                </div>
+                                <div class="playlist-item"
+                                    data-video="https://assets.mixkit.co/videos/preview/mixkit-wine-tasting-in-a-restaurant-33348-large.mp4">
+                                    <div class="playlist-thumbnail">
+                                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                            alt="Wine Tasting">
+                                        <div class="play-icon">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-info">
+                                        <h6>Wine Tasting Event</h6>
+                                        <span>3:45</span>
+                                    </div>
+                                </div>
+                                <div class="playlist-item"
+                                    data-video="https://assets.mixkit.co/videos/preview/mixkit-happy-woman-talking-about-a-product-4785-large.mp4">
+                                    <div class="playlist-thumbnail">
+                                        <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                            alt="Customer Review">
+                                        <div class="play-icon">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-info">
+                                        <h6>Customer Experience</h6>
+                                        <span>1:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!--                                             PHOTO OF THE MONTH                                              -->
+        <section id="photo-month" class="py-5">
+
+            <div class="container">
+                <div class="section-title">
+                    <h2>Photo of the Month</h2>
+                    <p class="mt-3">Our most loved photo this month</p>
+                </div>
+
+                <div class="featured-photo">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <div class="photo-container">
+                                <img src="Assets/Images/Gallery-7.jpg" class="featured-img" alt="Photo of the Month">
+                                <div class="photo-badge">
+                                    <i class="fas fa-crown"></i> Winner
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="photo-details">
+                                <h3 class="mb-3">"Golden Hour at Ambrosia"</h3>
+                                <p class="mb-4">This stunning photo captures the beautiful evening light filtering
+                                    through
+                                    our restaurant windows, creating a magical atmosphere for our guests.</p>
+
+                                <div class="photo-stats mb-4">
+                                    <div class="stat">
+                                        <div class="stat-number">1,245</div>
+                                        <div class="stat-label">Likes</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-number">86</div>
+                                        <div class="stat-label">Comments</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-number">324</div>
+                                        <div class="stat-label">Shares</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-number">Dec 2023</div>
+                                        <div class="stat-label">Month</div>
+                                    </div>
+                                </div>
+
+                                <div class="photographer-info mb-4">
+                                    <div class="photographer-avatar">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                            alt="Photographer">
+                                    </div>
+                                    <div class="photographer-details">
+                                        <h5 class="mb-1">Sarah Johnson</h5>
+                                        <p class="mb-0">Professional Food Photographer</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-3">
+                                    <button class="btn btn-primary-custom">
+                                        <i class="fas fa-heart me-2"></i> Like Photo
+                                    </button>
+                                    <button class="btn btn-secondary-custom" id="download-featured">
+                                        <i class="fas fa-download me-2"></i> Download HD
+                                    </button>
+                                    <button class="btn btn-outline-custom" id="share-featured">
+                                        <i class="fas fa-share-alt me-2"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!----------------------------------------------------------------------------------------------------------------->
+
+
+    </main>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--                                                  FOOTER                                                    -->
+    <footer class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                        </a>
+                    </div>
+                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                        hospitality.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservation</a></li>
+                            <li><a href="#about">Our Story</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="quote.html">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Your email address">
+                            <button class="btn btn-primary-custom w-100">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+            </div>
+        </div>
+
+    </footer>
+    <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!--                                              ALL SCRIPTS HERE                                               -->
+    <!-- Bootstrap & jQuery JS -->
+    <script src="Assets/JS/jquery-3.7.1.min.js"></script>
+    <script src="Assets/JS/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Assets/JS/common.js"></script>
+    <script src="Assets/JS/main.js"></script>
+    <script src="Assets/JS/gallery.js"></script>
+    <!----------------------------------------------------------------------------------------------------------------->
+
+
+</body>
+
+</html>

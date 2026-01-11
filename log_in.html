@@ -20,38 +20,10 @@
 
 </head>
 
-<body class="login-page">
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
+<!----------------------------------------------------------------------------------------------------------------->
+<!--                                                   HEADER                                                    -->
+<header>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress"></div>
-
-    <!-- Scroll to Top Button -->
-    <div id="scroll-top">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-
-    <!-- Logout Button -->
-    <button class="logout-btn" id="logoutBtn">
-        <i class="fas fa-sign-out-alt"></i>
-    </button>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast-notification">
-        <div class="toast-content">
-            <i class="fas fa-check-circle me-2"></i>
-            <span id="toast-message">Login successful!</span>
-        </div>
-    </div>
-
-    <!-- Sticky Navigation -->
     <nav id="main-nav" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -73,13 +45,48 @@
                         <a class="nav-link" href="reservation.html">Reservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">Our Story</a>
+                        <a class="nav-link" href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="log_in.html">My Account</a>
+                        <a class="nav-link" href="services.html">Services</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <!-- Search Icon -->
                     <li class="nav-item d-flex align-items-center">
-                        <button class="theme-toggle" id="theme-toggle">
+                        <div class="nav-search-container">
+                            <button class="nav-search-btn" id="nav-search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div class="nav-search-box" id="nav-search-box">
+                                <input type="text" placeholder="Search menu, dishes..." id="global-search">
+                                <button class="search-close"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Wishlist Icon -->
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="wishlist.html" class="nav-link wishlist-icon" title="Wishlist">
+                            <i class="fas fa-heart"></i>
+                            <span class="wishlist-count">0</span>
+                        </a>
+                    </li>
+                    <!-- User Icon -->
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="log_in.html" class="nav-link active log_in-icon" title="User">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                    </li>
+                    <!-- Theme Toggle -->
+                    <li class="nav-item d-flex align-items-center">
+                        <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
                             <i class="fas fa-moon"></i>
                         </button>
                     </li>
@@ -87,6 +94,32 @@
             </div>
         </div>
     </nav>
+
+
+</header>
+<!----------------------------------------------------------------------------------------------------------------->
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--           MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN                 MAIN              -->
+
+
+<main>
+
+
+    <!-- Logout Button -->
+    <button class="logout-btn" id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i>
+    </button>
+
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="toast-content">
+            <i class="fas fa-check-circle me-2"></i>
+            <span id="toast-message">Login successful!</span>
+        </div>
+    </div>
 
     <!-- Login Hero Section -->
     <section class="login-hero">
@@ -436,72 +469,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="footer-logo">
-                        <a href="index.html">
-                            <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
-                            <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
-                        </a>
-                    </div>
-                    <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
-                        hospitality.</p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fa-solid fa-g"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="footer-links">
-                        <h5>Quick Links</h5>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="menu.html">Menu</a></li>
-                            <li><a href="reservation.html">Reservation</a></li>
-                            <li><a href="index.html#about">Our Story</a></li>
-                            <li><a href="log_in.html">My Account</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-links">
-                        <h5>Opening Hours</h5>
-                        <ul>
-                            <li>Monday - Thursday: 11 AM - 10 PM</li>
-                            <li>Friday - Saturday: 11 AM - 11 PM</li>
-                            <li>Sunday: 12 PM - 10 PM</li>
-                        </ul>
-                        <p class="mt-3"><strong>For Reservations:</strong> +880 1234 567890</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 mb-4">
-                    <div class="footer-links">
-                        <h5>Member Support</h5>
-                        <p>Need help with your account?</p>
-                        <p><strong>Email:</strong> members@ambrosia.com</p>
-                        <p><strong>Hours:</strong> 9 AM - 9 PM Daily</p>
-                        <a href="mailto:members@ambrosia.com" class="btn btn-secondary-custom w-100 mt-3">
-                            <i class="fas fa-envelope me-2"></i> Contact Support
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
-                    by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
-            </div>
-        </div>
-    </footer>
-
     <!-- Forgot Password Modal -->
     <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -528,13 +495,90 @@
         </div>
     </div>
 
-    <!-- Bootstrap & jQuery JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="Assets/JS/common.js"></script>
-    <script src="Assets/JS/main.js"></script>
-    <script src="Assets/JS/log_in.js"></script>
+</main>
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+<!--                                                  FOOTER                                                    -->
+<footer class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
+                        <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
+                    </a>
+                </div>
+                <p class="mb-4">Experience divine flavors through our premium culinary creations and exceptional
+                    hospitality.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/ambrosiactgbd"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fa-solid fa-g"></i></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#reservation">Reservation</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <div class="footer-links">
+                    <h5>Information</h5>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="quote.html">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="footer-links">
+                    <h5>Newsletter</h5>
+                    <p class="mb-3">Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn btn-primary-custom w-100">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Ambrosia. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i>
+                by <a target="_blank" href="https://www.linkedin.com/in/humairaafroja/">Humaira Afroja</a></p>
+        </div>
+    </div>
+
+</footer>
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+<!-- Bootstrap & jQuery JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="Assets/JS/common.js"></script>
+<script src="Assets/JS/main.js"></script>
+<script src="Assets/JS/log_in.js"></script>
 </body>
 
 </html>

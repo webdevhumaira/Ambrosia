@@ -1969,12 +1969,12 @@ body.light-mode .countdown-number {
     border-radius: 10px;
     transition: all 0.3s;
     height: 100%;
-    box-shadow: rgba(228, 202, 34, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(236, 201, 152, 0.4) 0px 2px 4px, rgba(200, 174, 78, 0.3) 0px 7px 13px -3px, rgba(207, 146, 33, 0.2) 0px -3px 0px inset;
 }
 
 body.light-mode .award-card {
     background: var(--light-card);
-    box-shadow: rgba(228, 202, 34, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(236, 201, 152, 0.4) 0px 2px 4px, rgba(200, 174, 78, 0.3) 0px 7px 13px -3px, rgba(207, 146, 33, 0.2) 0px -3px 0px inset;
 }
 
 .award-card:hover {
@@ -2056,7 +2056,7 @@ body.light-mode .award-card {
     border-radius: 10px;
     transition: all 0.3s;
     height: 100%;
-    box-shadow: rgba(228, 202, 34, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(236, 201, 152, 0.4) 0px 2px 4px, rgba(200, 174, 78, 0.3) 0px 7px 13px -3px, rgba(207, 146, 33, 0.2) 0px -3px 0px inset;
 }
 
 body.light-mode .sustainability-card {

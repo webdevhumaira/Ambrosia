@@ -625,7 +625,7 @@ body.light-mode .logo-light {
     background:
         linear-gradient(rgba(0, 0, 0, 0.65),
             rgba(0, 0, 0, 0.65)),
-        url("../Images/img_bg_2.jpg");
+        url("/Assets/Images/img_bg_2.jpg");
 
     background-size: cover;
     background-position: center;

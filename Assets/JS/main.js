@@ -192,7 +192,7 @@ $(document).ready(function () {
     initCustomCursor();
 
     // Initialize menu
-    loadMenuItems();
+    // loadMenuItems();
 
     // Initialize gallery
     loadGallery();
@@ -629,158 +629,158 @@ function initCustomCursor() {
  * LOAD MENU ITEMS WITH ENHANCED FEATURES *
  ******************************************/
 
-function loadMenuItems() {
-    const menuContainer = $('#menu-items');
-    menuContainer.empty(); // Clear existing items
+// function loadMenuItems() {
+//     const menuContainer = $('#menu-items');
+//     menuContainer.empty(); // Clear existing items
 
-    menuItems.forEach(item => {
-        const categories = item.category.join(' ');
+//     menuItems.forEach(item => {
+//         const categories = item.category.join(' ');
 
-        // Chef's Special Ribbon
-        const chefBadge = item.badge ? `
-            <div class="chef-ribbon">
-                <div class="chef-ribbon-content">
-                    <i class="fas fa-star"></i> Chef's Pick
-                </div>
-            </div>
-        ` : '';
+//         // Chef's Special Ribbon
+//         const chefBadge = item.badge ? `
+//             <div class="chef-ribbon">
+//                 <div class="chef-ribbon-content">
+//                     <i class="fas fa-star"></i> Chef's Pick
+//                 </div>
+//             </div>
+//         ` : '';
 
-        // Chef recommendation tooltip
-        const tooltip = item.chefRecommendation ?
-            `<div class="chef-recommendation-tooltip">${item.chefRecommendation}</div>` : '';
+//         // Chef recommendation tooltip
+//         const tooltip = item.chefRecommendation ?
+//             `<div class="chef-recommendation-tooltip">${item.chefRecommendation}</div>` : '';
 
-        // Create spice level indicator
-        let spiceLevelHtml = '';
-        if (item.spiceLevel > 0) {
-            spiceLevelHtml = `
-                <div class="level-indicator-row">
-                    <span class="level-label">Spice:</span>
-                    <div class="spice-level">
-            `;
-            for (let i = 0; i < 5; i++) {
-                spiceLevelHtml += `<div class="spice-dot ${i < item.spiceLevel ? 'active' : ''}"></div>`;
-            }
-            spiceLevelHtml += `
-                        <span class="ms-2">${item.spiceLevel}/5</span>
-                    </div>
-                </div>
-            `;
-        }
+//         // Create spice level indicator
+//         let spiceLevelHtml = '';
+//         if (item.spiceLevel > 0) {
+//             spiceLevelHtml = `
+//                 <div class="level-indicator-row">
+//                     <span class="level-label">Spice:</span>
+//                     <div class="spice-level">
+//             `;
+//             for (let i = 0; i < 5; i++) {
+//                 spiceLevelHtml += `<div class="spice-dot ${i < item.spiceLevel ? 'active' : ''}"></div>`;
+//             }
+//             spiceLevelHtml += `
+//                         <span class="ms-2">${item.spiceLevel}/5</span>
+//                     </div>
+//                 </div>
+//             `;
+//         }
 
-        // Create sweet level indicator (NEW)
-        let sweetLevelHtml = '';
-        if (item.sweetLevel > 0) {
-            sweetLevelHtml = `
-                <div class="level-indicator-row">
-                    <span class="level-label">Sweet:</span>
-                    <div class="sweet-level">
-            `;
-            for (let i = 0; i < 5; i++) {
-                sweetLevelHtml += `<div class="sweet-dot ${i < item.sweetLevel ? 'active' : ''}"></div>`;
-            }
-            sweetLevelHtml += `
-                        <span class="ms-2">${item.sweetLevel}/5</span>
-                    </div>
-                </div>
-            `;
-        }
+//         // Create sweet level indicator (NEW)
+//         let sweetLevelHtml = '';
+//         if (item.sweetLevel > 0) {
+//             sweetLevelHtml = `
+//                 <div class="level-indicator-row">
+//                     <span class="level-label">Sweet:</span>
+//                     <div class="sweet-level">
+//             `;
+//             for (let i = 0; i < 5; i++) {
+//                 sweetLevelHtml += `<div class="sweet-dot ${i < item.sweetLevel ? 'active' : ''}"></div>`;
+//             }
+//             sweetLevelHtml += `
+//                         <span class="ms-2">${item.sweetLevel}/5</span>
+//                     </div>
+//                 </div>
+//             `;
+//         }
 
-        // Determine which icons to show
-        let cardIcons = '<div class="menu-card-icons">';
-        cardIcons += `<div class="fav-icon" data-id="${item.id}"><i class="far fa-heart"></i></div>`;
+//         // Determine which icons to show
+//         let cardIcons = '<div class="menu-card-icons">';
+//         cardIcons += `<div class="fav-icon" data-id="${item.id}"><i class="far fa-heart"></i></div>`;
 
-        if (item.spiceLevel > 0) {
-            cardIcons += `<div class="spice-icon" title="Spice Level: ${item.spiceLevel}/5"><i class="fas fa-pepper-hot"></i></div>`;
-        }
+//         if (item.spiceLevel > 0) {
+//             cardIcons += `<div class="spice-icon" title="Spice Level: ${item.spiceLevel}/5"><i class="fas fa-pepper-hot"></i></div>`;
+//         }
 
-        if (item.sweetLevel > 0) {
-            cardIcons += `<div class="sweet-icon" title="Sweet Level: ${item.sweetLevel}/5"><i class="fas fa-candy-cane"></i>`;
-            cardIcons += `<div class="sweet-tooltip">Sweetness: ${item.sweetLevel}/5</div></div>`;
-        }
+//         if (item.sweetLevel > 0) {
+//             cardIcons += `<div class="sweet-icon" title="Sweet Level: ${item.sweetLevel}/5"><i class="fas fa-candy-cane"></i>`;
+//             cardIcons += `<div class="sweet-tooltip">Sweetness: ${item.sweetLevel}/5</div></div>`;
+//         }
 
-        cardIcons += '</div>';
+//         cardIcons += '</div>';
 
-        // Alternative: Combined level display
-        const combinedLevels = `
-            ${item.spiceLevel > 0 || item.sweetLevel > 0 ? `
-                <div class="combined-level">
-                    ${item.spiceLevel > 0 ? `
-                        <div class="level-container">
-                            <span class="level-name">🌶️ Spicy:</span>
-                            <span class="level-value spicy">${item.spiceLevel}/5</span>
-                        </div>
-                    ` : ''}
-                    ${item.sweetLevel > 0 ? `
-                        <div class="level-container">
-                            <span class="level-name">🍭 Sweet:</span>
-                            <span class="level-value sweet">${item.sweetLevel}/5</span>
-                        </div>
-                    ` : ''}
-                </div>
-            ` : ''}
-        `;
+//         // Alternative: Combined level display
+//         const combinedLevels = `
+//             ${item.spiceLevel > 0 || item.sweetLevel > 0 ? `
+//                 <div class="combined-level">
+//                     ${item.spiceLevel > 0 ? `
+//                         <div class="level-container">
+//                             <span class="level-name">🌶️ Spicy:</span>
+//                             <span class="level-value spicy">${item.spiceLevel}/5</span>
+//                         </div>
+//                     ` : ''}
+//                     ${item.sweetLevel > 0 ? `
+//                         <div class="level-container">
+//                             <span class="level-name">🍭 Sweet:</span>
+//                             <span class="level-value sweet">${item.sweetLevel}/5</span>
+//                         </div>
+//                     ` : ''}
+//                 </div>
+//             ` : ''}
+//         `;
 
-        const menuItem = `
-            <div class="col-lg-3 col-md-6 menu-card" data-category="${categories}" data-spice="${item.spiceLevel}" data-sweet="${item.sweetLevel}">
-                ${chefBadge}
-                ${tooltip}
-                ${cardIcons}
-                <div class="menu-img-container">
-                    <img src="${item.image}" class="menu-img" alt="${item.name}">
-                </div>
-                <div class="menu-content">
-                    <div class="menu-title">
-                        <h4>${item.name}</h4>
-                        <span class="price">${item.price}</span>
-                    </div>
-                    <p>${item.description}</p>
+//         const menuItem = `
+//             <div class="col-lg-3 col-md-6 menu-card" data-category="${categories}" data-spice="${item.spiceLevel}" data-sweet="${item.sweetLevel}">
+//                 ${chefBadge}
+//                 ${tooltip}
+//                 ${cardIcons}
+//                 <div class="menu-img-container">
+//                     <img src="${item.image}" class="menu-img" alt="${item.name}">
+//                 </div>
+//                 <div class="menu-content">
+//                     <div class="menu-title">
+//                         <h4>${item.name}</h4>
+//                         <span class="price">${item.price}</span>
+//                     </div>
+//                     <p>${item.description}</p>
                     
-                    <!-- Option 1: Separate spice/sweet indicators -->
-                    ${spiceLevelHtml || sweetLevelHtml ? `
-                        <div class="level-indicators">
-                            ${spiceLevelHtml}
-                            ${sweetLevelHtml}
-                        </div>
-                    ` : ''}
+//                     <!-- Option 1: Separate spice/sweet indicators -->
+//                     ${spiceLevelHtml || sweetLevelHtml ? `
+//                         <div class="level-indicators">
+//                             ${spiceLevelHtml}
+//                             ${sweetLevelHtml}
+//                         </div>
+//                     ` : ''}
                     
-                    <!-- Option 2: Combined level display (choose one) -->
-                    <!-- ${combinedLevels} -->
-                </div>
-            </div>
-        `;
+//                     <!-- Option 2: Combined level display (choose one) -->
+//                     <!-- ${combinedLevels} -->
+//                 </div>
+//             </div>
+//         `;
 
-        menuContainer.append(menuItem);
-    });
+//         menuContainer.append(menuItem);
+//     });
 
-    // Add event listeners to favorite icons
-    $('.fav-icon').click(function () {
-        const icon = $(this).find('i');
-        const itemId = $(this).data('id');
+//     // Add event listeners to favorite icons
+//     $('.fav-icon').click(function () {
+//         const icon = $(this).find('i');
+//         const itemId = $(this).data('id');
 
-        if ($(this).hasClass('active')) {
-            icon.removeClass('fas fa-heart').addClass('far fa-heart');
-            $(this).removeClass('active');
-            showToast('Removed from favorites');
-        } else {
-            icon.removeClass('far fa-heart').addClass('fas fa-heart');
-            $(this).addClass('active');
-            showToast('Added to favorites', 'success');
-        }
+//         if ($(this).hasClass('active')) {
+//             icon.removeClass('fas fa-heart').addClass('far fa-heart');
+//             $(this).removeClass('active');
+//             showToast('Removed from favorites');
+//         } else {
+//             icon.removeClass('far fa-heart').addClass('fas fa-heart');
+//             $(this).addClass('active');
+//             showToast('Added to favorites', 'success');
+//         }
 
-        // Save favorite state to localStorage
-        const favorites = JSON.parse(localStorage.getItem('menuFavorites') || '{}');
-        favorites[itemId] = $(this).hasClass('active');
-        localStorage.setItem('menuFavorites', JSON.stringify(favorites));
-    });
+//         // Save favorite state to localStorage
+//         const favorites = JSON.parse(localStorage.getItem('menuFavorites') || '{}');
+//         favorites[itemId] = $(this).hasClass('active');
+//         localStorage.setItem('menuFavorites', JSON.stringify(favorites));
+//     });
 
-    // Load saved favorites
-    const favorites = JSON.parse(localStorage.getItem('menuFavorites') || '{}');
-    Object.keys(favorites).forEach(id => {
-        if (favorites[id]) {
-            $(`.fav-icon[data-id="${id}"]`).addClass('active').find('i').removeClass('far fa-heart').addClass('fas fa-heart');
-        }
-    });
-}
+//     // Load saved favorites
+//     const favorites = JSON.parse(localStorage.getItem('menuFavorites') || '{}');
+//     Object.keys(favorites).forEach(id => {
+//         if (favorites[id]) {
+//             $(`.fav-icon[data-id="${id}"]`).addClass('active').find('i').removeClass('far fa-heart').addClass('fas fa-heart');
+//         }
+//     });
+// }
 
 
 

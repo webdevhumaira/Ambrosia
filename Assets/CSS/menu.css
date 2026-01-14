@@ -15,7 +15,6 @@
     --light-card: #ffffff;
     --light-text: #333333;
     --light-border: #e0e0e0;
-    /* Dark Mode Colors (Default) */
     --text-dark: #333333;
     --text-light: #f8f9fa;
     --gray-light: #e9ecef;
@@ -25,6 +24,7 @@
     --shadow-light: rgba(0, 0, 0, 0.1);
     --card-bg-dark: rgba(255, 255, 255, 0.05);
     --card-bg-light: rgba(0, 0, 0, 0.05);
+    --search-highlight: rgba(247, 178, 72, 0.3);
 }
 
 /* Light Mode Colors */
@@ -110,8 +110,6 @@ body.light-mode h6 {
     color: var(--accent);
 }
 
-
-
 /* Custom Cursor */
 .cursor-dot {
     width: 8px;
@@ -136,8 +134,6 @@ body.light-mode h6 {
     transform: translate(-50%, -50%);
     transition: all 0.2s ease-out;
 }
-
-
 
 /* Preloader */
 #preloader {
@@ -182,8 +178,6 @@ body.light-mode #preloader {
     }
 }
 
-
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -206,8 +200,6 @@ body.light-mode ::-webkit-scrollbar-track {
     background: linear-gradient(to bottom, var(--secondary), var(--primary));
 }
 
-
-
 /* Progress Bar */
 #scroll-progress {
     position: fixed;
@@ -220,14 +212,13 @@ body.light-mode ::-webkit-scrollbar-track {
     transition: width 0.1s;
 }
 
-
 /* Theme Toggle Button */
 .theme-toggle {
     background: transparent;
     border: none;
     color: var(--light);
     font-size: 1.2rem;
-    cursor: none;
+    cursor: pointer;
     transition: all 0.3s;
     margin-left: 15px;
     display: flex;
@@ -248,8 +239,6 @@ body.light-mode .theme-toggle {
     color: var(--light-text);
 }
 
-
-
 /* Floating Reserve Now Button */
 #floating-reserve {
     position: fixed;
@@ -265,8 +254,9 @@ body.light-mode .theme-toggle {
     z-index: 999;
     display: flex;
     align-items: center;
-    cursor: none;
+    cursor: pointer;
     transition: all 0.3s;
+    text-decoration: none;
 }
 
 #floating-reserve:hover {
@@ -274,7 +264,102 @@ body.light-mode .theme-toggle {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Search Highlight Animation - UPDATED */
+.search-highlight {
+    animation: highlight-pulse 1s ease-in-out;
+    border: 3px solid var(--secondary) !important;
+    box-shadow: 0 0 20px rgba(247, 178, 72, 0.7) !important;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 5;
+}
 
+@keyframes highlight-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(247, 178, 72, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(247, 178, 72, 0.9);
+        transform: scale(1.03);
+    }
+}
+
+/* Pulse highlight for first search result */
+.pulse-highlight {
+    animation: pulse-first-result 1.5s ease-in-out infinite;
+    border: 4px solid var(--secondary) !important;
+}
+
+@keyframes pulse-first-result {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(247, 178, 72, 0.7);
+        transform: scale(1.02);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(247, 178, 72, 1);
+        transform: scale(1.04);
+    }
+}
+
+/* Search result item styling */
+.search-result-item {
+    background: linear-gradient(135deg, rgba(247, 178, 72, 0.1), rgba(109, 48, 28, 0.1)) !important;
+}
+
+/* Highlight Section Animation */
+.highlight-section {
+    animation: highlight-section 1.5s ease;
+    box-shadow: 0 0 0 2px var(--secondary);
+    border-radius: 10px;
+}
+
+@keyframes highlight-section {
+    0% {
+        box-shadow: 0 0 0 0 rgba(247, 178, 72, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(247, 178, 72, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(247, 178, 72, 0);
+    }
+}
+
+/* Info toast styling */
+.toast-notification.info {
+    border-left-color: #17a2b8;
+}
+
+.toast-notification.info .toast-content i {
+    color: #17a2b8;
+}
+
+/* Search input styling */
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input-wrapper .input-group-text {
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--secondary);
+    color: var(--dark);
+    border: none;
+}
+
+.search-input-wrapper .input-group-text:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
 
 /* Toast Notification */
 .toast-notification {
@@ -314,8 +399,6 @@ body.light-mode .toast-notification {
     border-left-color: #dc3545;
 }
 
-
-
 /* Scroll to top button  */
 #scroll-top {
     position: fixed;
@@ -330,7 +413,7 @@ body.light-mode .toast-notification {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    cursor: none;
+    cursor: pointer;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
@@ -347,8 +430,6 @@ body.light-mode .toast-notification {
     transform: translateY(-5px);
 }
 
-
-
 /* Floating WhatsApp button */
 #whatsapp-float {
     position: fixed;
@@ -363,7 +444,7 @@ body.light-mode .toast-notification {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    cursor: none;
+    cursor: pointer;
     z-index: 999;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s;
@@ -372,7 +453,6 @@ body.light-mode .toast-notification {
 #whatsapp-float:hover {
     transform: scale(1.1);
 }
-
 
 /* Navbar Search */
 .nav-search-container {
@@ -385,7 +465,7 @@ body.light-mode .toast-notification {
     border: none;
     color: var(--light);
     font-size: 1.2rem;
-    cursor: none;
+    cursor: pointer;
     padding: 5px 10px;
 }
 
@@ -433,8 +513,6 @@ body.light-mode .nav-search-btn {
     font-size: 0.9rem;
 }
 
-
-
 /* Wishlist Icon */
 .wishlist-icon {
     position: relative;
@@ -456,8 +534,6 @@ body.light-mode .nav-search-btn {
     justify-content: center;
     font-weight: bold;
 }
-
-
 
 /* Sticky Navigation */
 #main-nav {
@@ -526,9 +602,7 @@ body.light-mode .nav-link {
     border-bottom: 1px solid var(--secondary);
 }
 
-
-
-/* Default: Dark Mode */
+/* Logo Switching */
 .logo-light {
     display: none;
     height: 60px;
@@ -539,7 +613,6 @@ body.light-mode .nav-link {
     height: 60px;
 }
 
-/* Light Mode */
 [data-theme="light"] .logo-dark {
     display: none;
 }
@@ -547,7 +620,6 @@ body.light-mode .nav-link {
 [data-theme="light"] .logo-light {
     display: block;
 }
-
 
 /************************
  * COMMON CSS ENDS HERE *
@@ -563,7 +635,7 @@ body.light-mode .nav-link {
 .menu-hero {
     height: 50vh;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('../Assets/Images/menu-bg.jpg');
+        url('https://images.unsplash.com/photo-1735190093420-4ecee383badb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWVudXxlbnwwfHwwfHx8MA%3D%3D');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -574,7 +646,6 @@ body.light-mode .nav-link {
 }
 
 .menu-hero-content {
-    max-width: 800px;
     padding: 0 20px;
 }
 
@@ -591,6 +662,106 @@ body.light-mode .nav-link {
     position: relative;
 }
 
+.menu-search {
+    margin: 0;
+}
+
+/* TOP CATEGORY NAVIGATION */
+.top-category-nav {
+    background: var(--dark-light);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-dark);
+    position: sticky;
+    top: 80px;
+    z-index: 998;
+}
+
+body.light-mode .top-category-nav {
+    background: var(--light-card);
+    border-bottom: 1px solid var(--light-border);
+}
+
+.category-nav-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--dark-light);
+    padding-bottom: 5px;
+}
+
+.category-nav-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.category-nav-wrapper::-webkit-scrollbar-track {
+    background: var(--dark-light);
+    border-radius: 3px;
+}
+
+body.light-mode .category-nav-wrapper::-webkit-scrollbar-track {
+    background: var(--light-card);
+}
+
+.category-nav-wrapper::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 3px;
+}
+
+.category-nav {
+    display: flex;
+    gap: 8px;
+    padding: 0 5px;
+    min-width: min-content;
+}
+
+.category-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--card-bg-dark);
+    border: 1px solid transparent;
+    border-radius: 30px;
+    color: var(--light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+body.light-mode .category-nav-btn {
+    background: var(--card-bg-light);
+    color: var(--light-text);
+}
+
+.category-nav-btn:hover {
+    border-color: var(--secondary);
+}
+
+body.light-mode .category-nav-btn:hover {
+    border-color: var(--primary);
+}
+
+.category-nav-btn.active {
+    background: var(--secondary);
+    color: var(--dark);
+    border-color: var(--secondary);
+    font-weight: 600;
+}
+
+body.light-mode .category-nav-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.category-nav-btn i {
+    margin-right: 8px;
+}
+
 /* Fixed Sidebar - 300px */
 .menu-sidebar {
     width: 300px;
@@ -599,10 +770,10 @@ body.light-mode .nav-link {
     background: var(--dark-light);
     position: sticky;
     left: 0;
-    top: 80px;
-    height: calc(100vh - 80px);
+    top: 150px;
+    height: calc(100vh - 150px);
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 997;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     flex-shrink: 0;
@@ -634,11 +805,16 @@ body.light-mode .menu-sidebar {
     margin-bottom: 15px;
 }
 
+.sidebar-header p {
+    color: var(--light);
+}
+
 .sidebar-nav {
     padding: 20px 0;
 }
 
 .sidebar-nav-item {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 15px 25px;
@@ -646,6 +822,7 @@ body.light-mode .menu-sidebar {
     text-decoration: none;
     transition: all 0.3s;
     border-left: 4px solid transparent;
+    cursor: pointer;
 }
 
 body.light-mode .sidebar-nav-item {
@@ -675,6 +852,39 @@ body.light-mode .sidebar-nav-item {
 .sidebar-nav-text {
     flex: 1;
     font-size: 0.95rem;
+}
+
+/* Sidebar Main Category */
+.sidebar-main-category {
+    padding: 0 20px 10px;
+}
+
+.sidebar-main-category h4 {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-dark);
+}
+
+body.light-mode .sidebar-main-category h4 {
+    color: var(--primary);
+    border-top: 1px solid var(--light-border);
+}
+
+.sidebar-item-count {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 2px;
+}
+
+.sidebar-divider {
+    margin: 10px 20px;
+    border-color: var(--border-dark);
+}
+
+body.light-mode .sidebar-divider {
+    border-color: var(--light-border);
 }
 
 /* PDF Download Section */
@@ -711,6 +921,7 @@ body.light-mode .sidebar-nav-item {
 .menu-section {
     padding: 0 0 40px;
     border-bottom: 1px solid var(--border-dark);
+    margin-bottom: 40px;
 }
 
 body.light-mode .menu-section {
@@ -719,6 +930,7 @@ body.light-mode .menu-section {
 
 .menu-section:last-child {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 /* Category Header */
@@ -748,7 +960,7 @@ body.light-mode .menu-section {
 .sub-category-title {
     font-size: 1.8rem;
     color: var(--secondary);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--secondary);
     position: relative;
@@ -762,67 +974,33 @@ body.light-mode .sub-category-title {
 /* Slider Container */
 .sub-category-slider {
     position: relative;
-    overflow: hidden;
     margin: 0 -10px;
     padding: 0 50px;
 }
 
-/* Slider Track */
-.slider-track {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* Slick Slider Custom Styles */
+.slider-track.slick-initialized {
+    display: block;
     padding: 10px 0;
 }
 
-/* Slider Items - 3 per row on desktop */
-.slider-item {
-    flex: 0 0 calc(33.333% - 14px);
-    min-width: calc(33.333% - 14px);
-    max-width: calc(33.333% - 14px);
+.slider-track.slick-initialized .slider-item {
+    display: inline-block;
+    float: none;
+    height: auto;
+    padding: 0 10px;
 }
 
-/* Slider Navigation Buttons */
-.slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
-    background: var(--secondary);
-    color: var(--dark);
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.slick-list {
+    padding: 0 10px !important;
 }
 
-.slider-nav:hover:not(.disabled) {
-    background: var(--accent);
-    transform: translateY(-50%) scale(1.1);
+.slick-slide {
+    padding: 0 10px;
 }
 
-.slider-nav.prev {
-    left: 0;
-}
-
-.slider-nav.next {
-    right: 0;
-}
-
-.slider-nav.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-body.light-mode .slider-nav {
-    background: var(--primary);
-    color: var(--white);
+.slick-slide .menu-item-slider {
+    height: 100%;
 }
 
 /* Menu Item Card in Slider */
@@ -869,18 +1047,32 @@ body.light-mode .menu-item-slider:hover {
     flex-direction: column;
 }
 
-/* Item Title and Price */
+/* Item Title and Price - FIX FOR PROBLEM 1 */
 .slider-item-content h4 {
     font-size: 1.2rem;
     margin-bottom: 8px;
     color: var(--light);
+    /* Remove text truncation and allow wrapping */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    word-wrap: break-word;
+    /* Limit to 2 lines max */
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.8em;
+    /* Adjust based on your font size */
+    line-height: 1.4em;
 }
 
 body.light-mode .slider-item-content h4 {
     color: var(--light-text);
 }
 
-.menu-price {
+/* Price Amount Fix */
+.menu-price-amount {
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--secondary);
@@ -888,9 +1080,13 @@ body.light-mode .slider-item-content h4 {
     padding: 5px 15px;
     border-radius: 20px;
     display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: visible;
+    flex-shrink: 0;
 }
 
-body.light-mode .menu-price {
+body.light-mode .menu-price-amount {
     background: rgba(109, 48, 28, 0.1);
 }
 
@@ -925,6 +1121,11 @@ body.light-mode .quantity-info {
     color: var(--gray);
     margin-bottom: 15px;
     flex: 1;
+    /* Limit description to 3 lines */
+    display: -webkit-box;
+    /* -webkit-line-clamp: 3; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 body.light-mode .slider-description {
@@ -1027,72 +1228,99 @@ body.light-mode .calories {
     z-index: 1;
 }
 
-/* Menu Search Section */
-.menu-search-section {
-    background: var(--dark-light);
-    padding: 20px 0;
-    margin-bottom: 30px;
-    border-radius: 10px;
-}
-
-body.light-mode .menu-search-section {
-    background: var(--light-card);
-}
-
-.search-input-wrapper {
-    position: relative;
-}
-
-.search-input-wrapper .input-group-text {
-    background: var(--card-bg-dark);
-    border: none;
-    color: var(--secondary);
-}
-
-body.light-mode .search-input-wrapper .input-group-text {
-    background: var(--card-bg-light);
-}
-
-/* Filter Buttons */
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
-    padding: 8px 20px;
-    border-radius: 30px;
-    transition: all 0.3s;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-body.light-mode .filter-btn {
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.filter-btn.active,
-.filter-btn:hover {
+/* Slick Navigation Buttons */
+.slick-prev-custom,
+.slick-next-custom {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
     background: var(--secondary);
     color: var(--dark);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
 }
 
-body.light-mode .filter-btn.active,
-body.light-mode .filter-btn:hover {
+.slick-prev-custom:hover:not(.slick-disabled),
+.slick-next-custom:hover:not(.slick-disabled) {
+    background: var(--accent);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slick-prev-custom.slick-disabled,
+.slick-next-custom.slick-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+body.light-mode .slick-prev-custom,
+body.light-mode .slick-next-custom {
     background: var(--primary);
     color: var(--white);
+}
+
+.slick-prev-custom {
+    left: 0;
+}
+
+.slick-next-custom {
+    right: 0;
+}
+
+/* Hide default slick dots */
+.slick-dots {
+    display: none !important;
+}
+
+/* FIX FOR PROBLEM 2 & 3: When few items, center them properly */
+/* For slider with 1-3 items, use flexbox instead of slick */
+.slider-track.few-items {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    transform: none !important;
+    width: 100% !important;
+}
+
+.slider-track.few-items .slider-item {
+    float: none !important;
+    display: block !important;
+    width: calc(33.333% - 14px) !important;
+    min-width: calc(33.333% - 14px) !important;
+    max-width: calc(33.333% - 14px) !important;
+    flex: 0 0 calc(33.333% - 14px) !important;
+}
+
+/* For 2 items */
+.slider-track.few-items.items-2 .slider-item {
+    width: calc(50% - 10px) !important;
+    min-width: calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    flex: 0 0 calc(50% - 10px) !important;
+}
+
+/* For 1 item */
+.slider-track.few-items.items-1 .slider-item {
+    width: calc(33.333% - 14px) !important;
+    min-width: calc(33.333% - 14px) !important;
+    max-width: calc(33.333% - 14px) !important;
+    flex: 0 0 calc(33.333% - 14px) !important;
 }
 
 /* Sidebar Toggle for Mobile */
 .sidebar-toggle {
     position: fixed;
-    top: 100px;
+    top: 160px;
     left: 20px;
     width: 50px;
     height: 50px;
@@ -1129,44 +1357,6 @@ body.light-mode .filter-btn:hover {
     display: block;
 }
 
-/* Wishlist Modal */
-#wishlistModal .modal-content {
-    background-color: var(--dark-light);
-    color: var(--light);
-    border-radius: 15px;
-    border: 1px solid rgba(247, 178, 72, 0.3);
-}
-
-body.light-mode #wishlistModal .modal-content {
-    background-color: var(--white);
-    color: var(--light-text);
-}
-
-/* Floating Wishlist Button */
-#floating-wishlist {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #ff4757, #ff6b81);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 25px;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-}
-
-#floating-wishlist:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
 /* Search Highlight Animation */
 .search-highlight {
     animation: highlight-pulse 2s;
@@ -1185,34 +1375,267 @@ body.light-mode #wishlistModal .modal-content {
     }
 }
 
-/* ============================================= */
-/* RESPONSIVE DESIGN FOR DIFFERENT SCREEN SIZES */
-/* ============================================= */
+/* Highlight Section Animation */
+.highlight-section {
+    animation: highlight-section 1.5s ease;
+    box-shadow: 0 0 0 2px var(--secondary);
+    border-radius: 10px;
+}
 
-/* Large Desktop (1200px and above) */
-@media (min-width: 1200px) {
-    .slider-item {
-        flex: 0 0 calc(33.333% - 14px);
-        min-width: calc(33.333% - 14px);
-        max-width: calc(33.333% - 14px);
+@keyframes highlight-section {
+    0% {
+        box-shadow: 0 0 0 0 rgba(247, 178, 72, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(247, 178, 72, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(247, 178, 72, 0);
     }
 }
 
-/* Tablet (992px to 1199px) - Show 2 slides */
-@media (max-width: 1199px) and (min-width: 768px) {
-    .slider-item {
-        flex: 0 0 calc(50% - 10px);
-        min-width: calc(50% - 10px);
-        max-width: calc(50% - 10px);
+/* Active indicator for sidebar */
+.sidebar-nav-item.active::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(247, 178, 72, 0.7);
     }
 
+    70% {
+        box-shadow: 0 0 0 10px rgba(247, 178, 72, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(247, 178, 72, 0);
+    }
+}
+
+
+/* FIX FOR PROBLEM 1: Optimized Sidebar Scrolling */
+.menu-sidebar {
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    background: var(--dark-light);
+    position: sticky;
+    left: 0;
+    top: 150px;
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    z-index: 997;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    /* OPTIMIZATION 1: Hardware acceleration for smooth scrolling */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* OPTIMIZATION 2: Will-change for better performance */
+    will-change: transform;
+    /* OPTIMIZATION 3: Better scrolling performance */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* OPTIMIZATION 4: Reduce repaints */
+    contain: content;
+    /* OPTIMIZATION 5: Smooth scrolling with momentum */
+    scrollbar-gutter: stable;
+}
+
+/* OPTIMIZATION 6: Lightweight scrollbar */
+.menu-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.menu-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(247, 178, 72, 0.3);
+    border-radius: 3px;
+}
+
+.menu-sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(247, 178, 72, 0.5);
+}
+
+/* OPTIMIZATION 7: Sidebar items with optimized rendering */
+.sidebar-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--light);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+    /* Reduce repaints */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* OPTIMIZATION 8: Simplify hover effects for performance */
+.sidebar-nav-item:hover {
+    background: rgba(247, 178, 72, 0.08);
+    border-left-color: rgba(247, 178, 72, 0.5);
+    transform: translateX(2px);
+}
+
+.sidebar-nav-item.active {
+    background: rgba(247, 178, 72, 0.15);
+    border-left-color: var(--secondary);
+    color: var(--secondary);
+    font-weight: 600;
+    transform: translateX(0);
+}
+
+/* Remove heavy animations for better performance */
+@keyframes smooth-highlight {
+    0% {
+        background: rgba(247, 178, 72, 0.1);
+    }
+
+    50% {
+        background: rgba(247, 178, 72, 0.2);
+    }
+
+    100% {
+        background: rgba(247, 178, 72, 0.15);
+    }
+}
+
+/* FIX FOR PROBLEM 2 & 3: Improved Slider Layout for Few Items */
+/* When slider has 1-3 items, use optimized flexbox layout */
+.slider-track.few-items {
+    display: flex !important;
+    justify-content: flex-start !important;
+    /* Changed from center to flex-start */
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    gap: 20px !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    transform: none !important;
+    transition: none !important;
+    /* Ensure proper item alignment */
+    margin: 0 !important;
+    overflow: visible !important;
+}
+
+/* Fix for 1 item - left aligned */
+.slider-track.few-items.items-1 {
+    justify-content: flex-start !important;
+}
+
+.slider-track.few-items.items-1 .slider-item {
+    width: calc(33.333% - 14px) !important;
+    min-width: 280px !important;
+    max-width: 320px !important;
+    flex: 0 0 auto !important;
+}
+
+/* Fix for 2 items - left aligned */
+.slider-track.few-items.items-2 {
+    justify-content: flex-start !important;
+}
+
+.slider-track.few-items.items-2 .slider-item {
+    width: calc(50% - 10px) !important;
+    min-width: 280px !important;
+    flex: 0 0 auto !important;
+}
+
+/* Fix for 3 items - left aligned */
+.slider-track.few-items.items-3 {
+    justify-content: flex-start !important;
+}
+
+.slider-track.few-items.items-3 .slider-item {
+    width: calc(33.333% - 14px) !important;
+    min-width: 250px !important;
+    flex: 0 0 auto !important;
+}
+
+/* Ensure slider items maintain proper structure */
+.slider-track.few-items .slider-item {
+    float: none !important;
+    display: block !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* Remove slick transforms */
+    transform: none !important;
+    -webkit-transform: none !important;
+    /* Maintain aspect ratio */
+    min-height: 400px;
+}
+
+/* Hide navigation buttons for few items */
+.slider-track.few-items~.slider-nav {
+    display: none !important;
+}
+
+/* Keep the menu item card consistent */
+.slider-item .menu-item-slider {
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================= */
+/* RESPONSIVE DESIGN */
+/* ============================================= */
+
+/* Tablet (992px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
     .sub-category-slider {
         padding: 0 40px;
     }
 
-    .slider-nav {
+    .slick-prev-custom,
+    .slick-next-custom {
         width: 40px;
         height: 40px;
+        font-size: 1rem;
+    }
+
+    /* Fix for few items on tablet */
+    .slider-track.few-items .slider-item {
+        width: calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        flex: 0 0 calc(50% - 10px) !important;
+    }
+
+    .slider-track.few-items.items-1 .slider-item {
+        width: calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        flex: 0 0 calc(50% - 10px) !important;
+    }
+
+    .slider-track.few-items.items-2 .slider-item {
+        width: calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        flex: 0 0 calc(50% - 10px) !important;
     }
 }
 
@@ -1225,8 +1648,8 @@ body.light-mode #wishlistModal .modal-content {
     .menu-sidebar {
         position: fixed;
         left: 0;
-        top: 80px;
-        height: calc(100vh - 80px);
+        top: 150px;
+        height: calc(100vh - 150px);
         transform: translateX(-100%);
         z-index: 1000;
     }
@@ -1245,14 +1668,15 @@ body.light-mode #wishlistModal .modal-content {
         display: flex;
     }
 
-    .slider-item {
-        flex: 0 0 calc(50% - 10px);
-        min-width: calc(50% - 10px);
-        max-width: calc(50% - 10px);
-    }
-
     .sub-category-slider {
         padding: 0 30px;
+    }
+
+    .slick-prev-custom,
+    .slick-next-custom {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 
     .menu-hero {
@@ -1267,24 +1691,44 @@ body.light-mode #wishlistModal .modal-content {
     .category-title {
         font-size: 1.8rem;
     }
+
+    .top-category-nav {
+        position: static;
+    }
+
+    .category-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Fix for few items on mobile landscape */
+    .slider-track.few-items .slider-item {
+        width: calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        flex: 0 0 calc(50% - 10px) !important;
+    }
+
+    .slider-track.few-items.items-1 .slider-item,
+    .slider-track.few-items.items-2 .slider-item {
+        width: calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        flex: 0 0 calc(50% - 10px) !important;
+    }
 }
 
 /* Mobile Portrait (576px to 767px) */
 @media (max-width: 767px) {
-    .slider-item {
-        flex: 0 0 100%;
-        min-width: 100%;
-        max-width: 100%;
-    }
-
     .sub-category-slider {
         padding: 0 20px;
     }
 
-    .slider-nav {
+    .slick-prev-custom,
+    .slick-next-custom {
         width: 35px;
         height: 35px;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .menu-hero h1 {
@@ -1300,17 +1744,29 @@ body.light-mode #wishlistModal .modal-content {
         padding: 20px;
     }
 
-    .filter-buttons {
-        justify-content: center;
-    }
-
-    .filter-btn {
-        padding: 6px 15px;
-        font-size: 0.8rem;
-    }
-
     .menu-item-slider-image {
         height: 160px;
+    }
+
+    .category-nav-btn {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+
+    /* Fix for few items on mobile portrait */
+    .slider-track.few-items .slider-item {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    .slider-track.few-items.items-1 .slider-item,
+    .slider-track.few-items.items-2 .slider-item {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
     }
 }
 
@@ -1320,7 +1776,8 @@ body.light-mode #wishlistModal .modal-content {
         padding: 0 15px;
     }
 
-    .slider-nav {
+    .slick-prev-custom,
+    .slick-next-custom {
         width: 30px;
         height: 30px;
         font-size: 0.9rem;
@@ -1350,11 +1807,13 @@ body.light-mode #wishlistModal .modal-content {
         height: 140px;
     }
 
-    #floating-wishlist {
-        bottom: 20px;
-        right: 20px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
+    .category-nav-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .category-nav-btn i {
+        margin-right: 3px;
     }
 }
 
@@ -1365,7 +1824,8 @@ body.light-mode #wishlistModal .modal-content {
         border-color: transparent;
     }
 
-    .slider-nav:hover {
+    .slick-prev-custom:hover,
+    .slick-next-custom:hover {
         transform: translateY(-50%);
     }
 
@@ -1387,7 +1847,8 @@ body.light-mode #wishlistModal .modal-content {
     .menu-search-section,
     .filter-buttons,
     .fav-icon,
-    .menu-card-icons {
+    .menu-card-icons,
+    .top-category-nav {
         display: none !important;
     }
 
@@ -1406,64 +1867,69 @@ body.light-mode #wishlistModal .modal-content {
         padding-bottom: 20px;
     }
 
-    .slider-track {
-        flex-wrap: wrap;
-        gap: 10px;
-        transform: none !important;
-    }
-
-    .slider-item {
-        flex: 0 0 calc(50% - 10px);
-        min-width: calc(50% - 10px);
-        max-width: calc(50% - 10px);
-        page-break-inside: avoid;
-    }
-
     .menu-item-slider {
         border: 1px solid #ddd;
         box-shadow: none;
     }
 }
 
-/* Dark/Light Mode Transitions */
-.menu-sidebar,
-.menu-item-slider,
-.slider-nav,
-.filter-btn,
-.sidebar-nav-item {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+
+
+
+
+
+@media (max-width: 1199px) {
+    .slider-track.few-items.items-3 .slider-item {
+        width: calc(50% - 10px) !important;
+    }
 }
 
-/* Accessibility Improvements */
-.slider-nav:focus,
-.filter-btn:focus,
-.fav-icon:focus,
-.sidebar-nav-item:focus {
-    outline: 2px solid var(--secondary);
-    outline-offset: 2px;
+@media (max-width: 991px) {
+    .slider-track.few-items .slider-item {
+        width: calc(50% - 10px) !important;
+        min-width: 250px !important;
+    }
+    
+    .slider-track.few-items.items-1 .slider-item,
+    .slider-track.few-items.items-2 .slider-item,
+    .slider-track.few-items.items-3 .slider-item {
+        width: calc(50% - 10px) !important;
+    }
 }
 
-body.light-mode .slider-nav:focus,
-body.light-mode .filter-btn:focus,
-body.light-mode .fav-icon:focus,
-body.light-mode .sidebar-nav-item:focus {
-    outline-color: var(--primary);
+@media (max-width: 767px) {
+    .slider-track.few-items {
+        flex-wrap: wrap !important;
+    }
+    
+    .slider-track.few-items .slider-item {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
 }
 
-/* Loading State for Sliders */
-.slider-track.loading {
-    opacity: 0.5;
-    pointer-events: none;
+/* Search Results Optimization */
+.search-result-item {
+    animation: search-pulse 0.3s ease-out;
+    border: 2px solid var(--secondary) !important;
+    box-shadow: 0 5px 20px rgba(247, 178, 72, 0.3) !important;
 }
 
-/* Empty State for Sliders */
-.slider-track:empty::before {
-    content: 'No items found';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-    color: var(--gray);
-    font-style: italic;
-    width: 100%;
+@keyframes search-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Smooth section highlighting */
+.highlight-section {
+    animation: section-highlight 1s ease-out;
+}
+
+@keyframes section-highlight {
+    0% { box-shadow: 0 0 0 0 rgba(247, 178, 72, 0); }
+    50% { box-shadow: 0 0 0 10px rgba(247, 178, 72, 0.3); }
+    100% { box-shadow: 0 0 0 0 rgba(247, 178, 72, 0); }
 }

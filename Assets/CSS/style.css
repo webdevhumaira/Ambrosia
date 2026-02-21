@@ -1969,7 +1969,7 @@ body.light-mode .countdown-number {
     border-radius: 10px;
     transition: all 0.3s;
     height: 100%;
-    box-shadow: rgba(236, 201, 152, 0.4) 0px 2px 4px, rgba(200, 174, 78, 0.3) 0px 7px 13px -3px, rgba(207, 146, 33, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(254, 239, 31, 0.05) 0px 4px 6px -2px;
 }
 
 body.light-mode .award-card {
@@ -2056,7 +2056,7 @@ body.light-mode .award-card {
     border-radius: 10px;
     transition: all 0.3s;
     height: 100%;
-    box-shadow: rgba(236, 201, 152, 0.4) 0px 2px 4px, rgba(200, 174, 78, 0.3) 0px 7px 13px -3px, rgba(207, 146, 33, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(255, 253, 117, 0.1) 0px 4px 12px;
 }
 
 body.light-mode .sustainability-card {
@@ -2072,6 +2072,7 @@ body.light-mode .sustainability-card {
 .sustainability-icon {
     font-size: 3rem;
     margin-bottom: 15px;
+    color: var(--secondary);
 }
 
 /* Loyalty Program */
@@ -2825,3 +2826,976 @@ body.light-mode .spice-dot {
 /*****************************
  * CUISINE SLIDER CSS ENDS HERE *
  *****************************/
+
+/***********************************
+ * HOME PAGE MENU SECTION - NEW *
+ ***********************************/
+
+/* Filter Buttons */
+.home-menu-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.hm-filter-btn {
+    background: transparent;
+    border: 1.5px solid rgba(var(--secondary-rgb, 192, 160, 96), 0.4);
+    color: var(--text-muted);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+.hm-filter-btn:hover,
+.hm-filter-btn.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(192, 160, 96, 0.3);
+}
+
+/* Dish Cards */
+.hm-dish-col {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hm-dish-col.hidden {
+    display: none;
+}
+
+.hm-dish-card {
+    background: var(--dark-light, #1e1e1e);
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hm-dish-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Image wrapper */
+.hm-dish-img-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 195px;
+}
+
+.hm-dish-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hm-dish-card:hover .hm-dish-img {
+    transform: scale(1.08);
+}
+
+/* Overlay */
+.hm-dish-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hm-dish-card:hover .hm-dish-overlay {
+    opacity: 1;
+}
+
+.hm-view-btn {
+    background: var(--secondary);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.04em;
+    transition: background 0.25s;
+}
+
+.hm-view-btn:hover {
+    background: #d4a855;
+    color: #fff;
+}
+
+/* Badges */
+.hm-chef-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--secondary);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.hm-cuisine-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.65);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(4px);
+}
+
+/* Card body */
+.hm-dish-body {
+    padding: 16px 18px 18px;
+}
+
+.hm-dish-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary, #f0e6d3);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.hm-dish-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted, #999);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hm-dish-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hm-dish-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.hm-dish-price small {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.hm-spice {
+    font-size: 0.7rem;
+    color: #e74c3c;
+    letter-spacing: 1px;
+}
+
+.hm-spice .far {
+    opacity: 0.25;
+}
+
+/* Divider */
+.cuisine-showcase-divider {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.divider-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* Cuisine Showcase Cards */
+.cuisine-showcase-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--dark-light, #1e1e1e);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: 3px solid var(--cuisine-color, var(--secondary));
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.cuisine-showcase-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+    border-color: var(--cuisine-color, var(--secondary));
+    text-decoration: none;
+}
+
+.cs-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--cuisine-color, var(--secondary));
+    flex-shrink: 0;
+    transition: background 0.3s;
+}
+
+.cuisine-showcase-card:hover .cs-icon {
+    background: var(--cuisine-color, var(--secondary));
+    color: #fff;
+}
+
+.cs-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.cs-content h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-primary, #f0e6d3);
+    margin-bottom: 4px;
+}
+
+.cs-content p {
+    font-size: 0.75rem;
+    color: var(--text-muted, #999);
+    margin: 0;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cs-arrow {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: transform 0.3s, color 0.3s;
+    flex-shrink: 0;
+}
+
+.cuisine-showcase-card:hover .cs-arrow {
+    color: var(--cuisine-color, var(--secondary));
+    transform: translateX(4px);
+}
+
+/* Light mode overrides */
+[data-theme="light"] .hm-dish-card,
+[data-theme="light"] .cuisine-showcase-card {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .hm-dish-name,
+[data-theme="light"] .cs-content h5 {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .cs-icon {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .divider-line {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/***********************************
+ * HOME PAGE MENU SECTION ENDS *
+ ***********************************/
+
+
+
+/* ============================================================
+   AMBROSIA — PREMIUM ENHANCEMENTS CSS
+   ============================================================ */
+
+/* ── Softer Shadows ──────────────────────────────────────── */
+.reservation-form {
+    background: linear-gradient(135deg, rgba(30, 25, 20, 0.97) 0%, rgba(26, 22, 18, 0.97) 100%);
+    padding: 50px 45px;
+    border-radius: 20px;
+    border: 1px solid rgba(247, 178, 72, 0.18);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.18),
+        0 1px 6px rgba(247, 178, 72, 0.08),
+        inset 0 1px 0 rgba(247, 178, 72, 0.06);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.4s cubic-bezier(.25, .8, .25, 1), box-shadow 0.4s ease;
+}
+
+.reservation-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    border-radius: 20px 20px 0 0;
+}
+
+.reservation-form:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.22),
+        0 4px 16px rgba(247, 178, 72, 0.10);
+}
+
+body.light-mode .reservation-form {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(109, 48, 28, 0.15);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.08),
+        0 1px 6px rgba(109, 48, 28, 0.06);
+}
+
+/* Enhanced Form Controls */
+.form-control-custom {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.10);
+    color: var(--light);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control-custom:focus {
+    border-color: var(--secondary);
+    background: rgba(247, 178, 72, 0.06);
+    box-shadow: 0 0 0 3px rgba(247, 178, 72, 0.12);
+    outline: none;
+}
+
+.form-control-custom::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+body.light-mode .form-control-custom {
+    background: #fafafa;
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #222;
+}
+
+/* Form Labels */
+.form-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 8px;
+    display: block;
+}
+
+body.light-mode .form-label {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Step Indicator — Connected Line */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.step {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.step.active {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    border-color: var(--secondary);
+    color: #121212;
+    box-shadow: 0 0 0 6px rgba(247, 178, 72, 0.15);
+}
+
+.step.completed {
+    background: rgba(247, 178, 72, 0.2);
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.step-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 1;
+}
+
+/* Time Slots */
+.time-slot {
+    display: inline-block;
+    padding: 9px 16px;
+    margin: 4px;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.time-slot:hover {
+    background: rgba(247, 178, 72, 0.12);
+    border-color: var(--secondary);
+}
+
+.time-slot.selected {
+    background: linear-gradient(135deg, rgba(247, 178, 72, 0.25), rgba(247, 178, 72, 0.1));
+    border-color: var(--secondary);
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+/* Suggestion Buttons */
+.suggestion-btn {
+    background: rgba(247, 178, 72, 0.06);
+    border: 1.5px solid rgba(247, 178, 72, 0.25);
+    color: var(--secondary);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+}
+
+.suggestion-btn:hover {
+    background: var(--secondary);
+    color: #121212;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(247, 178, 72, 0.25);
+}
+
+
+/* ── Soften Other Hard Shadows ───────────────────────────── */
+.counter-item {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(247, 178, 72, 0.08) !important;
+}
+
+.rating-breakdown {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(247, 178, 72, 0.06) !important;
+}
+
+.service-card-index {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10) !important;
+    transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+.service-card-index:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16) !important;
+}
+
+.membership-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.14) !important;
+    transition: box-shadow 0.3s ease, transform 0.35s ease !important;
+}
+
+.membership-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.20) !important;
+    transform: translateY(-6px) !important;
+}
+
+
+/* ── Membership "Join Now" — Smaller Button ──────────────── */
+.membership-card .btn-primary-custom {
+    padding: 9px 22px !important;
+    font-size: 0.85rem !important;
+    border-radius: 24px !important;
+    margin: 8px 0 0 0 !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+/* Center the button inside the card */
+.membership-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.membership-card .btn-primary-custom {
+    align-self: center;
+}
+
+
+/* ── Awards Section — Font Awesome Icons ─────────────────── */
+.award-card {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--dark-light);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+}
+
+.award-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    border-color: rgba(247, 178, 72, 0.25);
+}
+
+.award-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(247, 178, 72, 0.15), rgba(109, 48, 28, 0.15));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 1.8rem;
+    color: var(--secondary);
+    border: 2px solid rgba(247, 178, 72, 0.2);
+    transition: all 0.3s ease;
+}
+
+.award-card:hover .award-icon {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: #121212;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(247, 178, 72, 0.3);
+}
+
+
+/* ── Glassmorphism Navbar ─────────────────────────────────── */
+#main-nav.glass-nav {
+    background: rgba(10, 8, 6, 0.55) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(247, 178, 72, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-mode #main-nav.glass-nav {
+    background: rgba(255, 254, 252, 0.72) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(109, 48, 28, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+
+/* ── Page Transition Overlay ─────────────────────────────── */
+#page-transition {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+#page-transition.fade-out {
+    opacity: 1;
+    pointer-events: all;
+}
+
+body.light-mode #page-transition {
+    background: #fff;
+}
+
+
+/* ── Scroll Reveal ───────────────────────────────────────── */
+.sr-hidden {
+    opacity: 0;
+    transform: translateY(38px);
+    transition: opacity 0.7s cubic-bezier(.25, .8, .25, 1), transform 0.7s cubic-bezier(.25, .8, .25, 1);
+}
+
+.sr-hidden.sr-left {
+    transform: translateX(-40px);
+}
+
+.sr-hidden.sr-right {
+    transform: translateX(40px);
+}
+
+.sr-hidden.sr-scale {
+    transform: scale(0.88);
+}
+
+.sr-visible {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Stagger delay helpers */
+.sr-delay-1 {
+    transition-delay: 0.1s !important;
+}
+
+.sr-delay-2 {
+    transition-delay: 0.2s !important;
+}
+
+.sr-delay-3 {
+    transition-delay: 0.3s !important;
+}
+
+.sr-delay-4 {
+    transition-delay: 0.4s !important;
+}
+
+.sr-delay-5 {
+    transition-delay: 0.5s !important;
+}
+
+
+/* ── Text Reveal (Letter by Letter) ─────────────────────── */
+.letter-reveal .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(24px) rotate(4deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.letter-reveal.revealed .char {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* ── 3D Tilt Effect ──────────────────────────────────────── */
+.tilt-card {
+    transform-style: preserve-3d;
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+    transition: transform 0.12s linear;
+    will-change: transform;
+}
+
+.tilt-card-inner {
+    transform: translateZ(20px);
+    transition: transform 0.12s linear;
+}
+
+
+/* ── Ripple Effect ───────────────────────────────────────── */
+.ripple-host {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-wave {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(0);
+    animation: ripple-anim 0.6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes ripple-anim {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+/* ── Magnetic Button Ghost ───────────────────────────────── */
+.magnetic-btn {
+    display: inline-block;
+    transition: transform 0.15s cubic-bezier(.25, .8, .25, 1);
+    will-change: transform;
+}
+
+
+/* ── Auto Slide Testimonial Carousel ────────────────────── */
+#testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    margin-top: 32px;
+}
+
+.testimonial-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.6s cubic-bezier(.25, .8, .25, 1);
+    will-change: transform;
+}
+
+.testimonial-card {
+    min-width: calc(33.33% - 16px);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 28px 24px;
+    flex-shrink: 0;
+    backdrop-filter: blur(6px);
+    transition: box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        min-width: calc(100% - 4px);
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .testimonial-card {
+        min-width: calc(50% - 12px);
+    }
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.testimonial-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.testimonial-stars {
+    color: var(--secondary);
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.testimonial-text {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 16px;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--secondary);
+}
+
+.testimonial-role {
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+body.light-mode .testimonial-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.07);
+}
+
+body.light-mode .testimonial-text {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-mode .testimonial-role {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--secondary);
+}
+
+
+/* ── Hover Image Reveal Enhancement ─────────────────────── */
+.hm-dish-card {
+    cursor: none;
+}
+
+.hm-dish-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(109, 48, 28, 0.5) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.hm-dish-card:hover .hm-dish-img-wrap::after {
+    opacity: 1;
+}
+
+.hm-dish-overlay {
+    z-index: 2;
+}
+
+
+/* ── Floating Element Extra Glow ─────────────────────────── */
+@keyframes floatGlow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 4px 12px rgba(247, 178, 72, 0.2));
+    }
+
+    50% {
+        transform: translateY(-12px);
+        filter: drop-shadow(0 12px 20px rgba(247, 178, 72, 0.35));
+    }
+}
+
+.floating-highlight {
+    animation: floatGlow 5s ease-in-out infinite !important;
+}
+
+.highlight-1 {
+    animation-delay: 0s !important;
+}
+
+.highlight-2 {
+    animation-delay: 2s !important;
+}
+
+.highlight-3 {
+    animation-delay: 4s !important;
+}
+
+
+/* ── Reservation Section Extra Polish ───────────────────── */
+#reservation {
+    background:
+        linear-gradient(135deg, rgba(109, 48, 28, 0.85) 0%, rgba(0, 0, 0, 0.80) 100%),
+        url("/Assets/Images/popular-menu.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* ── Availability Indicator ──────────────────────────────── */
+.availability-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    margin-top: 16px;
+    font-size: 0.85rem;
+}
+
+.availability-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: pulse-dot 1.8s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+}
+
+
+/* ── Form Next/Prev Buttons ──────────────────────────────── */
+.btn-primary-custom,
+.btn-secondary-custom {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ── Section Title Letter Reveal ─────────────────────────── */
+.section-title h2 {
+    display: inline-block;
+}

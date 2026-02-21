@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="Assets/CSS/style.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="Assets/CSS/responsive.css">
+    <!-- Premium Enhancements CSS -->
+    <link rel="stylesheet" href="Assets/CSS/enhancements.css">
 
 </head>
 
@@ -302,552 +304,421 @@
         <section id="menu" class="py-5">
             <div class="container">
                 <div class="section-title">
-                    <h2>Our Digital Menu</h2>
-                    <p class="mt-3">Explore our carefully curated dishes from world-class cuisines</p>
+                    <h2>Explore Our Menu</h2>
+                    <p class="mt-3">From authentic Thai to Continental classics — a world of flavours awaits you</p>
                 </div>
 
-                <!-- Cuisine Navigation -->
-                <div class="cuisine-navigation">
-                    <div class="nav nav-pills justify-content-center mb-4" id="cuisineTab" role="tablist">
-                        <button class="nav-link active" id="thai-tab" data-bs-toggle="pill" data-bs-target="#thai"
-                            type="button" role="tab">
-                            <i class="fas fa-pepper-hot me-2"></i> Thai Cuisine
-                        </button>
-                        <button class="nav-link" id="chinese-tab" data-bs-toggle="pill" data-bs-target="#chinese"
-                            type="button" role="tab">
-                            <i class="fas fa-utensils me-2"></i> Chinese Cuisine
-                        </button>
-                        <button class="nav-link" id="indian-tab" data-bs-toggle="pill" data-bs-target="#indian"
-                            type="button" role="tab">
-                            <i class="fas fa-spice me-2"></i> Indian Cuisine
-                        </button>
-                        <button class="nav-link" id="continental-tab" data-bs-toggle="pill"
-                            data-bs-target="#continental" type="button" role="tab">
-                            <i class="fas fa-drumstick-bite me-2"></i> Continental
-                        </button>
-                        <button class="nav-link" id="desserts-tab" data-bs-toggle="pill" data-bs-target="#desserts"
-                            type="button" role="tab">
-                            <i class="fas fa-ice-cream me-2"></i> Desserts
-                        </button>
-                        <button class="nav-link" id="drinks-tab" data-bs-toggle="pill" data-bs-target="#drinks"
-                            type="button" role="tab">
-                            <i class="fas fa-cocktail me-2"></i> Drinks
-                        </button>
-                    </div>
+                <!-- Cuisine Filter -->
+                <div class="home-menu-filter text-center mb-5">
+                    <button class="hm-filter-btn active" data-filter="all"><i
+                            class="fas fa-th-large me-2"></i>All</button>
+                    <button class="hm-filter-btn" data-filter="thai"><i class="fas fa-pepper-hot me-2"></i>Thai</button>
+                    <button class="hm-filter-btn" data-filter="seafood"><i class="fas fa-fish me-2"></i>Seafood</button>
+                    <button class="hm-filter-btn" data-filter="chicken"><i
+                            class="fas fa-drumstick-bite me-2"></i>Chicken</button>
+                    <button class="hm-filter-btn" data-filter="beef"><i class="fas fa-bacon me-2"></i>Beef</button>
+                    <button class="hm-filter-btn" data-filter="soup"><i class="fas fa-bowl-hot me-2"></i>Soup</button>
                 </div>
 
-                <!-- Cuisine Content -->
-                <div class="tab-content" id="cuisineTabContent">
+                <!-- Featured Dishes Grid -->
+                <div class="row g-4" id="featured-dishes-grid">
 
-                    <!-- Thai Cuisine -->
-                    <div class="tab-pane fade show active" id="thai" role="tabpanel">
-                        <div class="cuisine-header">
-                            <h3 class="mb-4">Thai Cuisine</h3>
-                            <p class="lead mb-5">Experience authentic Thai flavors with perfect balance of sweet, sour,
-                                and spicy</p>
-                        </div>
-
-                        <!-- Appetizers -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-utensils me-3"></i> Appetizers
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="thai-appetizers">
-                                        <!-- Appetizers items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
+                    <!-- Card 1: Stick Golden Prawn -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Stick Golden Prawn.jpg" alt="Stick Golden Prawn"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Stick Golden Prawn</h5>
+                                <p class="hm-dish-desc">Grilled stick golden prawn served with cucumber & peanut sauce
+                                </p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 830</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Salad -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-leaf me-3"></i> Salad
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="thai-salad">
-                                        <!-- Salad items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Soup -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-bowl-hot me-3"></i> Soup
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="thai-soup">
-                                        <!-- Soup items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Chicken/Beef -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-drumstick-bite me-3"></i> Chicken & Beef
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="thai-chicken-beef">
-                                        <!-- Chicken/Beef items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fish -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-fish me-3"></i> Fish
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="thai-fish">
-                                        <!-- Fish items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- More Categories Button -->
-                        <div class="text-center mt-5">
-                            <a href="menu.html#thai" class="btn btn-primary-custom">
-                                <i class="fas fa-arrow-right me-2"></i> View All Thai Dishes
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Chinese Cuisine -->
-                    <div class="tab-pane fade" id="chinese" role="tabpanel">
-                        <div class="cuisine-header">
-                            <h3 class="mb-4">Chinese Cuisine</h3>
-                            <p class="lead mb-5">Traditional Chinese dishes with modern presentation and authentic
-                                flavors</p>
-                        </div>
-
-                        <!-- Appetizers -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-utensils me-3"></i> Appetizers
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="chinese-appetizers">
-                                        <!-- Appetizers items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
+                    <!-- Card 2: Grilled King Prawn -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Grilled King Prawn.jpg" alt="Grilled King Prawn"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Grilled King Prawn</h5>
+                                <p class="hm-dish-desc">Fresh sweet king prawn grilled with special home made sauce</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 1,350</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Soup -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-bowl-hot me-3"></i> Soup
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="chinese-soup">
-                                        <!-- Soup items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Prawn -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-shrimp me-3"></i> Prawn
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="chinese-prawn">
-                                        <!-- Prawn items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- More Categories Button -->
-                        <div class="text-center mt-5">
-                            <a href="menu.html#chinese" class="btn btn-primary-custom">
-                                <i class="fas fa-arrow-right me-2"></i> View All Chinese Dishes
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Indian Cuisine -->
-                    <div class="tab-pane fade" id="indian" role="tabpanel">
-                        <div class="cuisine-header">
-                            <h3 class="mb-4">Indian Cuisine</h3>
-                            <p class="lead mb-5">Rich and aromatic Indian cuisine with traditional spices and flavors
-                            </p>
-                        </div>
-
-                        <!-- Appetizers -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-utensils me-3"></i> Appetizers
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="indian-appetizers">
-                                        <!-- Appetizers items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
+                    <!-- Card 3: Special Seafood Soup -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood soup">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Special Seafood Soup.jpg" alt="Special Seafood Soup"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Special Seafood Soup</h5>
+                                <p class="hm-dish-desc">Spicy fresh prawns, crabs, fish & cuttle fish with Thai herbs
+                                </p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 1,190</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Tandoori -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-fire me-3"></i> Tandoori & Fish
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="indian-tandoori">
-                                        <!-- Tandoori items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Chicken -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-drumstick-bite me-3"></i> Chicken
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="indian-chicken">
-                                        <!-- Chicken items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- More Categories Button -->
-                        <div class="text-center mt-5">
-                            <a href="menu.html#indian" class="btn btn-primary-custom">
-                                <i class="fas fa-arrow-right me-2"></i> View All Indian Dishes
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Continental Cuisine -->
-                    <div class="tab-pane fade" id="continental" role="tabpanel">
-                        <div class="cuisine-header">
-                            <h3 class="mb-4">Continental Cuisine</h3>
-                            <p class="lead mb-5">European-inspired dishes with premium ingredients and elegant
-                                presentation</p>
-                        </div>
-
-                        <!-- Appetizers -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-utensils me-3"></i> Appetizers
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="continental-appetizers">
-                                        <!-- Appetizers items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
+                    <!-- Card 4: Fried Mixed Sea Food -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Fried Mixed Sea Food.jpg" alt="Fried Mixed Sea Food"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Fried Mixed Sea Food</h5>
+                                <p class="hm-dish-desc">Deep fried prawn, fish fillet & cuttle fish with sweet & sour
+                                    sauce</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 1,080</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Soup -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-bowl-hot me-3"></i> Soup
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="continental-soup">
-                                        <!-- Soup items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Steak -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-bacon me-3"></i> Steak
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="continental-steak">
-                                        <!-- Steak items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- More Categories Button -->
-                        <div class="text-center mt-5">
-                            <a href="menu.html#continental" class="btn btn-primary-custom">
-                                <i class="fas fa-arrow-right me-2"></i> View All Continental Dishes
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Desserts -->
-                    <div class="tab-pane fade" id="desserts" role="tabpanel">
-                        <div class="cuisine-header">
-                            <h3 class="mb-4">Desserts & Sweets</h3>
-                            <p class="lead mb-5">Sweet endings to complete your dining experience</p>
-                        </div>
-
-                        <!-- Ambrosia Dessert Cottage -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-ice-cream me-3"></i> Ambrosia Dessert Cottage
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="desserts-cottage">
-                                        <!-- Dessert items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
+                    <!-- Card 5: Chicken Basil Leaf -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai chicken">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Chicken Basil Leaf.jpg" alt="Chicken Basil Leaf"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Chicken Basil Leaf</h5>
+                                <p class="hm-dish-desc">Slice chicken with minced fresh garlic, chilli & Thai basil</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 850</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- More Categories Button -->
-                        <div class="text-center mt-5">
-                            <a href="menu.html#desserts" class="btn btn-primary-custom">
-                                <i class="fas fa-arrow-right me-2"></i> View All Desserts
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Drinks -->
-                    <div class="tab-pane fade" id="drinks" role="tabpanel">
-                        <div class="cuisine-header">
-                            <h3 class="mb-4">Drinks & Beverages</h3>
-                            <p class="lead mb-5">Refreshing beverages to complement your meal</p>
-                        </div>
-
-                        <!-- Cold Beverage -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-glass-whiskey me-3"></i> Cold Beverage
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="drinks-cold">
-                                        <!-- Cold drink items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
+                    <!-- Card 6: Chicken Ginger -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai chicken">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Chicken Ginger.jpg" alt="Chicken Ginger" class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Chicken Ginger</h5>
+                                <p class="hm-dish-desc">Slice chicken fillet with ginger, spring onion & green bell
+                                    pepper</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 850</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Hot Beverage -->
-                        <div class="cuisine-category mb-5">
-                            <h4 class="category-title mb-4">
-                                <i class="fas fa-mug-hot me-3"></i> Hot Beverage
-                                <span class="category-badge">5 Items</span>
-                            </h4>
-
-                            <div class="category-slider">
-                                <div class="slider-container">
-                                    <button class="slider-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-
-                                    <div class="slider-track" data-category="drinks-hot">
-                                        <!-- Hot drink items will be loaded by JavaScript -->
-                                    </div>
-
-                                    <button class="slider-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- More Categories Button -->
-                        <div class="text-center mt-5">
-                            <a href="menu.html#drinks" class="btn btn-primary-custom">
-                                <i class="fas fa-arrow-right me-2"></i> View All Drinks
-                            </a>
                         </div>
                     </div>
+
+                    <!-- Card 7: Panning Beef Curry -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai beef">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Panning Beef Curry.jpg" alt="Panning Beef Curry"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Panning Beef Curry</h5>
+                                <p class="hm-dish-desc">Sliced beef with panning curry, coconut milk & Thai aromatics
+                                </p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 880</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Ambrosia Red Snapper -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Ambrosia Red Snapper.jpg" alt="Ambrosia Red Snapper"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Ambrosia Red Snapper</h5>
+                                <p class="hm-dish-desc">Deep fried whole red snapper with chilli & pineapple sauce</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 350 <small>/person</small></span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9: Sweet King Prawn Soup -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood soup">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Sweet King Prawn Soup.jpg" alt="Sweet King Prawn Soup"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Sweet King Prawn Soup</h5>
+                                <p class="hm-dish-desc">Special sweet king prawn with spicy Thai herbs & red chilli</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 1,150</span>
+                                    <span class="hm-spice"><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10: Prawn Cashew Nut -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Prawn Cashew Nut.jpg" alt="Prawn Cashew Nut"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Prawn Cashew Nut</h5>
+                                <p class="hm-dish-desc">Stir-fried golden sea prawn with spring onion, dry red chilli &
+                                    cashew nut</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 980</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 11: Beef Basil Leaf -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai beef">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Beef Basil Leaf.jpg" alt="Beef Basil Leaf"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Beef Basil Leaf</h5>
+                                <p class="hm-dish-desc">Slice beef with minced fresh garlic, fresh chilli & Thai basil
+                                </p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 950</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i><i
+                                            class="far fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 12: Spicy Cuttle Fish Salad -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 hm-dish-col" data-category="thai seafood">
+                        <div class="hm-dish-card">
+                            <div class="hm-dish-img-wrap">
+                                <img src="./Assets/Images/Spicy Cuttle Fish Salad.jpg" alt="Spicy Cuttle Fish Salad"
+                                    class="hm-dish-img">
+                                <div class="hm-dish-overlay">
+                                    <a href="menu.html#thai" class="hm-view-btn">View in Menu</a>
+                                </div>
+                                <span class="hm-chef-badge"><i class="fas fa-star me-1"></i>Chef's Pick</span>
+                                <span class="hm-cuisine-tag">Thai</span>
+                            </div>
+                            <div class="hm-dish-body">
+                                <h5 class="hm-dish-name">Spicy Cuttle Fish Salad</h5>
+                                <p class="hm-dish-desc">Slice cuttle fish with lemon juice, chilli powder, spring onion
+                                    & Thai herbs</p>
+                                <div class="hm-dish-footer">
+                                    <span class="hm-dish-price">৳ 880</span>
+                                    <span class="hm-spice"><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i><i
+                                            class="fas fa-pepper-hot"></i><i class="far fa-pepper-hot"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /featured-dishes-grid -->
+
+                <!-- Cuisine Showcase Divider -->
+                <div class="cuisine-showcase-divider text-center my-5">
+                    <div class="divider-line"></div>
+                    <span class="divider-text">Also Explore</span>
+                    <div class="divider-line"></div>
                 </div>
 
-                <!-- View Full Menu Button -->
+                <!-- Cuisine Category Showcase -->
+                <div class="row g-3 cuisine-showcase-row">
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="menu.html#chinese" class="cuisine-showcase-card" style="--cuisine-color: #e74c3c;">
+                            <div class="cs-icon"><i class="fas fa-utensils"></i></div>
+                            <div class="cs-content">
+                                <h5>Chinese Cuisine</h5>
+                                <p>Peking Duck, Dim Sum, Sweet & Sour Pork, Fried Rice, Hot & Sour Soup</p>
+                            </div>
+                            <i class="fas fa-arrow-right cs-arrow"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="menu.html#indonesian" class="cuisine-showcase-card" style="--cuisine-color: #f39c12;">
+                            <div class="cs-icon"><i class="fas fa-bowl-rice"></i></div>
+                            <div class="cs-content">
+                                <h5>Indonesian Cuisine</h5>
+                                <p>Nasi Goreng, Satay, Gado-Gado, Rendang, Mie Goreng</p>
+                            </div>
+                            <i class="fas fa-arrow-right cs-arrow"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="menu.html#indian" class="cuisine-showcase-card" style="--cuisine-color: #e67e22;">
+                            <div class="cs-icon"><i class="fas fa-fire"></i></div>
+                            <div class="cs-content">
+                                <h5>Indian Cuisine</h5>
+                                <p>Tandoori Chicken, Butter Chicken, Biryani, Dal Makhani, Naan</p>
+                            </div>
+                            <i class="fas fa-arrow-right cs-arrow"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="menu.html#continental" class="cuisine-showcase-card" style="--cuisine-color: #2ecc71;">
+                            <div class="cs-icon"><i class="fas fa-drumstick-bite"></i></div>
+                            <div class="cs-content">
+                                <h5>Continental Cuisine</h5>
+                                <p>Grilled Lobster, Club Sandwich, Steak, Caesar Salad, Pasta</p>
+                            </div>
+                            <i class="fas fa-arrow-right cs-arrow"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="menu.html#desserts" class="cuisine-showcase-card" style="--cuisine-color: #9b59b6;">
+                            <div class="cs-icon"><i class="fas fa-ice-cream"></i></div>
+                            <div class="cs-content">
+                                <h5>Desserts & Beverages</h5>
+                                <p>Chocolate Lava Cake, Mango Sorbet, Tiramisu, Mocktails, Fresh Juices</p>
+                            </div>
+                            <i class="fas fa-arrow-right cs-arrow"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <a href="menu.html" class="cuisine-showcase-card" style="--cuisine-color: #c0a060;">
+                            <div class="cs-icon"><i class="fas fa-crown"></i></div>
+                            <div class="cs-content">
+                                <h5>Ambrosia Specials</h5>
+                                <p>Hot Pot, King Prawn Platter, Whole Grilled Fish, Surf & Turf</p>
+                            </div>
+                            <i class="fas fa-arrow-right cs-arrow"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- /cuisine-showcase-row -->
+
+                <!-- View Full Menu CTA -->
                 <div class="text-center mt-5">
-                    <a href="menu.html" class="btn btn-secondary-custom">
+                    <a href="menu.html" class="btn btn-secondary-custom btn-lg">
                         <i class="fas fa-book-open me-2"></i> View Complete Menu
                     </a>
                 </div>
+
             </div>
         </section>
         <!---------------------------------------------------------------------------------------------------------------->
@@ -1057,28 +928,28 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="sustainability-card">
-                            <div class="sustainability-icon">🌱</div>
+                            <div class="sustainability-icon"><i class="fa-solid fa-jar-wheat"></i></div>
                             <h5>Organic Ingredients</h5>
                             <p>Locally sourced organic produce</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="sustainability-card">
-                            <div class="sustainability-icon">🧼</div>
+                            <div class="sustainability-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
                             <h5>Hygiene Certified</h5>
                             <p>Highest sanitation standards</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="sustainability-card">
-                            <div class="sustainability-icon">🚚</div>
+                            <div class="sustainability-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
                             <h5>Fresh Daily</h5>
                             <p>Morning market deliveries</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="sustainability-card">
-                            <div class="sustainability-icon">♻️</div>
+                            <div class="sustainability-icon"><i class="fa-solid fa-recycle"></i></div>
                             <h5>Eco-Friendly</h5>
                             <p>Biodegradable packaging</p>
                         </div>
@@ -1497,28 +1368,28 @@
                 <div class="row awards-container">
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="award-card">
-                            <div class="award-icon">🏆</div>
+                            <div class="award-icon"><i class="fas fa-trophy"></i></div>
                             <h5>Michelin Guide</h5>
                             <p>Featured 2022-2024</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="award-card">
-                            <div class="award-icon">⭐</div>
+                            <div class="award-icon"><i class="fas fa-star"></i></div>
                             <h5>TripAdvisor</h5>
                             <p>Travelers' Choice 2023</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="award-card">
-                            <div class="award-icon">👑</div>
+                            <div class="award-icon"><i class="fas fa-crown"></i></div>
                             <h5>Zomato Gold</h5>
                             <p>Premium Partner</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 mb-4">
                         <div class="award-card">
-                            <div class="award-icon">📰</div>
+                            <div class="award-icon"><i class="fas fa-newspaper"></i></div>
                             <h5>Featured In</h5>
                             <p>Food & Wine Magazine</p>
                         </div>
@@ -1616,7 +1487,7 @@
                                 <li><i class="fas fa-check"></i> Priority seating</li>
                                 <li><i class="fas fa-check"></i> Free dessert on birthday</li>
                             </ul>
-                            <button class="btn btn-primary-custom w-100 mt-3">Join Now</button>
+                            <button class="btn btn-primary-custom mt-3">Join Now</button>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
@@ -1629,7 +1500,7 @@
                                 <li><i class="fas fa-check"></i> Birthday surprise package</li>
                                 <li><i class="fas fa-check"></i> Wine pairing session</li>
                             </ul>
-                            <button class="btn btn-primary-custom w-100 mt-3">Join Now</button>
+                            <button class="btn btn-primary-custom mt-3">Join Now</button>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
@@ -1642,7 +1513,7 @@
                                 <li><i class="fas fa-check"></i> Personal chef consultation</li>
                                 <li><i class="fas fa-check"></i> Invitation to special events</li>
                             </ul>
-                            <button class="btn btn-primary-custom w-100 mt-3">Join Now</button>
+                            <button class="btn btn-primary-custom mt-3">Join Now</button>
                         </div>
                     </div>
                 </div>
@@ -1757,7 +1628,9 @@
                                 <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
                                     <div class="accordion-body">
                                         Yes! We have private dining rooms for 10-50 guests. Contact our events team at
-                                        events@ambrosia.com for customized menus and pricing.
+                                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                            data-cfemail="c1a4b7a4afb5b281a0aca3b3aeb2a8a0efa2aeac">[email&#160;protected]</a>
+                                        for customized menus and pricing.
                                     </div>
                                 </div>
                             </div>
@@ -1814,7 +1687,10 @@
                                 <div class="col-md-6">
                                     <h5 class="text-secondary">Contact</h5>
                                     <p><i class="fas fa-phone me-2"></i> +880 1234 567890</p>
-                                    <p><i class="fas fa-envelope me-2"></i> info@ambrosia.com</p>
+                                    <p><i class="fas fa-envelope me-2"></i> <a href="/cdn-cgi/l/email-protection"
+                                            class="__cf_email__"
+                                            data-cfemail="c0a9aea6af80a1ada2b2afb3a9a1eea3afad">[email&#160;protected]</a>
+                                    </p>
                                 </div>
                             </div>
 
@@ -1912,6 +1788,7 @@
 
 
 
+
     <!----------------------------------------------------------------------------------------------------------------->
     <!--                                              ALL SCRIPTS HERE                                               -->
     <!-- Bootstrap & jQuery JS -->
@@ -1923,6 +1800,8 @@
     <script src="Assets/JS/common.js"></script>
     <script src="Assets/JS/main.js"></script>
     <script src="Assets/JS/reservation.js"></script>
+    <!-- Premium Animations & Interactions -->
+    <script src="Assets/JS/animations.js"></script>
     <!----------------------------------------------------------------------------------------------------------------->
 
 

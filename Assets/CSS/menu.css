@@ -539,91 +539,257 @@ body.light-mode .nav-link {
     position: relative;
 }
 
-/* TOP CATEGORY NAVIGATION */
+/* ══════════════════════════════════════
+   TOP CATEGORY NAVIGATION — REDESIGNED
+   ══════════════════════════════════════ */
 .top-category-nav {
     background: var(--dark-light);
-    padding: 15px 0;
     border-bottom: 1px solid var(--border-dark);
     position: sticky;
-    top: 80px;
+    top: 70px;
     z-index: 998;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 
-.category-nav-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 5px;
+body.light-mode .top-category-nav {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-.category-nav-wrapper::-webkit-scrollbar {
-    height: 6px;
-}
-
-.category-nav-wrapper::-webkit-scrollbar-track {
-    background: var(--dark-light);
-    border-radius: 3px;
-}
-
-.category-nav-wrapper::-webkit-scrollbar-thumb {
-    background: var(--secondary);
-    border-radius: 3px;
-}
-
-.category-nav {
+/* ── Outer wrapper: holds toggle | divider | arrows | scroll area ── */
+.category-nav-scroll-wrapper {
     display: flex;
-    gap: 8px;
-    padding: 0 5px;
-    min-width: min-content;
+    align-items: center;
+    height: 58px;
+    position: relative;
+    overflow: hidden; /* prevent any bleed */
 }
 
-.category-nav-btn {
-    display: inline-flex;
+/* ── Inline "Menu" sidebar toggle (replaces floating button) ── */
+.sidebar-toggle-inline {
+    display: none; /* shown only on mobile via media query */
+    flex-shrink: 0;
     align-items: center;
-    padding: 10px 20px;
-    background: var(--card-bg-dark);
-    border: 1px solid transparent;
-    border-radius: 30px;
-    color: var(--light);
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
+    gap: 6px;
+    height: 100%;
+    padding: 0 14px 0 16px;
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.4px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.sidebar-toggle-inline i {
+    font-size: 1rem;
+}
+
+.sidebar-toggle-inline:hover {
+    background: rgba(247,178,72,0.1);
+}
+
+/* ── Thin vertical divider between toggle and scroll strip ── */
+.cat-nav-divider {
+    display: none; /* mobile only */
+    width: 1px;
+    height: 28px;
+    background: var(--border-dark);
     flex-shrink: 0;
 }
 
-.category-nav-btn:hover {
-    border-color: var(--secondary);
+/* ── Scroll arrows (desktop) ── */
+.cat-scroll-arrow {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background: rgba(247,178,72,0.12);
+    border: 1px solid rgba(247,178,72,0.4);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    z-index: 2;
 }
 
-.category-nav-btn.active {
+.cat-scroll-arrow:hover {
     background: var(--secondary);
     color: var(--dark);
-    border-color: var(--secondary);
-    font-weight: 600;
+}
+
+.cat-scroll-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ── Scrollable strip ── */
+.category-nav-wrapper {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    display: flex;
+    align-items: center;
+}
+
+.category-nav-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Inner flex row ── */
+.category-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    white-space: nowrap;
+    min-width: max-content;
+}
+
+/* ── Each category button — HORIZONTAL icon + label ── */
+.category-nav-btn {
+    display: inline-flex;
+    flex-direction: row;        /* icon and label side by side */
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid transparent;
+    border-radius: 30px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: all 0.22s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+body.light-mode .category-nav-btn {
+    background: rgba(0,0,0,0.04);
+    color: rgba(0,0,0,0.6);
 }
 
 .category-nav-btn i {
-    margin-right: 8px;
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.cat-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.2px;
+}
+
+/* Hover */
+.category-nav-btn:hover {
+    border-color: rgba(247,178,72,0.5);
+    background: rgba(247,178,72,0.08);
+    color: var(--secondary);
+    transform: translateY(-1px);
+}
+
+body.light-mode .category-nav-btn:hover {
+    border-color: rgba(109,48,28,0.4);
+    background: rgba(109,48,28,0.07);
+    color: var(--primary);
+}
+
+/* Active */
+.category-nav-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 3px 14px rgba(247,178,72,0.4);
+    transform: translateY(-1px);
+}
+
+.category-nav-btn.active i,
+.category-nav-btn.active .cat-label {
+    color: #fff;
+}
+
+/* ── Mobile: show inline toggle + divider, hide desktop arrows ── */
+@media (max-width: 991px) {
+    .sidebar-toggle-inline {
+        display: flex;
+    }
+
+    .cat-nav-divider {
+        display: block;
+    }
+
+    .cat-scroll-arrow {
+        display: none;
+    }
+
+    .top-category-nav {
+        top: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-nav-scroll-wrapper {
+        height: 52px;
+    }
+
+    .sidebar-toggle-inline {
+        padding: 0 10px 0 12px;
+        font-size: 0.75rem;
+        gap: 5px;
+    }
+
+    .sidebar-toggle-inline i {
+        font-size: 0.9rem;
+    }
+
+    .category-nav-btn {
+        padding: 6px 12px;
+        gap: 6px;
+    }
+
+    .category-nav-btn i {
+        font-size: 0.82rem;
+    }
+
+    .cat-label {
+        font-size: 0.76rem;
+    }
+
+    .top-category-nav {
+        top: 56px;
+    }
 }
 
 /* Fixed Sidebar */
 .menu-sidebar {
-    width: 300px;
-    min-width: 300px;
-    max-width: 300px;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
     background: var(--dark-light);
     position: sticky;
     left: 0;
-    top: 150px;
-    height: calc(100vh - 150px);
+    top: 128px; /* ~70px navbar + ~58px category nav */
+    height: calc(100vh - 128px);
     overflow-y: auto;
     z-index: 997;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease;
     flex-shrink: 0;
+    border-right: 1px solid var(--border-dark);
 }
 
 /* Main Content Area */
@@ -994,11 +1160,11 @@ body.light-mode .nav-link {
     .menu-sidebar {
         position: fixed;
         left: 0;
-        top: 150px;
-        height: calc(100vh - 150px);
+        top: 128px;
+        height: calc(100vh - 128px);
         transform: translateX(-100%);
         z-index: 1000;
-        width: 280px;
+        width: 270px;
     }
 
     .menu-sidebar.active {
@@ -1007,7 +1173,7 @@ body.light-mode .nav-link {
 
     .menu-content-wrapper {
         width: 100%;
-        padding: 20px;
+        padding: 20px 15px;
         margin-left: 0;
     }
 
@@ -1021,6 +1187,11 @@ body.light-mode .nav-link {
     
     .sub-category-slider {
         padding: 0 40px;
+    }
+
+    /* Category nav: hide scroll arrows on mobile, rely on swipe */
+    .cat-scroll-arrow {
+        display: none;
     }
 }
 
@@ -1041,7 +1212,7 @@ body.light-mode .nav-link {
     }
 }
 
-/* Mobile (≤768px) - 1 item */
+/* Mobile (≤768px) */
 @media (max-width: 768px) {
     .slider-item {
         flex: 0 0 100%;
@@ -1071,7 +1242,21 @@ body.light-mode .nav-link {
     }
     
     .top-category-nav {
-        position: static;
+        top: 60px; /* mobile navbar is shorter */
+    }
+
+    /* Make category buttons slightly smaller on mobile */
+    .category-nav-btn {
+        min-width: 62px;
+        padding: 8px 12px;
+    }
+
+    .cat-emoji {
+        font-size: 1.25rem;
+    }
+
+    .cat-label {
+        font-size: 0.66rem;
     }
 }
 
@@ -1112,33 +1297,23 @@ body.light-mode .nav-link {
     }
     
     .category-nav-btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        min-width: 58px;
+        padding: 7px 10px;
+    }
+
+    .cat-emoji {
+        font-size: 1.15rem;
+    }
+
+    .cat-label {
+        font-size: 0.62rem;
     }
 }
 
-/* Sidebar Toggle Button */
+/* Sidebar Toggle — now inline inside category nav bar, see .sidebar-toggle-inline above */
+/* Legacy .sidebar-toggle kept for JS compatibility */
 .sidebar-toggle {
-    position: fixed;
-    top: 160px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    background: var(--secondary);
-    color: var(--dark);
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    z-index: 1001;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.sidebar-toggle:hover {
-    transform: scale(1.1);
+    display: none !important; /* hidden — replaced by .sidebar-toggle-inline */
 }
 
 /* Backdrop for Mobile Sidebar */

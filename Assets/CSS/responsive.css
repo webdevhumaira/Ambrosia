@@ -1,30 +1,188 @@
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .tagline {
-        font-size: clamp(1.8rem, 4.5vw, 3rem);
-    }
+/* =============================================
+   AMBROSIA RESTAURANT — RESPONSIVE CSS
+   Mobile-First, Fully Fixed & Optimized
+   ============================================= */
 
-    .highlight-1,
-    .highlight-2 {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+
+/* ─── GLOBAL MOBILE FIXES ─────────────────── */
+
+/* Fix cursor: none on mobile — all interactive elements need pointer cursor on touch */
+@media (max-width: 1024px) {
+    button,
+    a,
+    .btn-primary-custom,
+    .btn-secondary-custom,
+    .filter-btn,
+    .gallery-filter-btn,
+    .fav-icon,
+    .spice-icon,
+    .sweet-icon,
+    .food-fav-icon,
+    .time-slot,
+    .suggestion-btn,
+    .gallery-item,
+    .slider-nav,
+    .nav-search-btn,
+    .gallery-filter-btn,
+    #scroll-top,
+    #whatsapp-float,
+    #floating-reserve,
+    .video-toggle,
+    .theme-toggle {
+        cursor: pointer !important;
     }
 }
 
+
+/* ─── NAVBAR ──────────────────────────────── */
+
 @media (max-width: 992px) {
+    .navbar-brand img {
+        height: 48px;
+    }
+
+    /* Collapsed menu — polished card style */
+    .navbar-collapse {
+        background: linear-gradient(160deg, rgba(26, 26, 26, 0.99), rgba(18, 18, 18, 0.99));
+        padding: 8px 5px 14px;
+        border-radius: 0 0 16px 16px;
+        margin-top: 8px;
+        border-top: 2px solid var(--secondary);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    body.light-mode .navbar-collapse {
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(248, 249, 250, 0.99));
+        border-top: 2px solid var(--primary);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Nav links — clean row with left accent on hover */
+    .navbar-nav .nav-item:not(.d-flex) .nav-link {
+        padding: 11px 18px !important;
+        font-size: 0.97rem;
+        border-radius: 8px;
+        margin: 2px 6px;
+        border-bottom: none;
+        transition: background 0.2s, color 0.2s;
+        letter-spacing: 0.3px;
+    }
+
+    .navbar-nav .nav-item:not(.d-flex) .nav-link:hover,
+    .navbar-nav .nav-item:not(.d-flex) .nav-link.active {
+        background: rgba(247, 178, 72, 0.12);
+        padding-left: 22px !important;
+    }
+
+    body.light-mode .navbar-nav .nav-item:not(.d-flex) .nav-link:hover,
+    body.light-mode .navbar-nav .nav-item:not(.d-flex) .nav-link.active {
+        background: rgba(109, 48, 28, 0.08);
+    }
+
+    /* Remove the underline pseudo-element inside mobile menu */
+    .navbar-collapse .nav-link::after {
+        display: none;
+    }
+
+    /* Thin separator between nav items and utility icons */
+    .navbar-nav .nav-item.d-flex:first-of-type {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: 8px;
+        padding-top: 6px;
+    }
+
+    body.light-mode .navbar-nav .nav-item.d-flex:first-of-type {
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* Utility row (search, wishlist, user, theme) — horizontal */
+    .navbar-nav .nav-item.d-flex {
+        display: inline-flex !important;
+    }
+
+    .navbar-nav:has(.nav-item.d-flex) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* Inline utility items in mobile nav */
+    .navbar-nav .nav-item.d-flex {
+        display: block !important;
+    }
+
+    /* Search box full width on mobile */
+    .nav-search-box {
+        position: static;
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 10px;
+        display: none;
+    }
+
+    .nav-search-box.show {
+        display: block;
+    }
+
+    .theme-toggle {
+        margin-left: 15px;
+        margin-top: 5px;
+    }
+
+    .logo-light,
+    .logo-dark {
+        height: 48px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    .logo-light,
+    .logo-dark {
+        height: 40px;
+    }
+}
+
+
+/* ─── HERO SECTION ────────────────────────── */
+
+@media (max-width: 992px) {
+    #hero {
+        min-height: 100svh;
+    }
+
     .tagline {
-        font-size: clamp(1.6rem, 4vw, 2.5rem);
-        margin-bottom: 1.2rem;
+        font-size: clamp(1.7rem, 4.5vw, 2.8rem);
+        margin-bottom: 1rem;
     }
 
     .hero-content .lead {
-        font-size: clamp(0.9rem, 2vw, 1.2rem);
+        font-size: clamp(0.95rem, 2.2vw, 1.15rem);
         margin-bottom: 1.5rem;
+    }
+
+    .social-proof {
+        top: 12%;
+        right: 2%;
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+
+    .rating-badge {
+        padding: 4px 8px;
+        font-size: 0.85rem;
+    }
+
+    .rating-text {
+        font-size: 0.78rem;
     }
 
     .floating-highlight {
         font-size: 0.85rem;
-        padding: 8px 12px;
+        padding: 7px 14px;
     }
 
     .highlight-1 {
@@ -38,7 +196,7 @@
     }
 
     .highlight-3 {
-        bottom: 15%;
+        bottom: 12%;
     }
 
     .section-title h2 {
@@ -50,31 +208,26 @@
     }
 
     .story-video iframe {
-        height: 350px;
-    }
-
-    .floating-highlight {
-        font-size: 0.9rem;
-        padding: 8px 15px;
+        height: 330px;
     }
 }
 
 @media (max-width: 768px) {
     #hero {
-        min-height: 100vh;
+        min-height: 100svh;
         height: auto;
-        padding: 80px 0 40px;
+        padding: 90px 0 50px;
+        display: flex;
+        align-items: center;
     }
 
     .hero-content {
-        padding: 0 15px;
+        padding: 0 20px;
     }
 
+    /* Hide heavy animation on mobile */
     .hero-glow {
-        width: 100%;
-        height: 60%;
-        filter: blur(30px);
-        opacity: 0.6;
+        display: none;
     }
 
     .hero-video {
@@ -82,290 +235,796 @@
     }
 
     .tagline {
-        font-size: clamp(1.4rem, 5vw, 2rem);
+        font-size: clamp(1.85rem, 6.5vw, 2.6rem);
         margin-bottom: 1rem;
-        line-height: 1.3;
-    }
-
-    .hero-content .lead {
-        font-size: clamp(0.85rem, 2vw, 1rem);
-        margin-bottom: 1.5rem;
+        line-height: 1.25;
         padding: 0 5px;
     }
 
+    .hero-content .lead {
+        font-size: clamp(1rem, 2.8vw, 1.15rem);
+        margin-bottom: 1.4rem;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    /* Buttons: side by side */
     .hero-buttons {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
         gap: 10px;
-        margin-top: 1.5rem;
+        margin-top: 1.4rem;
+        flex-wrap: wrap;
     }
 
     .hero-buttons .btn-primary-custom,
     .hero-buttons .btn-secondary-custom {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-
-    /* Floating Highlights - Stack vertically on mobile */
-    .floating-highlight {
-        /* position: static; */
-        margin: 8px auto;
-        width: 90%;
-        max-width: 300px;
-        transform: none !important;
-        animation: none;
-        display: flex;
-        justify-content: center;
-        font-size: 0.85rem;
-        padding: 8px 15px;
-        white-space: normal;
+        width: auto;
+        min-width: 140px;
+        padding: 11px 22px;
+        font-size: 0.92rem;
+        margin: 0;
         text-align: center;
     }
 
-    .highlight-1,
-    .highlight-2,
-    .highlight-3 {
-        /* position: static; */
-        transform: none;
-        margin: 10px auto;
-        display: inline-flex;
+    /* Social proof: move to bottom area on mobile, inline */
+    .social-proof {
+        top: auto;
+        bottom: 70px;
+        right: 50%;
+        transform: translateX(50%);
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        white-space: nowrap;
     }
 
-    /* Video Toggle and Opening Status - Smaller on mobile */
-    .video-toggle {
-        bottom: 15px;
-        right: 15px;
+    .rating-badge {
+        padding: 3px 7px;
         font-size: 0.8rem;
+    }
+
+    .rating-text {
+        font-size: 0.75rem;
+    }
+
+    /* Floating highlights: stack in a row at top of hero */
+    .floating-highlight {
+        position: absolute;
+        font-size: 0.78rem;
         padding: 6px 12px;
+        white-space: nowrap;
+        animation: none; /* save battery on mobile */
+        transform: none !important;
+    }
+
+    /* highlight-1 is already d-none d-lg-block via HTML class — keep hidden */
+    .highlight-2 {
+        top: 80px; /* below navbar */
+        right: 10px;
+        left: auto;
+    }
+
+    .highlight-3 {
+        top: 80px;
+        left: 10px;
+        bottom: auto;
+        transform: none !important;
+    }
+
+    /* Video toggle */
+    .video-toggle {
+        bottom: 12px;
+        right: 12px;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .section-title {
+        margin-bottom: 35px;
     }
 
     .section-title h2 {
         font-size: 1.8rem;
+        padding-bottom: 12px;
     }
 
-    .reservation-form {
-        padding: 25px;
-    }
-
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .story-video iframe {
-        height: 300px;
-    }
-
-    .gallery-item {
-        height: 200px;
-    }
-
-    .menu-img-container {
-        height: 180px;
-    }
-
-    .footer-logo {
-        font-size: 1.8rem;
-    }
-
-    #floating-reserve {
-        bottom: 90px;
-        right: 20px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-
-    #whatsapp-float {
-        bottom: 20px;
-        left: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-
-    #scroll-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-
-    .cursor-dot,
-    .cursor-outline {
-        display: none;
-    }
-
-    .text-delay-1 {
-        animation-delay: 0.3s !important;
-    }
-
-    .text-delay-2 {
-        animation-delay: 0.6s !important;
+    .section-title p {
+        font-size: 0.95rem;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 576px) {
     #hero {
-        padding: 70px 0 30px;
+        padding: 80px 0 40px;
     }
 
     .tagline {
-        font-size: clamp(4.2rem, 5vw, 1.6rem);
-        margin-bottom: 1.8rem;
+        font-size: clamp(1.6rem, 6vw, 1.95rem);
+        margin-bottom: 0.85rem;
     }
 
     .hero-content .lead {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
+        font-size: 0.85rem;
+        margin-bottom: 1.1rem;
     }
 
-    .rating-badge {
-        padding: 0px 6px;
-        border-radius: 20px;
-        font-size: small;
-        font-weight: bold;
+    .hero-buttons {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .hero-buttons .btn-primary-custom,
+    .hero-buttons .btn-secondary-custom {
+        min-width: 130px;
+        padding: 10px 18px;
+        font-size: 0.88rem;
+    }
+
+    .social-proof {
+        bottom: 60px;
     }
 
     .floating-highlight {
-        /* width: 95%; */
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        font-size: 0.72rem;
+        padding: 5px 10px;
     }
 
-    .highlight-1 {
-        top: 30px;
-        left: 0;
+    .highlight-2 {
+        top: 128px;
+        right: 8px;
+    }
+
+    .highlight-3 {
+        top: 72px;
+        left: 8px;
     }
 
     .video-toggle {
-        bottom: 10px;
-        right: 10px;
         font-size: 0.7rem;
         padding: 5px 10px;
+        bottom: 10px;
+        right: 10px;
     }
 
     .section-title h2 {
         font-size: 1.6rem;
     }
-
-    .reservation-form {
-        padding: 20px;
-    }
-
-    .menu-filter {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .filter-btn {
-        width: 80%;
-        margin: 3px 0;
-    }
-
-    .story-video iframe {
-        height: 250px;
-    }
-
-    .gallery-item {
-        height: 180px;
-    }
-
-    .countdown-item {
-        margin: 5px;
-    }
-
-    .countdown-number {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-
-    .navbar-brand {
-        font-size: 1.5rem;
-    }
 }
-
-
-/* Responsive Adjustments for Hero Section */
-
 
 @media (max-width: 400px) {
     .tagline {
-        font-size: 1.1rem;
+        font-size: 2.85rem;
     }
 
     .hero-content .lead {
-        font-size: 0.8rem;
-    }
-
-    .hero-buttons .btn-primary-custom,
-    .hero-buttons .btn-secondary-custom {
-        font-size: 0.8rem;
-    }
-
-    .floating-highlight {
-        font-size: 0.75rem;
-    }
-}
-
-/* Landscape mode for mobile */
-/* @media (max-height: 600px) and (orientation: landscape) {
-    #hero {
-        min-height: auto;
-        height: 100vh;
-        padding: 60px 0 20px;
-    }
-
-    .tagline {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero-content .lead {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
+        font-size: 0.7rem;
     }
 
     .hero-buttons {
         flex-direction: row;
-        margin-top: 1rem;
+        gap: 6px;
     }
 
     .hero-buttons .btn-primary-custom,
     .hero-buttons .btn-secondary-custom {
+        font-size: 0.82rem;
+        padding: 9px 14px;
+        min-width: 0;
+        flex: 1;
+        max-width: 160px;
+    }
+}
+
+
+/* ─── CUSTOM CURSOR: HIDE ON TOUCH ─────────── */
+
+@media (max-width: 1024px) {
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
+
+
+/* ─── FLOATING ACTION BUTTONS ───────────────
+   Layout (desktop):
+     WhatsApp: bottom-left
+     Reserve:  bottom-right (above scroll-top)
+     Scroll-top: bottom-right (at bottom)
+   
+   Layout (mobile):
+     WhatsApp: bottom-left (smaller)
+     Reserve:  bottom-right
+     Scroll-top: bottom-right (shift up to avoid overlap)
+   ─────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    #whatsapp-float {
+        bottom: 20px;
+        left: 15px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
+    #floating-reserve {
+        bottom: 20px;
+        right: 70px;
+        padding: 8px 14px;
+        font-size: 0.78rem;
+        border-radius: 22px;
+    }
+
+    #scroll-top {
+        bottom: 20px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* On very small screens, compact reserve button beside scroll-top */
+    #floating-reserve {
+        bottom: 18px;
+        right: 65px;
+        left: auto;
         width: auto;
-        min-width: 180px;
-        padding: 8px 16px;
+        text-align: center;
+        justify-content: center;
+        border-radius: 22px;
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+
+    #whatsapp-float {
+        bottom: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+    }
+
+    #scroll-top {
+        bottom: 15px;
+        right: 15px;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+}
+
+
+/* ─── MENU SECTION ────────────────────────── */
+
+@media (max-width: 992px) {
+    .nav-pills .nav-link {
+        padding: 9px 16px;
+        font-size: 0.9rem;
+        margin: 3px;
+    }
+
+    .cuisine-header h3 {
+        font-size: 2rem;
+    }
+
+    .category-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu .nav-pills {
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .nav-pills .nav-link {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        margin: 3px 2px;
+    }
+
+    .cuisine-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .cuisine-header p.lead {
+        font-size: 0.95rem;
+        margin-bottom: 3rem !important;
+    }
+
+    .category-title {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .category-slider {
+        padding: 0 38px;
+    }
+
+    .slider-food-card {
+        flex: 0 0 calc(100% - 15px);
+        min-width: 260px;
+    }
+
+    .slider-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+
+    .slider-food-img {
+        height: 185px;
+    }
+
+    .slider-food-content {
+        padding: 15px;
+    }
+
+    .slider-dots {
+        display: flex;
+    }
+
+    .menu-img-container {
+        height: 185px;
+    }
+
+    .filter-btn {
+        padding: 7px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-slider {
+        padding: 0 32px;
+    }
+
+    .slider-nav {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+
+    .slider-food-card {
+        min-width: 240px;
+    }
+
+    .slider-food-img {
+        height: 165px;
+    }
+
+    .menu-img-container {
+        height: 165px;
+    }
+
+    .menu-filter {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 7px 14px;
+        font-size: 0.82rem;
+        margin: 4px 3px;
+    }
+}
+
+
+/* ─── RESERVATION SECTION ─────────────────── */
+
+@media (max-width: 768px) {
+    .reservation-form {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .reservation-form:hover {
+        transform: none; /* disable tilt hover on touch */
+    }
+
+    .step-indicator {
+        margin-bottom: 20px;
+    }
+
+    .step {
+        width: 34px;
+        height: 34px;
+        margin: 0 6px;
+        font-size: 0.9rem;
+    }
+
+    .guest-suggestion {
+        gap: 8px;
+    }
+
+    .suggestion-btn {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+    }
+
+    .time-slot {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+        margin: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .reservation-form {
+        padding: 20px 15px;
+    }
+
+    .guest-suggestion {
+        gap: 6px;
+    }
+
+    .suggestion-btn {
+        padding: 6px 11px;
         font-size: 0.8rem;
     }
+}
 
-    .floating-highlight {
-        position: absolute;
-        width: auto;
-        max-width: none;
+
+/* ─── ABOUT / OUR STORY SECTION ───────────── */
+
+@media (max-width: 992px) {
+    .story-video iframe {
+        height: 320px;
     }
 
-    .highlight-1 {
-        top: 10%;
-        left: 5%;
+    .counter {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-video iframe {
+        height: 280px;
     }
 
-    .highlight-2 {
-        top: 20%;
-        right: 5%;
+    .founder-quote {
+        padding: 20px;
+        margin-top: 20px;
     }
 
-    .highlight-3 {
-        bottom: 10%;
+    .counter-item {
+        padding: 15px;
+        margin: 8px 0;
     }
-} */
 
-/* Fix for tablets in portrait mode */
+    .counter {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .story-video iframe {
+        height: 230px;
+    }
+
+    .counter {
+        font-size: 1.6rem;
+    }
+}
+
+
+/* ─── CHEFS / TEAM SECTION ────────────────── */
+
+@media (max-width: 992px) {
+    .chef-card {
+        margin-bottom: 25px;
+    }
+
+    .chef-img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chef-card {
+        margin-bottom: 20px;
+    }
+
+    .chef-img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 576px) {
+    .chef-img {
+        height: 240px;
+    }
+}
+
+
+/* ─── TESTIMONIALS SECTION ────────────────── */
+
+@media (max-width: 992px) {
+    .rating-breakdown {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-testimonial {
+        margin-bottom: 25px;
+    }
+
+    .testimonial-video {
+        height: 195px;
+    }
+
+    .play-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    .rating-item {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonial-video {
+        height: 175px;
+    }
+
+    .play-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+}
+
+
+/* ─── GALLERY SECTION ─────────────────────── */
+
+@media (max-width: 768px) {
+    /* 2 columns grid on mobile */
+    #gallery .row > [class*="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    #gallery .row {
+        margin-left: -6px;
+        margin-right: -6px;
+    }
+
+    .gallery-item {
+        height: 175px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+
+    .gallery-filter-btn {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+        margin: 3px;
+    }
+
+    /* Always show overlay on mobile (no hover) */
+    .gallery-overlay {
+        opacity: 0.7;
+    }
+}
+
+@media (max-width: 576px) {
+    #gallery .row > [class*="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #gallery .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .gallery-item {
+        height: 155px;
+        margin-bottom: 10px;
+        border-radius: 7px;
+    }
+
+    .gallery-filter {
+        gap: 4px;
+    }
+
+    .gallery-filter-btn {
+        padding: 7px 11px;
+        font-size: 0.78rem;
+        margin: 2px;
+    }
+}
+
+
+/* ─── OFFERS / SPECIAL DEALS ──────────────── */
+
+@media (max-width: 768px) {
+    .offer-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .special-offer-card {
+        padding: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* Countdown timer */
+    .countdown-item {
+        margin: 4px;
+    }
+
+    .countdown-number {
+        width: 58px;
+        height: 58px;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .countdown-number {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    .offer-card {
+        padding: 15px;
+    }
+}
+
+
+/* ─── MEMBERSHIP SECTION ──────────────────── */
+
+@media (max-width: 992px) {
+    .membership-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .membership-card {
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .membership-card {
+        padding: 20px 15px;
+    }
+}
+
+
+/* ─── AWARDS / SUSTAINABILITY ─────────────── */
+
+@media (max-width: 768px) {
+    .award-card,
+    .sustainability-card {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* ─── SERVICES SECTION ────────────────────── */
+
+@media (max-width: 992px) {
+    .service-card-index {
+        padding: 22px;
+    }
+
+    .service-icon-index {
+        width: 58px;
+        height: 58px;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card-index {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .service-features {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-card-index {
+        padding: 18px;
+    }
+
+    .service-card-index h4 {
+        font-size: 1.25rem;
+    }
+}
+
+
+/* ─── CONTACT SECTION ─────────────────────── */
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 240px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .map-container {
+        height: 210px !important;
+    }
+}
+
+
+/* ─── FOOTER ──────────────────────────────── */
+
+@media (max-width: 992px) {
+    .footer-logo img {
+        height: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-logo {
+        font-size: 1.7rem;
+    }
+
+    .footer-logo img {
+        height: 44px;
+    }
+
+    footer .newsletter input {
+        font-size: 0.9rem;
+    }
+
+    footer .col-lg-4,
+    footer .col-lg-2 {
+        margin-bottom: 25px;
+    }
+
+    .social-icons {
+        margin-bottom: 15px;
+    }
+
+    .copyright p {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-logo img {
+        height: 40px;
+    }
+
+    .social-icons a {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* ─── TABLET PORTRAIT ─────────────────────── */
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .tagline {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
     }
 
     .hero-content .lead {
@@ -374,11 +1033,19 @@
 
     .hero-buttons .btn-primary-custom,
     .hero-buttons .btn-secondary-custom {
-        min-width: 220px;
+        min-width: 210px;
+        max-width: none;
+        width: auto;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
     }
 }
 
-/* Text animation classes */
+
+/* ─── TEXT ANIMATION DELAYS ───────────────── */
+
 .text-delay-1 {
     animation-delay: 0.2s;
 }
@@ -395,10 +1062,29 @@
     animation-delay: 0.8s;
 }
 
+/* Reduce animation delays on mobile for snappier feel */
+@media (max-width: 768px) {
+    .text-delay-1 {
+        animation-delay: 0.15s;
+    }
+
+    .text-delay-2 {
+        animation-delay: 0.3s;
+    }
+
+    .text-delay-3 {
+        animation-delay: 0.45s;
+    }
+
+    .text-delay-4 {
+        animation-delay: 0.6s;
+    }
+}
+
 .fade-in-up {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s forwards;
+    transform: translateY(25px);
+    animation: fadeInUp 0.75s forwards;
 }
 
 @keyframes fadeInUp {
@@ -409,194 +1095,155 @@
 }
 
 
-/* Responsive Styles for New Features */
-
-@media (max-width: 992px) {
-    .chef-special-badge {
-        left: 5%;
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-
-    .social-proof {
-        right: 5%;
-        padding: 8px 15px;
-    }
-
-    .rating-text {
-        font-size: 0.8rem;
-    }
-}
+/* ─── SEARCH BOX FULL WIDTH ON MOBILE ──────── */
 
 @media (max-width: 768px) {
-
-    .chef-card {
-        margin-bottom: 20px;
-    }
-
-    .award-card,
-    .sustainability-card {
-        margin-bottom: 15px;
-    }
-
-    .video-testimonial {
-        margin-bottom: 30px;
-    }
-
-    .testimonial-video {
-        height: 200px;
-    }
-
-    .membership-card {
-        margin-bottom: 20px;
-    }
-
-    .nav-search-btn {
-        padding: 5px;
-    }
-
-    .wishlist-icon {
-        margin-right: 10px;
+    .nav-search-box {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0;
+        z-index: 1050;
     }
 }
 
+
+/* ─── INSTAGRAM PREVIEW MODAL ─────────────── */
+
+@media (max-width: 480px) {
+    .instagram-preview {
+        width: 96%;
+        max-width: 360px;
+    }
+}
+
+
+/* ─── MODALS ──────────────────────────────── */
+
 @media (max-width: 576px) {
-
-    .chef-img {
-        height: 250px;
+    .modal-body {
+        padding: 15px;
     }
 
-    .testimonial-video {
-        height: 180px;
-    }
-
-    .play-btn {
-        width: 50px;
-        height: 50px;
+    .modal-body h4 {
         font-size: 1.2rem;
     }
 
-    .membership-card {
-        padding: 20px 15px;
-    }
-
-    .nav-search-box {
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
-}
-
-
-
-
-
-
-/* Floating WhatsApp and Reserve buttons on mobile */
-@media (max-width: 768px) {
-    #whatsapp-float {
-        bottom: 80px;
-        left: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-
-    #floating-reserve {
-        bottom: 80px;
-        right: 20px;
-        padding: 10px 20px;
+    .modal-body p {
         font-size: 0.9rem;
     }
 
-    /* Stack them if they overlap */
-    @media (max-width: 500px) {
-        #whatsapp-float {
-            bottom: 140px;
-        }
+    .modal-body .d-flex {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
 
-        #floating-reserve {
-            bottom: 80px;
-            width: calc(100% - 40px);
-            text-align: center;
-        }
+    .modal-body .btn-secondary-custom,
+    .modal-body .btn-primary-custom {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        margin: 0;
     }
 }
 
 
+/* ─── TOAST NOTIFICATION ──────────────────── */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Responsive adjustments for services section */
-@media (max-width: 992px) {
-    .service-card-index {
-        padding: 25px;
-    }
-
-    .service-icon-index {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+@media (max-width: 576px) {
+    .toast-notification {
+        top: 75px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
     }
 }
+
+
+/* ─── GENERAL SECTION SPACING ─────────────── */
 
 @media (max-width: 768px) {
-    .service-card-index {
-        margin-bottom: 20px;
+    main section.py-5 {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
     }
 
-    .service-features {
-        justify-content: center;
+    .section-title {
+        margin-bottom: 30px;
     }
 }
 
 @media (max-width: 576px) {
-    .service-card-index {
-        padding: 20px;
+    main section.py-5 {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
     }
 
-    .service-card-index h4 {
-        font-size: 1.3rem;
+    .section-title {
+        margin-bottom: 25px;
     }
 }
 
 
+/* ─── REDUCE MOTION PREFERENCE ─────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-highlight,
+    .hero-glow,
+    .fade-in-up,
+    .counter-item,
+    .menu-card,
+    .gallery-img {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
 
 
+/* ─── MENU PAGE — CATEGORY NAV RESPONSIVE ─── */
 
+/* Ensure menu container has enough top padding on mobile */
+@media (max-width: 991px) {
+    .menu-container {
+        padding-top: 0; /* sidebar toggle is now inside the nav bar */
+    }
+}
 
+/* Light mode category nav */
+body.light-mode .category-nav-btn:hover {
+    background: rgba(109, 48, 28, 0.08);
+    border-color: rgba(109, 48, 28, 0.4);
+    color: var(--primary);
+}
 
-/* Responsive adjustments for new sections */
+/* Menu card improvements on tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .menu-content-wrapper {
+        padding: 20px 20px;
+    }
+}
+
+/* Ensure full-width sliders on mobile don't overflow */
 @media (max-width: 768px) {
-
-    .hero-glow {
-        display: none;
+    .menu-content-wrapper {
+        padding: 15px 12px;
     }
 
-    .nav-search-box {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        border-radius: 0;
+    .sub-category-wrapper {
+        margin-bottom: 35px;
     }
 
-    .video-testimonial {
-        margin-bottom: 20px;
+    .category-badge {
+        padding: 18px;
+        margin-bottom: 25px;
     }
 
-    .membership-card {
-        margin-bottom: 20px;
+    .pdf-download-section {
+        margin: 10px 15px 15px;
     }
 }

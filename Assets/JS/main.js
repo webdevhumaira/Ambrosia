@@ -734,7 +734,7 @@ function initCustomCursor() {
 //                         <span class="price">${item.price}</span>
 //                     </div>
 //                     <p>${item.description}</p>
-                    
+
 //                     <!-- Option 1: Separate spice/sweet indicators -->
 //                     ${spiceLevelHtml || sweetLevelHtml ? `
 //                         <div class="level-indicators">
@@ -742,7 +742,7 @@ function initCustomCursor() {
 //                             ${sweetLevelHtml}
 //                         </div>
 //                     ` : ''}
-                    
+
 //                     <!-- Option 2: Combined level display (choose one) -->
 //                     <!-- ${combinedLevels} -->
 //                 </div>
@@ -1439,7 +1439,7 @@ const cuisineData = {
             spiceLevel: 4
         }
     ],
-    
+
     "thai-salad": [
         {
             id: 1101,
@@ -1487,7 +1487,7 @@ const cuisineData = {
             spiceLevel: 3
         }
     ],
-    
+
     // Add more categories as needed...
     "thai-soup": [
         {
@@ -1518,7 +1518,7 @@ const cuisineData = {
             spiceLevel: 2
         }
     ],
-    
+
     // Chinese Cuisine
     "chinese-appetizers": [
         {
@@ -1545,77 +1545,77 @@ const cuisineData = {
 // Initialize cuisine sliders
 function initCuisineSliders() {
     // Initialize all sliders
-    $('.slider-container').each(function() {
+    $('.slider-container').each(function () {
         const container = $(this);
         const track = container.find('.slider-track');
         const prevBtn = container.find('.slider-nav.prev');
         const nextBtn = container.find('.slider-nav.next');
         const items = track.find('.slider-food-card');
-        
+
         if (items.length === 0) return;
-        
+
         const itemWidth = items.outerWidth(true);
         const visibleItems = Math.floor(container.width() / itemWidth);
         let currentPosition = 0;
         let maxPosition = 0;
-        
+
         // Calculate max position
         function calculateMaxPosition() {
             const containerWidth = container.width();
             const trackWidth = items.length * itemWidth;
             maxPosition = Math.max(0, trackWidth - containerWidth);
         }
-        
+
         // Update buttons state
         function updateButtons() {
             prevBtn.prop('disabled', currentPosition >= 0);
             nextBtn.prop('disabled', currentPosition <= -maxPosition);
         }
-        
+
         // Move slider
         function moveSlider(position) {
             track.css('transform', `translateX(${position}px)`);
             currentPosition = position;
             updateButtons();
         }
-        
+
         // Next button click
-        nextBtn.click(function() {
+        nextBtn.click(function () {
             if (currentPosition <= -maxPosition) return;
-            
+
             const moveBy = container.width() * 0.8;
             const newPosition = Math.max(currentPosition - moveBy, -maxPosition);
             moveSlider(newPosition);
         });
-        
+
         // Previous button click
-        prevBtn.click(function() {
+        prevBtn.click(function () {
             if (currentPosition >= 0) return;
-            
+
             const moveBy = container.width() * 0.8;
             const newPosition = Math.min(currentPosition + moveBy, 0);
             moveSlider(newPosition);
         });
-        
+
         // Touch sliding for mobile
         let startX = 0;
         let startPosition = 0;
         let isDragging = false;
-        
-        track.on('touchstart', function(e) {
+
+        track.on('touchstart', function (e) {
             startX = e.originalEvent.touches[0].clientX;
             startPosition = currentPosition;
             isDragging = true;
             track.css('transition', 'none');
         });
-        
-        track.on('touchmove', function(e) {
+
+        track.on('touchmove', function (e) {
             if (!isDragging) return;
-            
+
             const currentX = e.originalEvent.touches[0].clientX;
             const diff = currentX - startX;
             const newPosition = startPosition + diff;
-            
+
             // Limit dragging within bounds
             if (newPosition > 0) {
                 moveSlider(0);
@@ -1625,16 +1625,16 @@ function initCuisineSliders() {
                 track.css('transform', `translateX(${newPosition}px)`);
             }
         });
-        
-        track.on('touchend', function(e) {
+
+        track.on('touchend', function (e) {
             if (!isDragging) return;
-            
+
             isDragging = false;
             track.css('transition', 'transform 0.5s ease');
-            
+
             const endX = e.originalEvent.changedTouches[0].clientX;
             const diff = endX - startX;
-            
+
             // If swipe was significant, move to next/prev item
             if (Math.abs(diff) > 50) {
                 if (diff > 0) {
@@ -1653,23 +1653,23 @@ function initCuisineSliders() {
                 moveSlider(currentPosition);
             }
         });
-        
+
         // Mouse drag for desktop
-        track.on('mousedown', function(e) {
+        track.on('mousedown', function (e) {
             startX = e.clientX;
             startPosition = currentPosition;
             isDragging = true;
             track.css('transition', 'none');
             e.preventDefault();
         });
-        
-        $(document).on('mousemove', function(e) {
+
+        $(document).on('mousemove', function (e) {
             if (!isDragging) return;
-            
+
             const currentX = e.clientX;
             const diff = currentX - startX;
             const newPosition = startPosition + diff;
-            
+
             // Limit dragging within bounds
             if (newPosition > 0) {
                 moveSlider(0);
@@ -1679,16 +1679,16 @@ function initCuisineSliders() {
                 track.css('transform', `translateX(${newPosition}px)`);
             }
         });
-        
-        $(document).on('mouseup', function(e) {
+
+        $(document).on('mouseup', function (e) {
             if (!isDragging) return;
-            
+
             isDragging = false;
             track.css('transition', 'transform 0.5s ease');
-            
+
             const endX = e.clientX;
             const diff = endX - startX;
-            
+
             // If drag was significant, move to next/prev item
             if (Math.abs(diff) > 50) {
                 if (diff > 0) {
@@ -1707,18 +1707,18 @@ function initCuisineSliders() {
                 moveSlider(currentPosition);
             }
         });
-        
+
         // Handle window resize
-        $(window).on('resize', function() {
+        $(window).on('resize', function () {
             calculateMaxPosition();
             updateButtons();
-            
+
             // Reset position if needed
             if (currentPosition < -maxPosition) {
                 moveSlider(-maxPosition);
             }
         });
-        
+
         // Initial calculations
         calculateMaxPosition();
         updateButtons();
@@ -1728,30 +1728,30 @@ function initCuisineSliders() {
 // Load cuisine data
 function loadCuisineData() {
     // Loop through all slider tracks and load data
-    $('.slider-track').each(function() {
+    $('.slider-track').each(function () {
         const track = $(this);
         const category = track.data('category');
-        
+
         if (!category || !cuisineData[category]) return;
-        
+
         const items = cuisineData[category];
-        
+
         // Clear existing content
         track.empty();
-        
+
         // Add food items
         items.forEach(item => {
             const wishlist = JSON.parse(localStorage.getItem('ambrosiaWishlist')) || [];
             const isInWishlist = wishlist.some(w => w.id === item.id);
             const heartIcon = isInWishlist ? 'fas fa-heart' : 'far fa-heart';
             const heartClass = isInWishlist ? 'active' : '';
-            
+
             // Create spice level dots
             let spiceDots = '';
             for (let i = 0; i < 5; i++) {
                 spiceDots += `<div class="spice-dot ${i < item.spiceLevel ? 'active' : ''}"></div>`;
             }
-            
+
             const foodItem = `
                 <div class="slider-food-card" data-id="${item.id}">
                     <div class="food-item-icons">
@@ -1778,22 +1778,22 @@ function loadCuisineData() {
                     </div>
                 </div>
             `;
-            
+
             track.append(foodItem);
         });
-        
+
         // Add event listener for wishlist icons
-        track.find('.food-fav-icon').click(function(e) {
+        track.find('.food-fav-icon').click(function (e) {
             e.stopPropagation();
             const itemId = parseInt($(this).data('id'));
             const item = items.find(item => item.id === itemId);
-            
+
             if (item) {
                 toggleFoodWishlist(item, $(this));
             }
         });
     });
-    
+
     // Reinitialize sliders after loading data
     initCuisineSliders();
 }
@@ -1802,7 +1802,7 @@ function loadCuisineData() {
 function toggleFoodWishlist(item, element) {
     let wishlist = JSON.parse(localStorage.getItem('ambrosiaWishlist')) || [];
     const existingIndex = wishlist.findIndex(w => w.id === item.id);
-    
+
     if (existingIndex === -1) {
         // Add to wishlist
         wishlist.push({
@@ -1820,7 +1820,7 @@ function toggleFoodWishlist(item, element) {
         showToast(`${item.name} removed from wishlist`);
         element.removeClass('active').find('i').removeClass('fas fa-heart').addClass('far fa-heart');
     }
-    
+
     localStorage.setItem('ambrosiaWishlist', JSON.stringify(wishlist));
     updateWishlistCount();
 }
@@ -1834,12 +1834,12 @@ function updateWishlistCount() {
 // Load saved wishlist state
 function loadWishlistState() {
     const wishlist = JSON.parse(localStorage.getItem('ambrosiaWishlist')) || [];
-    
+
     // Update all wishlist icons
-    $('.food-fav-icon').each(function() {
+    $('.food-fav-icon').each(function () {
         const itemId = parseInt($(this).data('id'));
         const icon = $(this).find('i');
-        
+
         if (wishlist.some(item => item.id === itemId)) {
             $(this).addClass('active');
             icon.removeClass('far fa-heart').addClass('fas fa-heart');
@@ -1851,10 +1851,415 @@ function loadWishlistState() {
 }
 
 // Initialize on document ready
-$(document).ready(function() {
+$(document).ready(function () {
     // Update wishlist count
     updateWishlistCount();
-    
+
     // Load wishlist state
     loadWishlistState();
 });
+
+/***********************************
+ * HOME PAGE MENU FILTER *
+ ***********************************/
+$(document).ready(function () {
+    // Filter button click
+    $('.hm-filter-btn').on('click', function () {
+        const filter = $(this).data('filter');
+
+        // Update active button
+        $('.hm-filter-btn').removeClass('active');
+        $(this).addClass('active');
+
+        // Filter dishes
+        $('.hm-dish-col').each(function () {
+            const categories = $(this).data('category') || '';
+            if (filter === 'all' || categories.includes(filter)) {
+                $(this).removeClass('hidden').css('opacity', 0).animate({ opacity: 1 }, 300);
+            } else {
+                $(this).addClass('hidden');
+            }
+        });
+    });
+});
+
+
+/**
+ * ============================================================
+ *   AMBROSIA — PREMIUM ANIMATIONS & INTERACTIONS
+ *   All 10 effects: Scroll Reveal · Magnetic Buttons · 
+ *   Hover Image Reveal · Page Transition · Text Reveal ·
+ *   Glassmorphism Navbar · Floating Elements · 3D Tilt ·
+ *   Auto Carousel · Ripple Click
+ * ============================================================
+ */
+
+(function () {
+    'use strict';
+
+    /* ── 1. Page Transition (SPA Feel) ─────────────────── */
+    const overlay = document.createElement('div');
+    overlay.id = 'page-transition';
+    document.body.appendChild(overlay);
+
+    // Fade in on load
+    window.addEventListener('load', () => {
+        overlay.classList.remove('fade-out');
+    });
+
+    // Intercept internal links
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') ||
+            href.startsWith('mailto') || href.startsWith('tel') ||
+            link.hasAttribute('data-bs-dismiss') || link.hasAttribute('data-bs-toggle') ||
+            link.getAttribute('target') === '_blank') return;
+
+        e.preventDefault();
+        overlay.classList.add('fade-out');
+        setTimeout(() => { window.location.href = href; }, 360);
+    });
+
+    // Remove overlay when back-navigating
+    window.addEventListener('pageshow', () => {
+        overlay.classList.remove('fade-out');
+    });
+
+
+    /* ── 2. Glassmorphism Navbar Blur on Scroll ─────────── */
+    const nav = document.getElementById('main-nav');
+    if (nav) {
+        const applyGlass = () => {
+            if (window.scrollY > 60) {
+                nav.classList.add('glass-nav', 'scrolled');
+            } else {
+                nav.classList.remove('glass-nav');
+            }
+        };
+        window.addEventListener('scroll', applyGlass, { passive: true });
+        applyGlass();
+    }
+
+
+    /* ── 3. Scroll Reveal (Fade + Slide) ────────────────── */
+    const addRevealClasses = () => {
+        const selectors = [
+            '.hm-dish-card',
+            '.service-card-index',
+            '.membership-card',
+            '.counter-item',
+            '.award-card',
+            '.offer-card',
+            '.special-offer-card',
+            '.cuisine-showcase-card',
+            '.video-testimonial',
+            '.about-img',
+            '.founder-quote',
+            '.section-title',
+            '.gallery-item',
+            '.accordion-item',
+        ];
+
+        selectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach((el, i) => {
+                if (!el.classList.contains('sr-hidden')) {
+                    el.classList.add('sr-hidden');
+                    if (i % 3 === 1) el.classList.add('sr-left');
+                    else if (i % 3 === 2) el.classList.add('sr-right');
+                    const delay = Math.min(i % 5, 5);
+                    if (delay > 0) el.classList.add(`sr-delay-${delay}`);
+                }
+            });
+        });
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('sr-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+    const initReveal = () => {
+        addRevealClasses();
+        document.querySelectorAll('.sr-hidden').forEach(el => revealObserver.observe(el));
+    };
+
+    // Init after DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReveal);
+    } else {
+        initReveal();
+    }
+
+
+    /* ── 4. Text Reveal Animation (Letter by Letter) ────── */
+    const initTextReveal = () => {
+        const titles = document.querySelectorAll('.section-title h2');
+        titles.forEach(title => {
+            if (title.classList.contains('letter-reveal')) return;
+            const text = title.textContent;
+            title.textContent = '';
+            title.classList.add('letter-reveal');
+
+            [...text].forEach((char, i) => {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.style.transitionDelay = `${i * 0.03}s`;
+                title.appendChild(span);
+            });
+        });
+
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    textObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.letter-reveal').forEach(el => textObserver.observe(el));
+    };
+
+    document.addEventListener('DOMContentLoaded', initTextReveal);
+
+
+    /* ── 5. Magnetic Button Effect ──────────────────────── */
+    const initMagnetic = () => {
+        document.querySelectorAll('.btn-primary-custom, .btn-secondary-custom, #floating-reserve, #whatsapp-float, #scroll-top').forEach(btn => {
+            if (btn.classList.contains('magnetic-btn')) return;
+            btn.classList.add('magnetic-btn');
+
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) * 0.3;
+                const dy = (e.clientY - cy) * 0.3;
+                btn.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', initMagnetic);
+
+
+    /* ── 6. Micro Ripple Click Effect ───────────────────── */
+    const createRipple = (e, el) => {
+        const rect = el.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple-wave';
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.cssText = `
+            width: ${size}px; height: ${size}px;
+            left: ${e.clientX - rect.left - size / 2}px;
+            top: ${e.clientY - rect.top - size / 2}px;
+        `;
+        el.classList.add('ripple-host');
+        el.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 650);
+    };
+
+    document.addEventListener('click', (e) => {
+        const el = e.target.closest(
+            '.btn-primary-custom, .btn-secondary-custom, .gallery-filter-btn, .hm-filter-btn, .filter-btn'
+        );
+        if (el) createRipple(e, el);
+    });
+
+
+    /* ── 7. Product 3D Tilt Effect ──────────────────────── */
+    const initTilt = () => {
+        document.querySelectorAll('.hm-dish-card, .menu-card, .service-card-index').forEach(card => {
+            if (card.classList.contains('tilt-card')) return;
+            card.classList.add('tilt-card');
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const cx = rect.width / 2;
+                const cy = rect.height / 2;
+                const rx = ((y - cy) / cy) * -10;
+                const ry = ((x - cx) / cx) * 10;
+                card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.03,1.03,1.03)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+            });
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', initTilt);
+
+
+    /* ── 8. Hover Image Reveal (Dish Cards) ─────────────── */
+    // Enhanced overlay handled via CSS .hm-dish-img-wrap::after
+    // Additionally add a subtle zoom preview on mouse position
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.hm-dish-card').forEach(card => {
+            const img = card.querySelector('.hm-dish-img');
+            if (!img) return;
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+                const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+                img.style.transformOrigin = `${50 + x}% ${50 + y}%`;
+            });
+            card.addEventListener('mouseleave', () => {
+                img.style.transformOrigin = 'center';
+            });
+        });
+    });
+
+
+    /* ── 9. Auto Slide Testimonial Carousel ─────────────── */
+    const buildTestimonialCarousel = () => {
+        const section = document.getElementById('testimonials');
+        if (!section) return;
+
+        const testimonials = [
+            { name: 'Rahul Ahmed', role: 'Food Blogger · Dhaka', text: 'The ambience was breathtaking and the Beef Kala Bhuna was unlike anything I\'ve ever tasted. Absolutely divine!', stars: 5, initial: 'R' },
+            { name: 'Priya Sharma', role: 'Travel Writer · Mumbai', text: 'From the warm welcome to the dessert finale, every single moment at Ambrosia was perfection. Our anniversary dinner was magical.', stars: 5, initial: 'P' },
+            { name: 'James Wilson', role: 'Corporate Client · Singapore', text: 'Hosted our business dinner here — the private hall, the cuisine, and the impeccable service left our clients thoroughly impressed.', stars: 5, initial: 'J' },
+            { name: 'Fatima Noor', role: 'Instagram Foodie · Chittagong', text: 'The presentation alone is Instagram gold! But more importantly — the flavours are extraordinary. My absolute favourite restaurant in the city.', stars: 5, initial: 'F' },
+            { name: 'Chen Wei', role: 'Restaurant Critic · Bangkok', text: 'I\'ve dined across Southeast Asia and Ambrosia stands tall. The Thai selection is authentic, the service is world-class.', stars: 5, initial: 'C' },
+            { name: 'Aisha Karim', role: 'Event Planner · Chittagong', text: 'We\'ve organised three corporate events here. The team is professional, the catering flawless. Wouldn\'t choose anywhere else.', stars: 5, initial: 'A' },
+        ];
+
+        // Insert carousel after rating-breakdown
+        const container = section.querySelector('.container');
+        const breakdown = section.querySelector('.rating-breakdown');
+        if (!container) return;
+
+        const carouselEl = document.createElement('div');
+        carouselEl.id = 'testimonial-carousel';
+
+        const track = document.createElement('div');
+        track.className = 'testimonial-track';
+
+        // Duplicate for seamless loop
+        [...testimonials, ...testimonials].forEach(t => {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+            card.innerHTML = `
+                <div class="testimonial-avatar">${t.initial}</div>
+                <div class="testimonial-stars">${'★'.repeat(t.stars)}</div>
+                <p class="testimonial-text">"${t.text}"</p>
+                <div class="testimonial-author">${t.name}</div>
+                <div class="testimonial-role">${t.role}</div>
+            `;
+            track.appendChild(card);
+        });
+
+        carouselEl.appendChild(track);
+
+        // Dots
+        const dotsEl = document.createElement('div');
+        dotsEl.className = 'carousel-dots';
+        testimonials.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
+            dot.addEventListener('click', () => goTo(i));
+            dotsEl.appendChild(dot);
+        });
+
+        carouselEl.appendChild(dotsEl);
+
+        if (breakdown) {
+            breakdown.after(carouselEl);
+        } else {
+            container.appendChild(carouselEl);
+        }
+
+        // Logic
+        let current = 0;
+        let autoTimer;
+        const dots = dotsEl.querySelectorAll('.carousel-dot');
+
+        const getCardWidth = () => {
+            const card = track.querySelector('.testimonial-card');
+            if (!card) return 0;
+            const style = getComputedStyle(card);
+            return card.offsetWidth + parseInt(style.marginRight || 24);
+        };
+
+        const goTo = (idx) => {
+            current = idx;
+            const w = getCardWidth();
+            const cols = window.innerWidth >= 992 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+            track.style.transform = `translateX(-${w * idx}px)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        };
+
+        const next = () => {
+            const cols = window.innerWidth >= 992 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+            const maxIdx = testimonials.length - cols;
+            current = current >= maxIdx ? 0 : current + 1;
+            goTo(current);
+        };
+
+        const startAuto = () => { autoTimer = setInterval(next, 3800); };
+        const stopAuto = () => clearInterval(autoTimer);
+
+        startAuto();
+        carouselEl.addEventListener('mouseenter', stopAuto);
+        carouselEl.addEventListener('mouseleave', startAuto);
+
+        // Touch swipe
+        let touchStartX = 0;
+        track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) { dx < 0 ? next() : goTo(Math.max(0, current - 1)); }
+        });
+
+        window.addEventListener('resize', () => goTo(current));
+    };
+
+    document.addEventListener('DOMContentLoaded', buildTestimonialCarousel);
+
+
+    /* ── 10. Floating Elements Enhanced Animation ────────── */
+    // Add subtle parallax to floating highlights on mouse move
+    document.addEventListener('mousemove', (e) => {
+        const highlights = document.querySelectorAll('.floating-highlight');
+        const mx = (e.clientX / window.innerWidth - 0.5) * 12;
+        const my = (e.clientY / window.innerHeight - 0.5) * 8;
+        highlights.forEach((el, i) => {
+            const factor = (i + 1) * 0.4;
+            el.style.marginLeft = `${mx * factor}px`;
+            el.style.marginTop = `${my * factor}px`;
+        });
+    });
+
+
+    /* ── Award Icon HTML Replacement (in case FA is preferred) */
+    document.addEventListener('DOMContentLoaded', () => {
+        const awardIconMap = {
+            '🏆': '<i class="fas fa-trophy"></i>',
+            '⭐': '<i class="fas fa-star"></i>',
+            '👑': '<i class="fas fa-crown"></i>',
+            '📰': '<i class="fas fa-newspaper"></i>',
+        };
+        document.querySelectorAll('.award-icon').forEach(el => {
+            const emoji = el.textContent.trim();
+            if (awardIconMap[emoji]) {
+                el.innerHTML = awardIconMap[emoji];
+            }
+        });
+    });
+
+})();

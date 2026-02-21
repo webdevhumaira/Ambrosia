@@ -185,36 +185,67 @@
         <!----------------------------------------------------------------------------------------------------------------->
         <!--                                            TOP CATEGORY NAVIGATION                                            -->
         <section class="top-category-nav">
-            <div class="category-nav-wrapper">
-                <div class="category-nav" id="category-nav">
-                    <button class="category-nav-btn active" data-category="all">
-                        <i class="fas fa-th-large me-2"></i> All
-                    </button>
-                    <button class="category-nav-btn" data-category="thai">
-                        <i class="fas fa-pepper-hot me-2"></i> Thai Cuisine
-                    </button>
-                    <button class="category-nav-btn" data-category="chinese">
-                        <i class="fas fa-utensils me-2"></i> Chinese Cuisine
-                    </button>
-                    <button class="category-nav-btn" data-category="indonesian">
-                        <i class="fas fa-rice me-2"></i> Indonesian Cuisine
-                    </button>
-                    <button class="category-nav-btn" data-category="indian">
-                        <i class="fas fa-spice me-2"></i> Indian Cuisine
-                    </button>
-                    <button class="category-nav-btn" data-category="continental">
-                        <i class="fas fa-drumstick-bite me-2"></i> Continental Cuisine
-                    </button>
-                    <button class="category-nav-btn" data-category="desserts">
-                        <i class="fas fa-ice-cream me-2"></i> Dessert & Beverage
-                    </button>
-                    <button class="category-nav-btn" data-category="takeaway">
-                        <i class="fas fa-box me-2"></i> Take Away
-                    </button>
-                    <button class="category-nav-btn" data-category="special">
-                        <i class="fas fa-crown me-2"></i> Ambrosia Special
-                    </button>
+            <div class="category-nav-scroll-wrapper">
+                <!-- Sidebar Toggle — embedded inside nav bar (mobile) -->
+                <button class="sidebar-toggle-inline" id="sidebarToggleInline">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Menu</span>
+                </button>
+
+                <!-- Divider (mobile only) -->
+                <div class="cat-nav-divider"></div>
+
+                <!-- Scroll arrow left (desktop) -->
+                <button class="cat-scroll-arrow cat-scroll-left hidden" id="catScrollLeft" aria-label="Scroll left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <!-- Scrollable strip -->
+                <div class="category-nav-wrapper" id="categoryNavWrapper">
+                    <div class="category-nav" id="category-nav">
+                        <button class="category-nav-btn active" data-category="all">
+                            <i class="fas fa-border-all"></i>
+                            <span class="cat-label">All</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="thai">
+                            <i class="fas fa-pepper-hot"></i>
+                            <span class="cat-label">Thai</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="chinese">
+                            <i class="fas fa-utensils"></i>
+                            <span class="cat-label">Chinese</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="indonesian">
+                            <i class="fas fa-bowl-rice"></i>
+                            <span class="cat-label">Indonesian</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="indian">
+                            <i class="fas fa-mortar-pestle"></i>
+                            <span class="cat-label">Indian</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="continental">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <span class="cat-label">Continental</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="desserts">
+                            <i class="fas fa-ice-cream"></i>
+                            <span class="cat-label">Desserts</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="takeaway">
+                            <i class="fas fa-bag-shopping"></i>
+                            <span class="cat-label">Take Away</span>
+                        </button>
+                        <button class="category-nav-btn" data-category="special">
+                            <i class="fas fa-crown"></i>
+                            <span class="cat-label">Special</span>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Scroll arrow right (desktop) -->
+                <button class="cat-scroll-arrow cat-scroll-right" id="catScrollRight" aria-label="Scroll right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
         <!----------------------------------------------------------------------------------------------------------------->
@@ -224,11 +255,6 @@
         <div class="menu-container">
             <!-- Sidebar Backdrop (Mobile) -->
             <div class="sidebar-backdrop"></div>
-
-            <!-- Sidebar Toggle Button (Mobile) -->
-            <button class="sidebar-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
 
             <!-- Sidebar Navigation -->
             <div class="menu-sidebar">
@@ -341,6 +367,51 @@
 
 
 
+
+    <!-- Category Nav Scroll Arrows + Sidebar Toggle Inline -->
+    <script>
+    (function() {
+        // ── Scroll arrows ──
+        const wrapper = document.getElementById('categoryNavWrapper');
+        const btnLeft = document.getElementById('catScrollLeft');
+        const btnRight = document.getElementById('catScrollRight');
+
+        function updateArrows() {
+            if (!btnLeft || !btnRight || !wrapper) return;
+            btnLeft.classList.toggle('hidden', wrapper.scrollLeft <= 10);
+            btnRight.classList.toggle('hidden', wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 10);
+        }
+
+        if (btnLeft) btnLeft.addEventListener('click', () => wrapper.scrollBy({ left: -220, behavior: 'smooth' }));
+        if (btnRight) btnRight.addEventListener('click', () => wrapper.scrollBy({ left: 220, behavior: 'smooth' }));
+        if (wrapper) {
+            wrapper.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            setTimeout(updateArrows, 400);
+        }
+
+        // ── Inline sidebar toggle (mobile) ──
+        // Wire to the same sidebar open logic as the original toggle
+        const inlineToggle = document.getElementById('sidebarToggleInline');
+        if (inlineToggle) {
+            inlineToggle.addEventListener('click', function() {
+                const sidebar = document.querySelector('.menu-sidebar');
+                const backdrop = document.querySelector('.sidebar-backdrop');
+                if (sidebar) sidebar.classList.toggle('active');
+                if (backdrop) backdrop.classList.toggle('active');
+            });
+        }
+
+        // Close sidebar on backdrop click
+        const backdrop = document.querySelector('.sidebar-backdrop');
+        if (backdrop) {
+            backdrop.addEventListener('click', function() {
+                document.querySelector('.menu-sidebar')?.classList.remove('active');
+                backdrop.classList.remove('active');
+            });
+        }
+    })();
+    </script>
 
     <!----------------------------------------------------------------------------------------------------------------->
     <!--                                              ALL SCRIPTS HERE                                               -->

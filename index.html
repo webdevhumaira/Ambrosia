@@ -38,9 +38,13 @@
                     <img src="Assets/Images/Logo-white.png" class="logo-light" alt="Ambrosia Restaurant Ltd.">
                     <img src="Assets/Images/Logo.png" class="logo-dark" alt="Ambrosia Restaurant Ltd.">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" id="mobile-nav-toggle" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Mobile sidebar overlay backdrop -->
+                <div id="nav-sidebar-backdrop"></div>
+                <!-- Mobile sidebar close button -->
+                <button id="nav-sidebar-close" class="d-lg-none" aria-label="Close menu"><i class="fas fa-times"></i></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -134,17 +138,33 @@
             <i class="fas fa-chevron-up"></i>
         </div>
 
-        <!-- Floating WhatsApp Button -->
+        <!-- Floating WhatsApp Button (desktop only) -->
         <div id="whatsapp-float">
             <i class="fab fa-whatsapp"></i>
         </div>
         <!----------------------------------------------------------------------------------------------------------------->
 
-
-        <!-- Floating Reserve Now Button -->
+        <!-- Floating Reserve Now Button (desktop only) -->
         <a href="reservation.html" id="floating-reserve">
             <i class="fas fa-calendar-check me-2"></i> Reserve Now
         </a>
+
+        <!-- Mobile Speed-Dial FAB (mobile only) -->
+        <div id="fab-speed-dial">
+            <div id="fab-items">
+                <a href="https://wa.me/8801234567890" class="fab-item fab-item-whatsapp" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="fab-item-label">WhatsApp</span>
+                </a>
+                <a href="reservation.html" class="fab-item fab-item-reserve" title="Reserve Now">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="fab-item-label">Reserve</span>
+                </a>
+            </div>
+            <button id="fab-main-btn" aria-label="Quick Actions">
+                <i class="fas fa-plus" id="fab-main-icon"></i>
+            </button>
+        </div>
 
         <!-- Toast Notification -->
         <div id="toast" class="toast-notification">
@@ -926,28 +946,28 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="sustainability-card">
                             <div class="sustainability-icon"><i class="fa-solid fa-jar-wheat"></i></div>
                             <h5>Organic Ingredients</h5>
                             <p>Locally sourced organic produce</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="sustainability-card">
                             <div class="sustainability-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
                             <h5>Hygiene Certified</h5>
                             <p>Highest sanitation standards</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="sustainability-card">
                             <div class="sustainability-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
                             <h5>Fresh Daily</h5>
                             <p>Morning market deliveries</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="sustainability-card">
                             <div class="sustainability-icon"><i class="fa-solid fa-recycle"></i></div>
                             <h5>Eco-Friendly</h5>
@@ -1005,25 +1025,25 @@
                 </div>
 
                 <div class="row mt-5">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-6 col-md-3">
                         <div class="counter-item">
                             <div class="counter" data-count="13">0</div>
                             <h5>Years of Excellence</h5>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-6 col-md-3">
                         <div class="counter-item">
                             <div class="counter" data-count="50000">0</div>
                             <h5>Happy Customers</h5>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-6 col-md-3">
                         <div class="counter-item">
                             <div class="counter" data-count="120">0</div>
                             <h5>Unique Dishes</h5>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-6 col-md-3">
                         <div class="counter-item">
                             <div class="counter" data-count="15">0</div>
                             <h5>Awards & Recognitions</h5>
@@ -1366,28 +1386,28 @@
                 </div>
 
                 <div class="row awards-container">
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="award-card">
                             <div class="award-icon"><i class="fas fa-trophy"></i></div>
                             <h5>Michelin Guide</h5>
                             <p>Featured 2022-2024</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="award-card">
                             <div class="award-icon"><i class="fas fa-star"></i></div>
                             <h5>TripAdvisor</h5>
                             <p>Travelers' Choice 2023</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="award-card">
                             <div class="award-icon"><i class="fas fa-crown"></i></div>
                             <h5>Zomato Gold</h5>
                             <p>Premium Partner</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="award-card">
                             <div class="award-icon"><i class="fas fa-newspaper"></i></div>
                             <h5>Featured In</h5>

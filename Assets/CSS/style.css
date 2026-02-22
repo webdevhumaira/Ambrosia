@@ -1523,6 +1523,17 @@ body.light-mode .form-control-custom {
     outline: none;
 }
 
+/* Fix select dropdown option text visibility */
+select.form-control-custom option {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.light-mode select.form-control-custom option {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
 /* Time Slot Status */
 .time-slot {
     display: inline-block;
@@ -3215,6 +3226,17 @@ body.light-mode .reservation-form {
     outline: none;
 }
 
+/* Fix select dropdown option text visibility (overrides first declaration) */
+select.form-control-custom option {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.light-mode select.form-control-custom option {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
 .form-control-custom::placeholder {
     color: rgba(255, 255, 255, 0.35);
 }
@@ -3577,13 +3599,14 @@ body.light-mode #page-transition {
 
 .testimonial-track {
     display: flex;
-    gap: 24px;
+    gap: 0;
     transition: transform 0.6s cubic-bezier(.25, .8, .25, 1);
     will-change: transform;
 }
 
 .testimonial-card {
     min-width: calc(33.33% - 16px);
+    margin-right: 24px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 16px;
@@ -3596,12 +3619,14 @@ body.light-mode #page-transition {
 @media (max-width: 768px) {
     .testimonial-card {
         min-width: calc(100% - 4px);
+        margin-right: 24px;
     }
 }
 
 @media (max-width: 992px) and (min-width: 769px) {
     .testimonial-card {
         min-width: calc(50% - 12px);
+        margin-right: 24px;
     }
 }
 

@@ -474,6 +474,69 @@ $(document).ready(function () {
         window.open(url, '_blank');
     });
 
+    /* ── Mobile Speed-Dial FAB ───────────────────────────────── */
+    const fabBtn = document.getElementById('fab-main-btn');
+    const fabIcon = document.getElementById('fab-main-icon');
+    const fabItems = document.getElementById('fab-items');
+    const fabDial = document.getElementById('fab-speed-dial');
+
+    if (fabBtn && fabItems) {
+        fabBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = fabDial.classList.toggle('open');
+            fabIcon.className = isOpen ? 'fas fa-times' : 'fas fa-plus';
+        });
+
+        document.addEventListener('click', function (e) {
+            if (fabDial && !fabDial.contains(e.target)) {
+                fabDial.classList.remove('open');
+                if (fabIcon) fabIcon.className = 'fas fa-plus';
+            }
+        });
+    }
+
+    /* ── Mobile Sidebar Navbar ───────────────────────────────── */
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const sidebarBackdrop = document.getElementById('nav-sidebar-backdrop');
+    const sidebarClose = document.getElementById('nav-sidebar-close');
+
+    function openSidebar() {
+        navbarCollapse.classList.add('sidebar-open');
+        document.body.classList.add('sidebar-active');
+    }
+    function closeSidebar() {
+        navbarCollapse.classList.remove('sidebar-open');
+        document.body.classList.remove('sidebar-active');
+    }
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function () {
+            if (window.innerWidth < 992) {
+                if (navbarCollapse.classList.contains('sidebar-open')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            } else {
+                // On desktop, fall back to Bootstrap toggle
+                const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+                bsCollapse.toggle();
+            }
+        });
+    }
+    if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
+    if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+
+    // Close sidebar on nav link click
+    if (navbarCollapse) {
+        navbarCollapse.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 992) closeSidebar();
+            });
+        });
+    }
+
     // WhatsApp reservation confirmation
     $('#whatsapp-reserve').click(function () {
         const phone = "+8801234567890";
@@ -976,15 +1039,16 @@ function initializeCounters() {
         $(this).css('opacity', '0');
     });
 
-    // Animate counters when in view
-    $(window).on('scroll', function () {
-        $('.counter-item').each(function () {
+    // Animate counters when in view — only once per counter
+    const runCounters = () => {
+        $('.counter-item:not([data-animated])').each(function () {
             const elementTop = $(this).offset().top;
             const elementVisible = 150;
             const windowTop = $(window).scrollTop();
 
             if (elementTop < windowTop + $(window).height() - elementVisible) {
                 $(this).css('opacity', '1');
+                $(this).attr('data-animated', 'true'); // mark as done
 
                 const counter = $(this).find('.counter');
                 const target = parseInt(counter.data('count'));
@@ -1006,7 +1070,10 @@ function initializeCounters() {
                 updateCounter();
             }
         });
-    });
+    };
+
+    $(window).on('scroll', runCounters);
+    runCounters(); // check on load too
 }
 
 
@@ -2193,7 +2260,8 @@ $(document).ready(function () {
             const card = track.querySelector('.testimonial-card');
             if (!card) return 0;
             const style = getComputedStyle(card);
-            return card.offsetWidth + parseInt(style.marginRight || 24);
+            const marginRight = parseFloat(style.marginRight) || 24;
+            return card.offsetWidth + marginRight;
         };
 
         const goTo = (idx) => {

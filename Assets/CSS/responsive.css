@@ -34,35 +34,106 @@
 }
 
 
-/* ─── NAVBAR ──────────────────────────────── */
+/* ─── NAVBAR — MOBILE SIDEBAR ─────────────── */
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
+
+    /* ── Backdrop overlay ── */
+    #nav-sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 1039;
+        backdrop-filter: blur(2px);
+    }
+
+    body.sidebar-active #nav-sidebar-backdrop {
+        display: block;
+    }
+
+    /* ── Close (×) button inside sidebar ── */
+    #nav-sidebar-close {
+        display: none;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: var(--light);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        font-size: 1rem;
+        align-items: center;
+        justify-content: center;
+        z-index: 1100;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    #nav-sidebar-close:hover {
+        background: rgba(247, 178, 72, 0.2);
+    }
+
+    body.light-mode #nav-sidebar-close {
+        color: var(--light-text);
+        background: rgba(0, 0, 0, 0.06);
+    }
+
+    /* ── Override the Bootstrap collapse to be a sidebar ── */
+    #navbarNav {
+        /* Reset Bootstrap collapse styles */
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: min(300px, 85vw);
+        height: 100dvh;
+        background: linear-gradient(160deg, rgba(20, 20, 20, 0.98), rgba(14, 14, 14, 0.98));
+        z-index: 1040;
+        padding: 70px 12px 30px;
+        overflow-y: auto;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 2px solid var(--secondary);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    body.light-mode #navbarNav {
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(248, 249, 250, 0.99));
+        border-left-color: var(--primary);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ── Open state ── */
+    #navbarNav.sidebar-open {
+        right: 0;
+    }
+
+    #navbarNav.sidebar-open ~ #nav-sidebar-close,
+    body.sidebar-active #nav-sidebar-close {
+        display: flex !important;
+        position: fixed;
+        top: 16px;
+        right: calc(min(300px, 85vw) - 46px);
+    }
+
     .navbar-brand img {
         height: 48px;
     }
 
-    /* Collapsed menu — polished card style */
-    .navbar-collapse {
-        background: linear-gradient(160deg, rgba(26, 26, 26, 0.99), rgba(18, 18, 18, 0.99));
-        padding: 8px 5px 14px;
-        border-radius: 0 0 16px 16px;
-        margin-top: 8px;
-        border-top: 2px solid var(--secondary);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    /* ── Nav links inside sidebar ── */
+    .navbar-nav {
+        flex-direction: column !important;
+        width: 100%;
     }
 
-    body.light-mode .navbar-collapse {
-        background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(248, 249, 250, 0.99));
-        border-top: 2px solid var(--primary);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    /* Nav links — clean row with left accent on hover */
     .navbar-nav .nav-item:not(.d-flex) .nav-link {
-        padding: 11px 18px !important;
+        padding: 12px 16px !important;
         font-size: 0.97rem;
         border-radius: 8px;
-        margin: 2px 6px;
+        margin: 2px 4px;
         border-bottom: none;
         transition: background 0.2s, color 0.2s;
         letter-spacing: 0.3px;
@@ -79,23 +150,23 @@
         background: rgba(109, 48, 28, 0.08);
     }
 
-    /* Remove the underline pseudo-element inside mobile menu */
-    .navbar-collapse .nav-link::after {
+    /* Remove underline pseudo-element inside sidebar */
+    #navbarNav .nav-link::after {
         display: none;
     }
 
-    /* Thin separator between nav items and utility icons */
+    /* Utility row divider */
     .navbar-nav .nav-item.d-flex:first-of-type {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin-top: 8px;
-        padding-top: 6px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 10px;
+        padding-top: 8px;
     }
 
     body.light-mode .navbar-nav .nav-item.d-flex:first-of-type {
         border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    /* Utility row (search, wishlist, user, theme) — horizontal */
+    /* Utility icons row — horizontal */
     .navbar-nav .nav-item.d-flex {
         display: inline-flex !important;
     }
@@ -106,12 +177,7 @@
         align-items: center;
     }
 
-    /* Inline utility items in mobile nav */
-    .navbar-nav .nav-item.d-flex {
-        display: block !important;
-    }
-
-    /* Search box full width on mobile */
+    /* Search box full width in sidebar */
     .nav-search-box {
         position: static;
         width: 100%;
@@ -125,7 +191,7 @@
     }
 
     .theme-toggle {
-        margin-left: 15px;
+        margin-left: 12px;
         margin-top: 5px;
     }
 
@@ -428,38 +494,117 @@
 }
 
 
-/* ─── FLOATING ACTION BUTTONS ───────────────
-   Layout (desktop):
-     WhatsApp: bottom-left
-     Reserve:  bottom-right (above scroll-top)
-     Scroll-top: bottom-right (at bottom)
-   
-   Layout (mobile):
-     WhatsApp: bottom-left (smaller)
-     Reserve:  bottom-right
-     Scroll-top: bottom-right (shift up to avoid overlap)
+/* ─── FLOATING ACTION BUTTONS & SPEED-DIAL ──
+   Desktop: show #whatsapp-float + #floating-reserve separately
+   Mobile:  hide both, show #fab-speed-dial instead
    ─────────────────────────────────────────── */
 
+/* Desktop: hide FAB speed-dial */
+#fab-speed-dial {
+    display: none;
+}
+
 @media (max-width: 768px) {
-    #whatsapp-float {
-        bottom: 20px;
-        left: 15px;
-        width: 48px;
-        height: 48px;
-        font-size: 1.5rem;
-    }
-
+    /* Hide desktop floating buttons */
+    #whatsapp-float,
     #floating-reserve {
-        bottom: 20px;
-        right: 70px;
-        padding: 8px 14px;
-        font-size: 0.78rem;
-        border-radius: 22px;
+        display: none !important;
     }
 
-    #scroll-top {
+    /* Show speed-dial */
+    #fab-speed-dial {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: fixed;
         bottom: 20px;
-        right: 15px;
+        right: 20px;
+        z-index: 998;
+        gap: 10px;
+    }
+
+    /* Main FAB button */
+    #fab-main-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        border: none;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    #fab-main-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+
+    /* FAB items container */
+    #fab-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+    }
+
+    #fab-speed-dial.open #fab-items {
+        max-height: 160px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    /* Individual FAB items */
+    .fab-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 14px;
+        border-radius: 24px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .fab-item:hover {
+        transform: translateX(-3px);
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.4);
+        color: white;
+    }
+
+    .fab-item-whatsapp {
+        background: #25D366;
+    }
+
+    .fab-item-reserve {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .fab-item-label {
+        font-size: 0.8rem;
+    }
+
+    /* Shift scroll-top up to avoid overlap */
+    #scroll-top {
+        bottom: 82px;
+        right: 16px;
         width: 44px;
         height: 44px;
         font-size: 1.1rem;
@@ -467,32 +612,17 @@
 }
 
 @media (max-width: 480px) {
-    /* On very small screens, compact reserve button beside scroll-top */
-    #floating-reserve {
-        bottom: 18px;
-        right: 65px;
-        left: auto;
-        width: auto;
-        text-align: center;
-        justify-content: center;
-        border-radius: 22px;
-        font-size: 0.75rem;
-        padding: 8px 12px;
-    }
-
-    #whatsapp-float {
-        bottom: 15px;
-        left: 15px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.4rem;
+    #fab-main-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
     }
 
     #scroll-top {
-        bottom: 15px;
-        right: 15px;
-        width: 42px;
-        height: 42px;
+        bottom: 78px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
         font-size: 1rem;
     }
 }
@@ -1004,6 +1134,19 @@
     .copyright p {
         font-size: 0.85rem;
         text-align: center;
+    }
+
+    /* Newsletter subscribe button — compact on mobile */
+    footer .newsletter .btn-primary-custom {
+        padding: 9px 18px;
+        font-size: 0.88rem;
+    }
+
+    /* Social icon buttons — smaller on mobile */
+    .social-icons a {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
     }
 }
 
